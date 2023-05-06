@@ -5,10 +5,11 @@ Simple project to test out development tools in Python
 [Cheat Sheet](https://towardsdatascience.com/the-ultimate-markdown-cheat-sheet-3d3976b31a0#fd13)
 
 ## Virtual environment
-```Shell
+```
 python -m venv venv
 source venv/bin/activate
-deactivate```
+deactivate
+```
 
 ## Project Structure
 [RealPython.com](https://realpython.com/python-application-layouts/)
