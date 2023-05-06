@@ -1,15 +1,16 @@
-# deck_of_cards
+# Deck of cards
 Simple project to test out development tools in Python
 
 ## Mark Down
 [Cheat Sheet](https://towardsdatascience.com/the-ultimate-markdown-cheat-sheet-3d3976b31a0#fd13)
 
-## virtual environment
-`python -m venv venv`
-`source venv/bin/activate`
-`deactivate`
+## Virtual environment
+```Shell
+python -m venv venv
+source venv/bin/activate
+deactivate```
 
-## project structure
+## Project Structure
 [RealPython.com](https://realpython.com/python-application-layouts/)
 
 ## Python Tools
@@ -17,6 +18,14 @@ Simple project to test out development tools in Python
 
 ### Flake8
 
+#### Pycodestyle
+Compliance with PEP 8 style guidelines
+
+#### PyFlakes
+Systax Checker
+
+#### McCabe
+Complexity analysis
 
 ### isort
 
