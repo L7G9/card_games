@@ -4,20 +4,25 @@ from enum import Enum
 class Value(Enum):
     """Enumeration class for the value of a playing card.
 
-    The name attribute represents
-    The value attribute represents the value of the card in the game.
-
     Attributes:
         name: A string for the name of the card from Ace to King and Jokers.
-        value: An integer for the value of the card in the game.
+        value: An integer unique to this Card in the Enumeration.
     """
     def __str__(self) -> str:
         return self.name
 
     def __int__(self) -> int:
-        return self.value
+        return self.game_value()
 
     def game_value(self):
+        """Returns the Value of the Card for the Game it is part of.
+
+        Override this method to implement ace high or picture cards worth 10
+        for example.
+
+        Returns:
+            An integer equal to the Value of the Card in Game.
+        """
         return self.value
 
     Joker = 0
