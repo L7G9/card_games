@@ -2,6 +2,8 @@ from card import Card
 from suit import Suit
 from value import Value
 
+from random import shuffle
+
 
 class CardGroup:
     """Class to represent a group cards from a standard deck of cards.
@@ -18,9 +20,24 @@ class CardGroup:
         self.cards = []
         self.name = name
 
-    def fill(self, number_of_decks, face_up, include_jokers):
-        for deck in range(0, number_of_decks):
+    def fill(
+        self,
+        number_of_decks: int = 1,
+        face_up: bool = False,
+        include_jokers: bool = False,
+    ):
+        """Fill CardGroup with whole decks of Cards.
 
+        Creates all the Card objects for all the Cards in one or more standard
+        decks.
+
+        Args:
+            number_of_decks: An integer set to the number of whole decks of
+            Cards to create.
+            face_up: A boolean set to True to create all Cards face up.
+            include_jokers: A boolean set to True to add Black and Red Jokers.
+        """
+        for deck in range(0, number_of_decks):
             if include_jokers:
                 self.cards.append(Card(Value.Joker, Suit.Black, face_up))
                 self.cards.append(Card(Value.Joker, Suit.Red, face_up))
@@ -28,20 +45,17 @@ class CardGroup:
             for value in Value:
                 if value is not Value.Joker:
                     for suit in Suit:
-                        if ((suit is not Suit.Black)
-                            and (suit is not Suit.Red)):
+                        if (suit is not Suit.Black) and (suit is not Suit.Red):
                             self.cards.append(Card(value, suit, face_up))
 
     def shuffle(self):
-        pass
+        """Shuffles the Cards in this object into a random order."""
+        shuffle(self.cards)
 
     def description(self) -> str:
-        return ("%s has %d cards" % (self.name, len(self.cards)))
+        """Returns a text description of the CardGroup.
 
-
-if __name__ == '__main__':
-    deck = CardGroup("Deck")
-    deck.fill(2, True, True)
-    print(deck.description())
-    for card in deck.cards:
-        print(card.description(True))
+        Returns:
+            A string describing the CardGroup.
+        """
+        return "%s containing %d cards" % (self.name, len(self.cards))
