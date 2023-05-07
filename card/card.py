@@ -51,7 +51,7 @@ class Card:
             A string descibing the card.
         """
         if ignore_face_up or self.face_up:
-            if self.value == Value.Jocker:
+            if self.value == Value.Joker:
                 return ("%s %s" % (self.suit, self.value))
             else:
                 return ("%s of %s" % (self.value, self.suit))

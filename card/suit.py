@@ -17,8 +17,8 @@ class Suit(Enum):
         return self.value
 
     Black = 0
-    Red = 0
-    Clubs = 1
-    Diamonds = 2
-    Hearts = 3
-    Spades = 4
+    Red = 1
+    Clubs = 2
+    Diamonds = 3
+    Hearts = 4
+    Spades = 5

@@ -17,7 +17,10 @@ class Value(Enum):
     def __int__(self) -> int:
         return self.value
 
-    Jocker = 0
+    def game_value(self):
+        return self.value
+
+    Joker = 0
     Ace = 1
     Two = 2
     Three = 3
