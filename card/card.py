@@ -40,15 +40,14 @@ class Card:
         return self.description(False)
 
     def description(self, ignore_face_up: bool) -> str:
-        """Returns a text description of the card.
+        """Returns a text description of the Card.
 
         Args:
-            ignore_face_up: A boolean which when set to True makes this
-            method print the full desciption of the card even if it is
-            face_up is False.
+            ignore_face_up: A boolean set to True to return the full
+            description of the Card even if face_up is False.
 
         Returns:
-            A string descibing the card.
+            A string describing the Card.
         """
         if ignore_face_up or self.face_up:
             if self.value == Value.Joker:
@@ -59,5 +58,5 @@ class Card:
             return "Facedown card"
 
     def flip(self):
-        """Flips the card over from face up to face down and vice versa."""
+        """Flips the Card over from face up to face down and vice versa."""
         self.face_up = not self.face_up
