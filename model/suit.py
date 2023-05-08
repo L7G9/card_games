@@ -13,7 +13,7 @@ class Suit(Enum):
     def __str__(self) -> str:
         return self.name
 
-    def __int__(self) -> str:
+    def __int__(self) -> int:
         return self.value
 
     Black = 0
