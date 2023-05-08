@@ -6,10 +6,10 @@ from random import shuffle
 
 
 class CardGroup:
-    """Class to represent a group cards from a standard deck of cards.
+    """Class to represent a group cards.
 
     The is a generic structure that could be the main deck that cards are
-    delt from, a player's hand or the discard pile.
+    dealt from, a player's hand or the discard pile.
 
     Attributes:
         cards: a list of Card objects.
