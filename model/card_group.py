@@ -58,4 +58,4 @@ class CardGroup:
         Returns:
             A string describing the CardGroup.
         """
-        return "%s containing %d cards" % (self.name, len(self.cards))
+        return "%s contains %d cards" % (self.name, len(self.cards))
