@@ -2,6 +2,7 @@ from value import Value
 from suit import Suit
 from card import Card
 from card_group import CardGroup
+from player import Player
 
 
 class Deck(CardGroup):
@@ -42,7 +43,7 @@ class Deck(CardGroup):
                     if (suit is not suits.Black) and (suit is not suits.Red):
                         self.cards.append(Card(value, suit))
 
-    def deal(self, number_of_cards: int, card_groups: list[CardGroup]):
+    def deal(self, number_of_cards: int, players: list[Player]):
         """Deal Cards from this Deck.
 
         Removes cards from the top of this Deck and adds them to the end
@@ -52,11 +53,11 @@ class Deck(CardGroup):
         Args:
             number_of_cards: An int for the number of card each CardGroup
             should receive.
-            card_groups: A list of CardGroups to receive the cards.
+            players: A list of Players to receive the cards.
         """
         for card_count in range(0, number_of_cards):
-            for card_group in card_groups:
-                card_group.cards.append(self.cards.pop())
+            for player in players:
+                player.hand.cards.append(self.cards.pop())
 
 
 if __name__ == '__main__':
@@ -66,14 +67,14 @@ if __name__ == '__main__':
     for card in deck.cards:
         print(card.description(True))
 
-    card_groups = [
-        CardGroup("Player 1"),
-        CardGroup("Player 2"),
-        CardGroup("Player 3")
+    players = [
+        Player("John", CardGroup("John's hand")),
+        Player("Jane", CardGroup("Jane's hand")),
+        Player("Jack", CardGroup("Jack's hand")),
     ]
 
-    deck.deal(5, card_groups)
-    for card_group in card_groups:
-        print(card_group.description())
-        for card in card_group.cards:
+    deck.deal(5, players)
+    for player in players:
+        print(player.hand.description())
+        for card in player.hand.cards:
             print(card.description(True))
