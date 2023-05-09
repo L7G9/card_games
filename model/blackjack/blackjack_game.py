@@ -30,6 +30,8 @@ class BlackjackGame:
         self.status = GameStatus.SendingActions
         self.active_player = 0
 
+        return self.status
+
     def send_actions(self, player: Player):
         if player != self.players[self.active_player]:
             return
@@ -39,6 +41,8 @@ class BlackjackGame:
         )
 
         self.status = GameStatus.ReceivingAction
+
+        return self.status
 
     def resolve_action(
         self,
@@ -60,9 +64,10 @@ class BlackjackGame:
         else:
             self.status = GameStatus.SendingActions
 
-    def resolve_game(self) -> list[Player]:
-        winners = []
+        return self.status
 
+    def resolve_game(self) -> GameStatus, list[Player]:
+        winners = []
         best_total = 0
 
         for player in self.players:
@@ -73,4 +78,15 @@ class BlackjackGame:
                 elif player.stick_total == best_total:
                     winners.append(player)
 
-        return winners
+        self.status = GameStatus.Resetting
+
+        return self.status, winners
+
+    def reset_game(self) -> GameStatus:
+        for player in self.players:
+            self.deck.return_cards(player.hand)
+            player.status = PlayerStatus.WaitingToPlay
+
+        self.status = GameStatus.Dealing
+
+        return self.status
