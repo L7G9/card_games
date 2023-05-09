@@ -59,6 +59,19 @@ class Deck(CardGroup):
             for player in players:
                 player.hand.cards.append(self.cards.pop())
 
+    def return_cards(self, card_group: CardGroup):
+        """Returns Cards to Deck.
+
+        Adds all the Cards in the CardGroup face down.
+        Then removes the Cards from the CardGroup.
+
+        Args:
+            card_group: A CardGroup object to return the cards from.
+        """
+        for card in card_group.cards:
+            card.face_up = False
+            self.cards.append(card)
+        card_group.cards = []
 
 if __name__ == '__main__':
     deck = Deck("Deck", Value, Suit)
@@ -68,9 +81,9 @@ if __name__ == '__main__':
         print(card.description(True))
 
     players = [
-        Player("John", CardGroup("John's hand")),
-        Player("Jane", CardGroup("Jane's hand")),
-        Player("Jack", CardGroup("Jack's hand")),
+        Player(1, "John", CardGroup("John's hand")),
+        Player(2, "Jane", CardGroup("Jane's hand")),
+        Player(3, "Jack", CardGroup("Jack's hand")),
     ]
 
     deck.deal(5, players)
@@ -78,3 +91,10 @@ if __name__ == '__main__':
         print(player.hand.description())
         for card in player.hand.cards:
             print(card.description(True))
+
+    for player in players:
+        deck.return_cards(player.hand)
+
+    print(deck.description())
+    for player in players:
+        print(player.hand.description())
