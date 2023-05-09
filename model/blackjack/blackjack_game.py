@@ -1,4 +1,6 @@
 
+from typing import Union
+
 from suit import Suit
 from card_group import CardGroup
 from deck import Deck
@@ -66,7 +68,7 @@ class BlackjackGame:
 
         return self.status
 
-    def resolve_game(self) -> GameStatus, list[Player]:
+    def resolve_game(self) -> Union[GameStatus, list[Player]]:
         winners = []
         best_total = 0
 
