@@ -1,7 +1,13 @@
-from value import Value
+from enum import Enum
 
 
-class BlackJackValues(Value):
+class BlackJackValues(Enum):
+    def __str__(self) -> str:
+        return self.name
+
+    def __int__(self) -> int:
+        return self.game_value()
+
     def game_value(self) -> int:
         """Make all picture cards worth 10."""
         if self.value > 10:
@@ -15,3 +21,18 @@ class BlackJackValues(Value):
             return 11
         else:
             return self.value
+
+    Joker = 0
+    Ace = 1
+    Two = 2
+    Three = 3
+    Four = 4
+    Five = 5
+    Six = 6
+    Seven = 7
+    Eight = 8
+    Nine = 9
+    Ten = 10
+    Jack = 11
+    Queen = 12
+    King = 13

@@ -1,8 +1,8 @@
-from player import Player
-from card_group import CardGroup
-from blackjack_game import BlackjackGame as Game
-from blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from blackjack_player_actions import BlackjackPlayerActions as PlayerActions
+from model.player import Player
+from model.card_group import CardGroup
+from model.blackjack.blackjack_game import BlackjackGame as Game
+from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
+from model.blackjack.blackjack_player_actions import BlackjackPlayerActions as PlayerActions
 
 
 class BlackjackPlayer(Player):

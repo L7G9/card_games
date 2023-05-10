@@ -1,8 +1,8 @@
-from value import Value
-from suit import Suit
-from card import Card
-from card_group import CardGroup
-from player import Player
+from model.value import Value
+from model.suit import Suit
+from model.card import Card
+from model.card_group import CardGroup
+from model.player import Player
 
 
 class Deck(CardGroup):

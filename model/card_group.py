@@ -1,4 +1,4 @@
-from card import Card
+from model.card import Card
 
 from random import shuffle
 

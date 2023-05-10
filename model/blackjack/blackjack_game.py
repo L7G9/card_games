@@ -1,15 +1,15 @@
 
 from typing import Union
 
-from suit import Suit
-from card_group import CardGroup
-from deck import Deck
+from model.suit import Suit
+from model.card_group import CardGroup
+from model.deck import Deck
 
-from blackjack_values import BlackJackValues
-from blackjack_player import BlackjackPlayer as Player
-from blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from blackjack_player_actions import BlackjackPlayerActions as PlayerActions
-from blackjack_game_status import BlackjackGameStatus as GameStatus
+from model.blackjack.blackjack_values import BlackJackValues
+from model.blackjack.blackjack_player import BlackjackPlayer as Player
+from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
+from model.blackjack.blackjack_player_actions import BlackjackPlayerActions as PlayerActions
+from model.blackjack.blackjack_game_status import BlackjackGameStatus as GameStatus
 
 
 class BlackjackGame:

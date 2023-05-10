@@ -1,5 +1,5 @@
-from suit import Suit
-from value import Value
+from model.suit import Suit
+from model.value import Value
 
 import functools
 
