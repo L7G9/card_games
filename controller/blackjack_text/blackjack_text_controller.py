@@ -6,9 +6,8 @@ class BlackjackTextController:
     """Controller for BlackJackGame and TextView."""
     def __init__(self):
         self.game = game.BlackjackGame("Blackjack")
-        self.view.write("Game created")
         self.view = view.TextView()
-        self.view.write("View created")
+        self.view.write_line("Game & View created")
 
     # get player name
     # get number of players
