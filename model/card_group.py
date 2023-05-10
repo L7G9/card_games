@@ -1,6 +1,4 @@
 from card import Card
-from suit import Suit
-from value import Value
 
 from random import shuffle
 
@@ -12,17 +10,12 @@ class CardGroup:
     dealt from, a player's hand or the discard pile.
 
     Attributes:
-        cards: a list of Card objects.
         name: A name describing this card card group.
+        cards: a list of Card objects.
     """
-
-    def __init__(self, name):
-        self.cards = []
+    def __init__(self, name: str):
         self.name = name
-
-    def shuffle(self):
-        """Shuffles the Cards in this object into a random order."""
-        shuffle(self.cards)
+        self.cards: list[Card] = []
 
     def description(self) -> str:
         """Returns a text description of the CardGroup.
@@ -31,3 +24,7 @@ class CardGroup:
             A string describing the CardGroup.
         """
         return "%s contains %d cards" % (self.name, len(self.cards))
+
+    def shuffle(self):
+        """Shuffles the Cards in this object into a random order."""
+        shuffle(self.cards)
