@@ -1,20 +1,17 @@
 from model.player import Player
 from model.card_group import CardGroup
-from model.blackjack.blackjack_game import BlackjackGame as Game
 from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
 from model.blackjack.blackjack_player_actions import BlackjackPlayerActions as PlayerActions
-
+from model.card import Card
 
 class BlackjackPlayer(Player):
     def __init__(
         self,
         id: int,
         name: str,
-        game: Game,
         hand: CardGroup
     ):
         Player.__init__(self, id, name, hand)
-        self.game = game
         self.available_actions = []
         self.status = PlayerStatus.WaitingToPlay
 
@@ -40,11 +37,11 @@ class BlackjackPlayer(Player):
 
         return self.status
 
-    def twist(self) -> PlayerStatus:
+    def twist(self, card: Card) -> PlayerStatus:
         if self.status != PlayerStatus.SelectingAction:
             return self.status
 
-        self.hand.cards.append(self.game.deck.cards.pop())
+        self.hand.cards.append(BlackjackCard)
         total_values = self.get_total_values()
         best_total = self.get_best_total(total_values)
 

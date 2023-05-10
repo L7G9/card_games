@@ -19,8 +19,8 @@ class BlackjackGame:
         self.name = name
         self.deck = Deck("Deck", BlackJackValues, Suit)
         self.players: list[Player] = [
-            Player(0, "Jane Doe", self, CardGroup("Jane's hand")),
-            Player(1, "John Doe", self, CardGroup("John's hand"))
+            Player(0, "Jane Doe", CardGroup("Jane's hand")),
+            Player(1, "John Doe", CardGroup("John's hand"))
         ]
         self.status = GameStatus.Dealing
         self.active_player: Player = None
@@ -58,7 +58,7 @@ class BlackjackGame:
             player.stick()
             self.active_player += 1
         elif action == PlayerActions.Twist:
-            if player.twist() == PlayerStatus.Bust:
+            if player.twist(self.deck.cards.pop()) == PlayerStatus.Bust:
                 self.active_player += 1
 
         if self.active_player == len(self.players):
