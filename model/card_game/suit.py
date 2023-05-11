@@ -11,12 +11,12 @@ class Suit(Enum):
         Spades are worth more than Hearts.
     """
     def __str__(self) -> str:
-        return self.name
+        return self.name.capitalize()
 
     def __int__(self) -> int:
         return self.value
 
-    Clubs = 2
-    Diamonds = 3
-    Hearts = 4
-    Spades = 5
+    CLUBS = 1
+    DIAMONDS = 2
+    HEARTS = 3
+    SPADES = 4
