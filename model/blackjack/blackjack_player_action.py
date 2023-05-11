@@ -9,5 +9,5 @@ class BlackjackPlayerAction(Enum):
     def __int__(self) -> int:
         return self.value
 
-    Stick = 0
-    Twist = 1
+    STICK = 0
+    TWIST = 1

@@ -15,31 +15,31 @@ class BlackjackPlayer(Player):
     ):
         Player.__init__(self, id, name, hand)
         self.available_actions = []
-        self.status = PlayerStatus.WaitingToPlay
+        self.status = PlayerStatus.WAITING_TO_PLAY
 
     def receive_actions(self, available_actions: PlayerAction):
-        waiting_to_play = self.status == PlayerStatus.WaitingToPlay
-        waiting_for_actions = self.status == PlayerStatus.WaitingForActions
+        waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
+        waiting_for_actions = self.status == PlayerStatus.WAITING_FOR_ACTIONS
         if not waiting_to_play or not waiting_for_actions:
             return self.status
 
         self.available_actions = available_actions
-        self.status = PlayerStatus.SelectingAction
+        self.status = PlayerStatus.SELECTING_ACTION
 
         return self.status
 
     def stick(self) -> PlayerStatus:
-        if self.status != PlayerStatus.SelectingAction:
+        if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
-        self.status = PlayerStatus.Stick
+        self.status = PlayerStatus.STICK
         total_values = self.get_total_values()
         self.stick_total = self.get_best_total(total_values)
 
         return self.status
 
     def twist(self, card: Card) -> PlayerStatus:
-        if self.status != PlayerStatus.SelectingAction:
+        if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
         self.hand.cards.append(BlackjackCard)
@@ -47,9 +47,9 @@ class BlackjackPlayer(Player):
         best_total = self.get_best_total(total_values)
 
         if best_total > 21:
-            self.status = PlayerStatus.Bust
+            self.status = PlayerStatus.BUST
         else:
-            self.status = PlayerStatus.WaitingForActions
+            self.status = PlayerStatus.WAITING_FOR_ACTIONS
 
         return self.status
 

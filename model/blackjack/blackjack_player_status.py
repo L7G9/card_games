@@ -9,8 +9,8 @@ class BlackjackPlayerStatus(Enum):
     def __int__(self) -> int:
         return self.value
 
-    WaitingToPlay = 0
-    WaitingForActions = 1
-    SelectingAction = 2
-    Stick = 3
-    Bust = 4
+    WAITING_TO_PLAY = 0
+    WAINTING_FOR_ACTIONS = 1
+    SELECTING_ACTION = 2
+    STICK = 3
+    BUST = 4

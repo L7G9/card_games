@@ -21,14 +21,14 @@ class BlackjackGame:
             Player(0, "Jane Doe", CardGroup("Jane's hand")),
             Player(1, "John Doe", CardGroup("John's hand"))
         ]
-        self.status = GameStatus.Dealing
+        self.status = GameStatus.DEALING
         self.active_player: Player = None
 
     def deal(self):
         """"""
         self.deck.shuffle()
         self.deck.deal(2, self.players)
-        self.status = GameStatus.SendingActions
+        self.status = GameStatus.SENDING_ACTIONS
         self.active_player = 0
 
         return self.status
@@ -41,7 +41,7 @@ class BlackjackGame:
             [PlayerAction.Stick, PlayerAction.Twist]
         )
 
-        self.status = GameStatus.ReceivingAction
+        self.status = GameStatus.RECIEVING_ACTIONS
 
         return self.status
 
@@ -53,17 +53,17 @@ class BlackjackGame:
         if player != self.players[self.active_player]:
             return
 
-        if action == PlayerAction.Stick:
+        if action == PlayerAction.STICK:
             player.stick()
             self.active_player += 1
-        elif action == PlayerAction.Twist:
+        elif action == PlayerAction.TWIST:
             if player.twist(self.deck.cards.pop()) == PlayerStatus.Bust:
                 self.active_player += 1
 
         if self.active_player == len(self.players):
-            self.status = GameStatus.Resolving
+            self.status = GameStatus.RESOLVING
         else:
-            self.status = GameStatus.SendingActions
+            self.status = GameStatus.SENDING_ACTIONS
 
         return self.status
 
@@ -79,15 +79,15 @@ class BlackjackGame:
                 elif player.stick_total == best_total:
                     winners.append(player)
 
-        self.status = GameStatus.Resetting
+        self.status = GameStatus.RESETTING
 
         return self.status, winners
 
     def reset_game(self) -> GameStatus:
         for player in self.players:
             self.deck.return_cards(player.hand)
-            player.status = PlayerStatus.WaitingToPlay
+            player.status = PlayerStatus.WAITING_TO_PLAY
 
-        self.status = GameStatus.Dealing
+        self.status = GameStatus.DEALING
 
         return self.status
