@@ -1,8 +1,10 @@
-from model.player import Player
-from model.card_group import CardGroup
+from model.card_game.player import Player
+from model.card_game.card import Card
+from model.card_game.card_group import CardGroup
+
 from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from model.blackjack.blackjack_player_actions import BlackjackPlayerActions as PlayerActions
-from model.card import Card
+from model.blackjack.blackjack_player_action import BlackjackPlayerAction as PlayerAction
+
 
 class BlackjackPlayer(Player):
     def __init__(
@@ -15,10 +17,9 @@ class BlackjackPlayer(Player):
         self.available_actions = []
         self.status = PlayerStatus.WaitingToPlay
 
-    def receive_actions(self, available_actions: PlayerActions):
+    def receive_actions(self, available_actions: PlayerAction):
         waiting_to_play = self.status == PlayerStatus.WaitingToPlay
         waiting_for_actions = self.status == PlayerStatus.WaitingForActions
-
         if not waiting_to_play or not waiting_for_actions:
             return self.status
 

@@ -1,6 +1,6 @@
-from model.card import Card
-
 from random import shuffle
+
+from model.card_game.card import Card
 
 
 class CardGroup:

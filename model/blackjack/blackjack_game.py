@@ -1,14 +1,13 @@
-
 from typing import Union
 
-from model.suit import Suit
-from model.card_group import CardGroup
-from model.deck import Deck
+from model.card_game.suit import Suit
+from model.card_game.card_group import CardGroup
+from model.card_game.deck import Deck
 
-from model.blackjack.blackjack_values import BlackJackValues
+from model.blackjack.blackjack_value import BlackJackValue
 from model.blackjack.blackjack_player import BlackjackPlayer as Player
 from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from model.blackjack.blackjack_player_actions import BlackjackPlayerActions as PlayerActions
+from model.blackjack.blackjack_player_action import BlackjackPlayerAction as PlayerAction
 from model.blackjack.blackjack_game_status import BlackjackGameStatus as GameStatus
 
 
@@ -17,7 +16,7 @@ class BlackjackGame:
 
     def __init__(self, name: str):
         self.name = name
-        self.deck = Deck("Deck", BlackJackValues, Suit)
+        self.deck = Deck("Deck", BlackJackValue, Suit)
         self.players: list[Player] = [
             Player(0, "Jane Doe", CardGroup("Jane's hand")),
             Player(1, "John Doe", CardGroup("John's hand"))
@@ -39,7 +38,7 @@ class BlackjackGame:
             return
 
         player.receive_actions(
-            [PlayerActions.Stick, PlayerActions.Twist]
+            [PlayerAction.Stick, PlayerAction.Twist]
         )
 
         self.status = GameStatus.ReceivingAction
@@ -49,15 +48,15 @@ class BlackjackGame:
     def resolve_action(
         self,
         player: Player,
-        action: PlayerActions
+        action: PlayerAction
     ):
         if player != self.players[self.active_player]:
             return
 
-        if action == PlayerActions.Stick:
+        if action == PlayerAction.Stick:
             player.stick()
             self.active_player += 1
-        elif action == PlayerActions.Twist:
+        elif action == PlayerAction.Twist:
             if player.twist(self.deck.cards.pop()) == PlayerStatus.Bust:
                 self.active_player += 1
 

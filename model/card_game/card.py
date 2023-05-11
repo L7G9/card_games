@@ -1,5 +1,5 @@
-from model.suit import Suit
-from model.value import Value
+from model.card_game.suit import Suit
+from model.card_game.value import Value
 
 import functools
 

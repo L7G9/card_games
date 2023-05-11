@@ -1,4 +1,4 @@
-from model.card_group import CardGroup
+from model.card_game.card_group import CardGroup
 
 
 class Player:
