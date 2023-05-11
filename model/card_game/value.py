@@ -9,7 +9,7 @@ class Value(Enum):
         value: An integer unique to this Card in the Enumeration.
     """
     def __str__(self) -> str:
-        return self.name
+        return self.name.capitalize()
 
     def __int__(self) -> int:
         return self.game_value()
@@ -25,15 +25,15 @@ class Value(Enum):
         """
         return self.value
 
-    Ace = 1
-    Two = 2
-    Three = 3
-    Four = 4
-    Five = 5
-    Six = 6
-    Seven = 7
-    Eight = 8
-    Nine = 9
+    ACE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
     Ten = 10
     Jack = 11
     Queen = 12
