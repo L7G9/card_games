@@ -6,7 +6,7 @@ class Suit(Enum):
 
     Attributes:
         name: A string for the name of the suit Clubs, Diamonds, Hearts and
-        Spades.  Black and Red are used for the Suit of the Jokers.
+        Spades.
         value: An integer for the value comparative value of each suit eg.
         Spades are worth more than Hearts.
     """
@@ -16,8 +16,6 @@ class Suit(Enum):
     def __int__(self) -> int:
         return self.value
 
-    Black = 0
-    Red = 1
     Clubs = 2
     Diamonds = 3
     Hearts = 4

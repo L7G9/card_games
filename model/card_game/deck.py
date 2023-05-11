@@ -21,8 +21,7 @@ class Deck(CardGroup):
     def add_deck(
         self,
         values: Value,
-        suits: Suit,
-        include_jokers: bool = False,
+        suits: Suit
     ):
         """Fill CardGroup with a whole deck of Cards.
 
@@ -31,16 +30,9 @@ class Deck(CardGroup):
         Args:
             values: An Enumeration of the card values in the deck.
             suits: An Enumeration of the card suits in the deck.
-            include_jokers: A boolean set to True to add Black and Red Jokers.
         """
-        if include_jokers:
-            self.cards.append(Card(values.Joker, Suit.Black))
-            self.cards.append(Card(values.Joker, Suit.Red))
-
         for value in values:
-            if value is not values.Joker:
                 for suit in suits:
-                    if (suit is not suits.Black) and (suit is not suits.Red):
                         self.cards.append(Card(value, suit))
 
     def deal(self, number_of_cards: int, players: list[Player]):

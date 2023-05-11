@@ -5,7 +5,7 @@ class Value(Enum):
     """Enumeration class for the value of a playing card.
 
     Attributes:
-        name: A string for the name of the card from Ace to King and Jokers.
+        name: A string for the name of the card from Ace to King.
         value: An integer unique to this Card in the Enumeration.
     """
     def __str__(self) -> str:
@@ -25,7 +25,6 @@ class Value(Enum):
         """
         return self.value
 
-    Joker = 0
     Ace = 1
     Two = 2
     Three = 3

@@ -9,6 +9,10 @@ class BlackjackTextController:
         self.view = view.TextView()
         self.view.write_line("Game & View created")
 
+        for card in self.game.deck.cards:
+            self.view.write_line(card.description(True))
+
+
     # get player name
     # get number of players
     # set up game
