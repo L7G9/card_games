@@ -1,3 +1,5 @@
+from time import sleep
+
 from model.card_game.card_group import CardGroup
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
@@ -47,9 +49,22 @@ class BlackjackTextController:
 
         # resolve game
         games_status, results = self.game.resolve_game()
+
+        self.view.write("")
+        self.view.write("Game complete.")
+        self.view.write("")
+        for player in self.game.players:
+            self.view.write("%s has a total of %d with..." % (player.name, player.best_total))
+            for card in player.hand.cards:
+                self.view.write(card.description(False))
+            self.view.write("")
+            sleep(2)
+
         self.view.write("The winner(s) of this round is...")
+        sleep(2)
         for player in results:
             self.view.write(player.name)
+        self.view.write("")
 
     def run(self):
         self.view.write("Welcome to our game of Blackjack.")
