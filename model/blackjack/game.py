@@ -11,7 +11,7 @@ from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.game_status import GameStatus
 
 
-class BlackjackGame:
+class Game:
     """Class to represent a Game of Blackjack."""
 
     def __init__(self, name: str):

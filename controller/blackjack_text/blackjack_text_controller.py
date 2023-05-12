@@ -1,5 +1,5 @@
 from model.card_game.card_group import CardGroup
-from model.blackjack.blackjack_game import BlackjackGame
+from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.blackjack_player import BlackjackPlayer
 from model.blackjack.blackjack_player_action import PlayerAction
@@ -11,7 +11,7 @@ from view.text_view import text_view as view
 class BlackjackTextController:
     """Controller for BlackJackGame and TextView."""
     def __init__(self):
-        self.game = BlackjackGame("Blackjack")
+        self.game = Game("Blackjack")
         self.view = view.TextView()
 
     def play_game(self):
