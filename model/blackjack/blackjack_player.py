@@ -71,7 +71,7 @@ class BlackjackPlayer(Player):
                     totals.append(card.value.game_value())
                     totals.append(card.value.alt_game_value())
                 else:
-                    current_totals_count = len(totals)-1
+                    current_totals_count = len(totals)
                     for index in range(0, current_totals_count):
                         totals.append(
                             totals[index]+card.value.alt_game_value()
@@ -81,7 +81,7 @@ class BlackjackPlayer(Player):
                 if len(totals) == 0:
                     totals.append(card.value.game_value())
                 else:
-                    for index in range(0, len(totals)-1):
+                    for index in range(0, len(totals)):
                         totals[index] += card.value.game_value()
 
         return totals
