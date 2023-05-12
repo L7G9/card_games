@@ -21,14 +21,14 @@ class Player(player.Player):
         self.totals = {0}
         self.best_total = 0
 
-    def receive_actions(self, available_actions: list[PlayerAction]) -> PlayerStatus:
+    def receive_actions(self, actions: list[PlayerAction]) -> PlayerStatus:
         waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
         waiting_for_actions = self.status == PlayerStatus.WAITING_FOR_ACTIONS
         waiting = waiting_to_play or waiting_for_actions
         if not waiting:
             return self.status
 
-        self.available_actions = available_actions
+        self.available_actions = actions
         self.status = PlayerStatus.SELECTING_ACTION
 
         return self.status
