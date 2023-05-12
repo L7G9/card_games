@@ -6,7 +6,7 @@ from model.card_game.deck import Deck
 
 from model.blackjack.blackjack_value import BlackJackValue
 from model.blackjack.blackjack_player import BlackjackPlayer
-from model.blackjack.blackjack_player_status import PlayerStatus
+from model.blackjack.player_status import PlayerStatus
 from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.game_status import GameStatus
 

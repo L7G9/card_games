@@ -3,7 +3,7 @@ from model.blackjack import blackjack_game
 from model.blackjack import game_status
 from model.blackjack import blackjack_player
 from model.blackjack import blackjack_player_action
-from model.blackjack import blackjack_player_status
+from model.blackjack import player_status
 
 from view.text_view import text_view as view
 
@@ -48,7 +48,7 @@ class BlackjackTextController:
                         active_player,
                         blackjack_player_action.PlayerAction.TWIST
                     )
-                    if active_player.status == blackjack_player_status.PlayerStatus.BUST:
+                    if active_player.status == player_status.PlayerStatus.BUST:
                         self.view.write_line("%s goes bust." % (active_player.name))
 
             # resolve game

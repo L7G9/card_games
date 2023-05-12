@@ -4,7 +4,7 @@ from model.card_game.player import Player
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 
-from model.blackjack.blackjack_player_status import PlayerStatus
+from model.blackjack.player_status import PlayerStatus
 from model.blackjack.blackjack_player_action import PlayerAction
 
 
