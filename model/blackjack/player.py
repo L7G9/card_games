@@ -1,6 +1,6 @@
 from typing import Set
 
-from model.card_game.player import Player
+from model.card_game import player
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 
@@ -8,14 +8,14 @@ from model.blackjack.player_status import PlayerStatus
 from model.blackjack.blackjack_player_action import PlayerAction
 
 
-class BlackjackPlayer(Player):
+class Player(player.Player):
     def __init__(
         self,
         id: int,
         name: str,
         hand: CardGroup
     ):
-        Player.__init__(self, id, name, hand)
+        player.Player.__init__(self, id, name, hand)
         self.available_actions = []
         self.status = PlayerStatus.WAITING_TO_PLAY
         self.totals = {0}

@@ -5,7 +5,7 @@ from model.card_game.card_group import CardGroup
 from model.card_game.deck import Deck
 
 from model.blackjack.blackjack_value import BlackJackValue
-from model.blackjack.blackjack_player import BlackjackPlayer
+from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
 from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.game_status import GameStatus
@@ -17,13 +17,13 @@ class Game:
     def __init__(self, name: str):
         self.name = name
         self.deck = Deck("Deck", BlackJackValue, Suit)
-        self.players: list[BlackjackPlayer] = [
-            BlackjackPlayer(0, "Liz", CardGroup("Liz's hand")),
-            BlackjackPlayer(1, "Roger", CardGroup("Roger's hand")),
-            BlackjackPlayer(2, "Noriko", CardGroup("Noriko's hand"))
+        self.players: list[Player] = [
+            Player(0, "Liz", CardGroup("Liz's hand")),
+            Player(1, "Roger", CardGroup("Roger's hand")),
+            Player(2, "Noriko", CardGroup("Noriko's hand"))
         ]
         self.status = GameStatus.DEALING
-        self.active_player: BlackjackPlayer = None
+        self.active_player: Player = None
 
     def deal(self):
         """"""
@@ -38,7 +38,7 @@ class Game:
 
         return self.status
 
-    def send_actions(self, player: BlackjackPlayer):
+    def send_actions(self, player: Player):
         if player != self.players[self.active_player]:
             return self.status
 
@@ -52,7 +52,7 @@ class Game:
 
     def resolve_action(
         self,
-        player: BlackjackPlayer,
+        player: Player,
         action: PlayerAction
     ):
         if player != self.players[self.active_player]:
@@ -72,7 +72,7 @@ class Game:
 
         return self.status
 
-    def resolve_game(self) -> Union[GameStatus, list[BlackjackPlayer]]:
+    def resolve_game(self) -> Union[GameStatus, list[Player]]:
         winners = []
         best_total = 0
 

@@ -1,7 +1,7 @@
 from model.card_game.card_group import CardGroup
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
-from model.blackjack.blackjack_player import BlackjackPlayer
+from model.blackjack.player import Player
 from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.player_status import PlayerStatus
 
@@ -68,7 +68,7 @@ class BlackjackTextController:
 
     def setup_user_player(self):
         name = self.view.read("Enter name: ")
-        player = BlackjackPlayer(
+        player = Player(
             3,
             name,
             CardGroup("%s's hand" % (name))
