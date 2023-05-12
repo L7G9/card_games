@@ -17,10 +17,11 @@ class BlackjackPlayer(Player):
         self.available_actions = []
         self.status = PlayerStatus.WAITING_TO_PLAY
 
-    def receive_actions(self, available_actions: PlayerAction):
+    def receive_actions(self, available_actions: list[PlayerAction]) -> PlayerStatus:
         waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
         waiting_for_actions = self.status == PlayerStatus.WAITING_FOR_ACTIONS
-        if not waiting_to_play or not waiting_for_actions:
+        waiting = waiting_to_play or waiting_for_actions
+        if not waiting:
             return self.status
 
         self.available_actions = available_actions
