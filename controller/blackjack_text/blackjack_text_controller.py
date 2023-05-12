@@ -54,8 +54,8 @@ class BlackjackTextController:
             # resolve game
             games_status, results = self.game.resolve_game()
             self.view.write_line("The winner(s) of this round is...")
-            for name in results:
-                self.view.write_line(name)
+            for player in results:
+                self.view.write_line(player.name)
 
             # reset game
             play_again = self.view.read("Play again? (y or n): ")
