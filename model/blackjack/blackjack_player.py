@@ -1,3 +1,5 @@
+from typing import Set
+
 from model.card_game.player import Player
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
@@ -16,6 +18,8 @@ class BlackjackPlayer(Player):
         Player.__init__(self, id, name, hand)
         self.available_actions = []
         self.status = PlayerStatus.WAITING_TO_PLAY
+        self.totals = {0}
+        self.best_total = 0
 
     def receive_actions(self, available_actions: list[PlayerAction]) -> PlayerStatus:
         waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
@@ -34,8 +38,6 @@ class BlackjackPlayer(Player):
             return self.status
 
         self.status = PlayerStatus.STICK
-        total_values = self.get_total_values()
-        self.stick_total = self.get_best_total(total_values)
 
         return self.status
 
@@ -43,68 +45,52 @@ class BlackjackPlayer(Player):
         if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
-        self.hand.cards.append(card)
-        total_values = self.get_total_values()
-        best_total = self.get_best_total(total_values)
+        self.add_card(card)
 
-        if best_total > 21:
+        if self.best_total > 21:
             self.status = PlayerStatus.BUST
         else:
             self.status = PlayerStatus.WAITING_FOR_ACTIONS
 
         return self.status
 
-    def get_total_values(self) -> list[int]:
-        """Get all possible combinations of the total values of all the cards
-        in the player's hand.
+    def add_card(self, card: Card):
+        """Add card to player's hand and update totals."""
+        self.hand.cards.append(card)
+        self.totals = self.get_totals(self.totals, card)
+        self.best_total = self.get_best_total(self.totals)
 
-        Takes into account aces can be worth 1 or 11.
+    def reset(self):
+        """Remove cards from player's hand and clear totals."""
+        self.hand.cards = []
+        self.totals = {0}
+        self.best_total = 0
+        self.status = PlayerStatus.WAITING_TO_PLAY
 
-        Returns:
-            A list of integers containing the possible total values this
-            player's hand could be.
-        """
-        totals = []
+    def reveal_hand(self):
+        """Set all cards in player's hand to face up."""
         for card in self.hand.cards:
-            if card.value.game_value() == 1:
-                if len(totals) == 0:
-                    totals.append(card.value.game_value())
-                    totals.append(card.value.alt_game_value())
-                else:
-                    current_totals_count = len(totals)
-                    for index in range(0, current_totals_count):
-                        totals.append(
-                            totals[index]+card.value.alt_game_value()
-                        )
-                        totals[index] += card.value.game_value()
-            else:
-                if len(totals) == 0:
-                    totals.append(card.value.game_value())
-                else:
-                    for index in range(0, len(totals)):
-                        totals[index] += card.value.game_value()
+            card.face_up = True
 
-        return totals
-
-    def get_best_total(self, totals: list[int]) -> int:
-        """Returns the best total value from list of all possible total card
-        values in the Player's hand.
-
-        The best value will be the the largest total value equal to or under
-        21.  If there are none under 21, any value over 21 is the best value.
-
-        Returns:
-            An integer equal to the best total value from the card values in
-            the Player's hand.
-        """
-        best_total = None
+    def get_totals(self, totals: Set[int], card: Card) -> Set[int]:
+        """Get new set of totals when a card is added to this player's hand."""
+        new_totals = set()
 
         for total in totals:
-            if best_total is None:
-                best_total = total
-            elif best_total > 21 and total <= 21:
-                best_total = total
-            elif best_total < total and total <= 21:
+            new_totals.add(total + card.value.game_value())
+            if card.value.game_value() == 1:
+                new_totals.add(total + card.value.alt_game_value())
+
+        return new_totals
+
+    def get_best_total(self, totals: Set[int]) -> int:
+        """Get best total from set of totals."""
+        best_total = 0
+        for total in totals:
+            none_set = best_total == 0
+            best_is_bust = best_total > 21
+            total_is_best = total > best_total and total <= 21
+            if none_set or best_is_bust or total_is_best:
                 best_total = total
 
         return best_total

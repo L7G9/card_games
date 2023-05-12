@@ -28,7 +28,11 @@ class BlackjackGame:
     def deal(self):
         """"""
         self.deck.shuffle()
-        self.deck.deal(2, self.players)
+        # self.deck.deal(2, self.players)
+        for i in range(2):
+            for player in self.players:
+                player.add_card(self.deck.cards.pop())
+
         self.status = GameStatus.SENDING_ACTIONS
         self.active_player = 0
 
@@ -73,11 +77,12 @@ class BlackjackGame:
         best_total = 0
 
         for player in self.players:
+            player.reveal_hand()
             if player.status == PlayerStatus.STICK:
-                if player.stick_total > best_total:
-                    best_total = player.stick_total
+                if player.best_total > best_total:
+                    best_total = player.best_total
                     winners = [player]
-                elif player.stick_total == best_total:
+                elif player.best_total == best_total:
                     winners.append(player)
 
         self.status = GameStatus.RESETTING
@@ -87,7 +92,7 @@ class BlackjackGame:
     def reset_game(self) -> GameStatus:
         for player in self.players:
             self.deck.return_cards(player.hand)
-            player.status = PlayerStatus.WAITING_TO_PLAY
+            player.reset()
 
         self.status = GameStatus.DEALING
 
