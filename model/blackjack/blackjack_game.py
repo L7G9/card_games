@@ -36,7 +36,7 @@ class BlackjackGame:
 
     def send_actions(self, player: BlackjackPlayer):
         if player != self.players[self.active_player]:
-            return
+            return self.status
 
         player.receive_actions(
             [PlayerAction.STICK, PlayerAction.TWIST]
@@ -52,7 +52,7 @@ class BlackjackGame:
         action: PlayerAction
     ):
         if player != self.players[self.active_player]:
-            return
+            return self.status
 
         if action == PlayerAction.STICK:
             player.stick()
