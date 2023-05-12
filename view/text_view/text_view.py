@@ -4,11 +4,6 @@ class TextView:
         """Promt user for input."""
         return input(prompt)
 
-    def write_line(self, line: str):
+    def write(self, line: str):
         """Write a line."""
         print(line)
-
-    def write_lines(self, lines: list[str]):
-        """Write multiple lines."""
-        for line in lines:
-            print(line)
