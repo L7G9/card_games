@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class BlackjackGameStatus(Enum):
+class GameStatus(Enum):
     """Enumeration class for the status of a game of blackjack."""
     def __str__(self) -> str:
         return self.name
@@ -11,6 +11,6 @@ class BlackjackGameStatus(Enum):
 
     DEALING = 0
     SENDING_ACTIONS = 1
-    RECIEVING_ACTION = 2
+    RECEIVING_ACTION = 2
     RESOLVING = 3
     RESETTING = 4

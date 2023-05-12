@@ -2,8 +2,8 @@ from model.card_game.player import Player
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 
-from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from model.blackjack.blackjack_player_action import BlackjackPlayerAction as PlayerAction
+from model.blackjack.blackjack_player_status import PlayerStatus
+from model.blackjack.blackjack_player_action import PlayerAction
 
 
 class BlackjackPlayer(Player):
@@ -42,7 +42,7 @@ class BlackjackPlayer(Player):
         if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
-        self.hand.cards.append(BlackjackCard)
+        self.hand.cards.append(card)
         total_values = self.get_total_values()
         best_total = self.get_best_total(total_values)
 

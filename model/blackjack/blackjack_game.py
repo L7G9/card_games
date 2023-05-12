@@ -5,10 +5,10 @@ from model.card_game.card_group import CardGroup
 from model.card_game.deck import Deck
 
 from model.blackjack.blackjack_value import BlackJackValue
-from model.blackjack.blackjack_player import BlackjackPlayer as Player
-from model.blackjack.blackjack_player_status import BlackjackPlayerStatus as PlayerStatus
-from model.blackjack.blackjack_player_action import BlackjackPlayerAction as PlayerAction
-from model.blackjack.blackjack_game_status import BlackjackGameStatus as GameStatus
+from model.blackjack.blackjack_player import BlackjackPlayer
+from model.blackjack.blackjack_player_status import PlayerStatus
+from model.blackjack.blackjack_player_action import PlayerAction
+from model.blackjack.game_status import GameStatus
 
 
 class BlackjackGame:
@@ -17,12 +17,13 @@ class BlackjackGame:
     def __init__(self, name: str):
         self.name = name
         self.deck = Deck("Deck", BlackJackValue, Suit)
-        self.players: list[Player] = [
-            Player(0, "Jane Doe", CardGroup("Jane's hand")),
-            Player(1, "John Doe", CardGroup("John's hand"))
+        self.players: list[BlackjackPlayer] = [
+            BlackjackPlayer(0, "Liz", CardGroup("Liz's hand")),
+            BlackjackPlayer(1, "Roger", CardGroup("Roger's hand")),
+            BlackjackPlayer(2, "Noriko", CardGroup("Noriko's hand"))
         ]
         self.status = GameStatus.DEALING
-        self.active_player: Player = None
+        self.active_player: BlackjackPlayer = None
 
     def deal(self):
         """"""
@@ -33,21 +34,21 @@ class BlackjackGame:
 
         return self.status
 
-    def send_actions(self, player: Player):
+    def send_actions(self, player: BlackjackPlayer):
         if player != self.players[self.active_player]:
             return
 
         player.receive_actions(
-            [PlayerAction.Stick, PlayerAction.Twist]
+            [PlayerAction.STICK, PlayerAction.TWIST]
         )
 
-        self.status = GameStatus.RECIEVING_ACTIONS
+        self.status = GameStatus.RECEIVING_ACTION
 
         return self.status
 
     def resolve_action(
         self,
-        player: Player,
+        player: BlackjackPlayer,
         action: PlayerAction
     ):
         if player != self.players[self.active_player]:
@@ -57,7 +58,7 @@ class BlackjackGame:
             player.stick()
             self.active_player += 1
         elif action == PlayerAction.TWIST:
-            if player.twist(self.deck.cards.pop()) == PlayerStatus.Bust:
+            if player.twist(self.deck.cards.pop()) == PlayerStatus.BUST:
                 self.active_player += 1
 
         if self.active_player == len(self.players):
@@ -67,12 +68,12 @@ class BlackjackGame:
 
         return self.status
 
-    def resolve_game(self) -> Union[GameStatus, list[Player]]:
+    def resolve_game(self) -> Union[GameStatus, list[BlackjackPlayer]]:
         winners = []
         best_total = 0
 
         for player in self.players:
-            if player.status == PlayerStatus.Stick:
+            if player.status == PlayerStatus.STICK:
                 if player.stick_total > best_total:
                     best_total = player.stick_total
                     winners = [player]
