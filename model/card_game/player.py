@@ -9,7 +9,7 @@ class Player:
         name: A string describing this player.
         hand: A CardGroup for the Cards this player is holding.
     """
-    def __init__(self, id: int, name: str, hand: CardGroup):
+    def __init__(self, id: int, name: str):
         self.id = id
         self.name = name
-        self.hand = hand
+        self.hand = CardGroup("%s's hand" % (name))

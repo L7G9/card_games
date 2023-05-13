@@ -17,9 +17,9 @@ class Game:
         self.name = name
         self.deck = Deck("Deck", BlackJackValue, Suit)
         self.players: list[Player] = [
-            Player(0, "Liz", CardGroup("Liz's hand")),
-            Player(1, "Roger", CardGroup("Roger's hand")),
-            Player(2, "Noriko", CardGroup("Noriko's hand"))
+            Player(0, "Liz"),
+            Player(1, "Roger"),
+            Player(2, "Noriko")
         ]
         self.status = GameStatus.DEALING
         self.active_player_index: int = 0

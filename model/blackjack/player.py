@@ -24,17 +24,15 @@ class Player(player.Player):
     def __init__(
         self,
         id: int,
-        name: str,
-        hand: CardGroup
+        name: str
     ):
         """Initializes instance
 
         Args:
             id: An unique integer id.
             name: A string for the player's name.
-            hand: A CardGroup instance for the cards in the player's hand.
         """
-        player.Player.__init__(self, id, name, hand)
+        player.Player.__init__(self, id, name)
         self.status = PlayerStatus.WAITING_TO_PLAY
         self.totals = {0}
         self.best_total = 0

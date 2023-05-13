@@ -76,9 +76,5 @@ class BlackjackTextController:
 
     def setup_user_player(self):
         name = self.view.read("Enter name: ")
-        player = Player(
-            3,
-            name,
-            CardGroup("%s's hand" % (name))
-        )
+        player = Player(3, name)
         self.game.players.append(player)
