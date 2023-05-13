@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class PlayerStatus(Enum):
-    """Status of a blackjack player in releation to the game.
+    """Status of a blackjack player in relation to the game.
 
     Attributes:
         name: A string for the status of the player in the game.

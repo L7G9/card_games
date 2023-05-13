@@ -9,12 +9,32 @@ from model.blackjack.blackjack_player_action import PlayerAction
 
 
 class Player(player.Player):
+    """A Player in a game of Blackjack.
+
+    Subclass of model.card_game.player.player with the functionality to for
+    Blackjack.
+
+    Attributes:
+        status: A PlayerStatus set to the current status of the player in the
+          game.
+        totals: A set of integers containing all the totals that the cards in
+          the player's hand could add up to.
+        best_total: An integer equal to the best total of the cards in the
+          player's hand.
+    """
     def __init__(
         self,
         id: int,
         name: str,
         hand: CardGroup
     ):
+        """Initializes instance
+
+        Args:
+            id: An unique integer id.
+            name: A string for the player's name.
+            hand: A CardGroup instance for the cards in the player's hand.
+        """
         player.Player.__init__(self, id, name, hand)
         self.available_actions = []
         self.status = PlayerStatus.WAITING_TO_PLAY
@@ -22,6 +42,12 @@ class Player(player.Player):
         self.best_total = 0
 
     def receive_actions(self, actions: list[PlayerAction]) -> PlayerStatus:
+        """
+
+        Args:
+
+        Returns:
+        """
         waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
         waiting_for_actions = self.status == PlayerStatus.WAITING_FOR_ACTIONS
         waiting = waiting_to_play or waiting_for_actions
@@ -34,6 +60,13 @@ class Player(player.Player):
         return self.status
 
     def stick(self) -> PlayerStatus:
+        """Stick action - player ends their go drawing no more cards.
+
+        Can only be taken when player status is SELECTING_ACTION.
+
+        Returns:
+            The new PlayerStatus after taking this action, SICK.
+        """
         if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
@@ -42,6 +75,19 @@ class Player(player.Player):
         return self.status
 
     def twist(self, card: Card) -> PlayerStatus:
+        """Twist action - player receives a card.
+
+        Can only be taken when player status is SELECTING_ACTION.
+        Will increase the player's totals.
+        The plyer will either be able to continue playing or go bust.
+
+        Args:
+            card: A Card instance to add to the player's hand.
+
+        Returns:
+            The new PlayerStatus after taking this action, either
+              WAITING_FOR_ACTIONS or BUST.
+        """
         if self.status != PlayerStatus.SELECTING_ACTION:
             return self.status
 
@@ -55,25 +101,44 @@ class Player(player.Player):
         return self.status
 
     def add_card(self, card: Card):
-        """Add card to player's hand and update totals."""
+        """Add card to player's hand.
+
+        Updates totals and best total to reflect the changes made by adding
+        the card.
+
+        Args:
+            card: A Card instance to add to the player's hand.
+        """
         self.hand.cards.append(card)
         self.totals = self.get_totals(self.totals, card)
         self.best_total = self.get_best_total(self.totals)
 
     def reset(self):
-        """Remove cards from player's hand and clear totals."""
+        """Reset player ready to start a new game of Blackjack."""
         self.hand.cards = []
         self.totals = {0}
         self.best_total = 0
         self.status = PlayerStatus.WAITING_TO_PLAY
 
     def reveal_hand(self):
-        """Set all cards in player's hand to face up."""
+        """Set all player's cards to face up."""
         for card in self.hand.cards:
             card.face_up = True
 
     def get_totals(self, totals: Set[int], card: Card) -> Set[int]:
-        """Get new set of totals when a card is added to this player's hand."""
+        """Calculate possible totals when card is added to player's hand.
+
+        Because aces are worth either 1 or 11, a player's hand can have
+        multiple totals.
+
+        Args:
+            totals: A set of integers with the current totals in the player's
+              hand.
+            card: A Card instance to be whose value is to be added to the totals.
+
+        Returns:
+            A set of integers with the new totals in the player's hand.
+        """
         new_totals = set()
 
         for total in totals:
@@ -84,12 +149,25 @@ class Player(player.Player):
         return new_totals
 
     def get_best_total(self, totals: Set[int]) -> int:
-        """Get best total from set of totals."""
+        """Get best total from set of totals.
+
+        The best total will be the highest total less then or equal to 21.
+        When all totals are over 21, i.e. the player is bust, any of these can
+        be considered the best total.
+
+        Args:
+            totals: A set of integers holding all possible totals in the
+              player's hand.
+
+        Returns:
+            An integer with the best total.
+        """
         best_total = 0
         for total in totals:
             none_set = best_total == 0
             best_is_bust = best_total > 21
             total_is_best = total > best_total and total <= 21
+
             if none_set or best_is_bust or total_is_best:
                 best_total = total
 
