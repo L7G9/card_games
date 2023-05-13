@@ -2,6 +2,12 @@ from enum import Enum
 
 
 class BlackJackValue(Enum):
+    """Values of the playing cards in a game of BlackJack.
+
+    Attributes:
+        name: A string for the name of the card from Ace to King.
+        value: An integer unique to each member in this enumeration.
+    """
     def __str__(self) -> str:
         return self.name.capitalize()
 
@@ -9,14 +15,28 @@ class BlackJackValue(Enum):
         return self.game_value()
 
     def game_value(self) -> int:
-        """Make all picture cards worth 10."""
+        """The value of Card when calculating the total of a player's hand.
+
+        Picture cards (values 11, 12 & 13) have a game value of 10.
+        All other cards have a game value equal to thier enumeration value.
+
+        returns:
+            An integer equal to the value of the card in Blackjack.
+        """
         if self.value > 10:
             return 10
         else:
             return self.value
 
     def alt_game_value(self) -> int:
-        """Aces have an alternate in game value of 11."""
+        """The alternate value of Card when calculating the total od a player's hand.
+
+	Aces can have a game value of 1 or 11.
+        All other cards only have one game value.
+
+        returns:
+            An integer equal to the alternate game value of the card in Blackjack.
+	"""
         if self.value == 1:
             return 11
         else:
