@@ -4,7 +4,6 @@ from model.card_game.card_group import CardGroup
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
-from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.player_status import PlayerStatus
 
 from view.text_view import text_view as view
@@ -22,7 +21,7 @@ class BlackjackTextController:
 
         # play game
         while self.game.status != GameStatus.RESOLVING:
-            active_player = self.game.players[self.game.active_player]
+            active_player = self.game.players[self.game.active_player_index]
             self.game.send_actions(active_player)
 
             self.view.write(active_player.hand.description())
@@ -33,17 +32,11 @@ class BlackjackTextController:
 
             if chosen_action == 's':
                 self.view.write("%s sticks." % (active_player.name))
-                self.game.resolve_action(
-                    active_player,
-                    PlayerAction.STICK
-                )
+                self.game.resolve_stick_action(active_player)
 
             elif chosen_action == 't':
                 self.view.write("%s twists." % (active_player.name))
-                self.game.resolve_action(
-                    active_player,
-                    PlayerAction.TWIST
-                )
+                self.game.resolve_twist_action(active_player)
                 if active_player.status == PlayerStatus.BUST:
                     self.view.write("%s goes bust." % (active_player.name))
 

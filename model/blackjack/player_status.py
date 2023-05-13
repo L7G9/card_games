@@ -15,7 +15,7 @@ class PlayerStatus(Enum):
         return self.value
 
     WAITING_TO_PLAY = 0
-    WAITING_FOR_ACTIONS = 1
-    SELECTING_ACTION = 2
+    DECIDING_ACTION = 1
+    WAITING_FOR_CARD = 2
     STICK = 3
     BUST = 4

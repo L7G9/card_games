@@ -7,7 +7,6 @@ from model.card_game.deck import Deck
 from model.blackjack.blackjack_value import BlackJackValue
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
-from model.blackjack.blackjack_player_action import PlayerAction
 from model.blackjack.game_status import GameStatus
 
 
@@ -23,49 +22,58 @@ class Game:
             Player(2, "Noriko", CardGroup("Noriko's hand"))
         ]
         self.status = GameStatus.DEALING
-        self.active_player: Player = None
+        self.active_player_index: int = 0
 
     def deal(self):
         """"""
         self.deck.shuffle()
-        # self.deck.deal(2, self.players)
         for i in range(2):
             for player in self.players:
                 player.add_card(self.deck.cards.pop())
 
         self.status = GameStatus.SENDING_ACTIONS
-        self.active_player = 0
+        self.active_player_index = 0
 
         return self.status
 
     def send_actions(self, player: Player):
-        if player != self.players[self.active_player]:
+        if player != self.players[self.active_player_index]:
             return self.status
 
-        player.receive_actions(
-            [PlayerAction.STICK, PlayerAction.TWIST]
-        )
+        player.play()
 
         self.status = GameStatus.RECEIVING_ACTION
 
         return self.status
 
-    def resolve_action(
+    def resolve_stick_action(
         self,
         player: Player,
-        action: PlayerAction
-    ):
-        if player != self.players[self.active_player]:
+    ) -> GameStatus:
+        if player != self.players[self.active_player_index]:
             return self.status
 
-        if action == PlayerAction.STICK:
-            player.stick()
-            self.active_player += 1
-        elif action == PlayerAction.TWIST:
-            if player.twist(self.deck.cards.pop()) == PlayerStatus.BUST:
-                self.active_player += 1
+        player.stick()
+        self.active_player_index += 1
 
-        if self.active_player == len(self.players):
+        if self.active_player_index == len(self.players):
+            self.status = GameStatus.RESOLVING
+        else:
+            self.status = GameStatus.SENDING_ACTIONS
+
+        return self.status
+
+    def resolve_twist_action(
+        self,
+        player: Player,
+    ) -> GameStatus:
+        if player != self.players[self.active_player_index]:
+            return self.status
+
+        if player.twist(self.deck.cards.pop()) == PlayerStatus.BUST:
+            self.active_player_index += 1
+
+        if self.active_player_index == len(self.players):
             self.status = GameStatus.RESOLVING
         else:
             self.status = GameStatus.SENDING_ACTIONS

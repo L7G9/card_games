@@ -5,7 +5,6 @@ from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 
 from model.blackjack.player_status import PlayerStatus
-from model.blackjack.blackjack_player_action import PlayerAction
 
 
 class Player(player.Player):
@@ -36,26 +35,15 @@ class Player(player.Player):
             hand: A CardGroup instance for the cards in the player's hand.
         """
         player.Player.__init__(self, id, name, hand)
-        self.available_actions = []
         self.status = PlayerStatus.WAITING_TO_PLAY
         self.totals = {0}
         self.best_total = 0
 
-    def receive_actions(self, actions: list[PlayerAction]) -> PlayerStatus:
-        """
-
-        Args:
-
-        Returns:
-        """
-        waiting_to_play = self.status == PlayerStatus.WAITING_TO_PLAY
-        waiting_for_actions = self.status == PlayerStatus.WAITING_FOR_ACTIONS
-        waiting = waiting_to_play or waiting_for_actions
-        if not waiting:
+    def play(self) -> PlayerStatus:
+        if self.status != PlayerStatus.WAITING_TO_PLAY:
             return self.status
 
-        self.available_actions = actions
-        self.status = PlayerStatus.SELECTING_ACTION
+        self.status = PlayerStatus.DECIDING_ACTION
 
         return self.status
 
@@ -67,7 +55,7 @@ class Player(player.Player):
         Returns:
             The new PlayerStatus after taking this action, SICK.
         """
-        if self.status != PlayerStatus.SELECTING_ACTION:
+        if self.status != PlayerStatus.DECIDING_ACTION:
             return self.status
 
         self.status = PlayerStatus.STICK
@@ -88,7 +76,7 @@ class Player(player.Player):
             The new PlayerStatus after taking this action, either
               WAITING_FOR_ACTIONS or BUST.
         """
-        if self.status != PlayerStatus.SELECTING_ACTION:
+        if self.status != PlayerStatus.DECIDING_ACTION:
             return self.status
 
         self.add_card(card)
@@ -96,7 +84,7 @@ class Player(player.Player):
         if self.best_total > 21:
             self.status = PlayerStatus.BUST
         else:
-            self.status = PlayerStatus.WAITING_FOR_ACTIONS
+            self.status = PlayerStatus.DECIDING_ACTION
 
         return self.status
 
@@ -134,7 +122,7 @@ class Player(player.Player):
         Args:
             totals: A set of integers with the current totals in the player's
               hand.
-            card: A Card instance to be whose value is to be added to the totals.
+            card: A Card instance whose value is to be added to the totals.
 
         Returns:
             A set of integers with the new totals in the player's hand.
@@ -143,7 +131,7 @@ class Player(player.Player):
 
         for total in totals:
             new_totals.add(total + card.value.game_value())
-            if card.value.game_value() == 1:
+            if card.value.alt_game_value() is not None:
                 new_totals.add(total + card.value.alt_game_value())
 
         return new_totals
