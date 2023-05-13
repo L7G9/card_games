@@ -21,7 +21,7 @@ class BlackJackValue(Enum):
         All other cards have a game value equal to thier enumeration value.
 
         returns:
-            An integer equal to the value of the card in Blackjack.
+            An integer equal to the value of the card in Blackjack.  None id card just one game value.
         """
         if self.value > 10:
             return 10
@@ -40,7 +40,7 @@ class BlackJackValue(Enum):
         if self.value == 1:
             return 11
         else:
-            return self.value
+            return None
 
     ACE = 1
     TWO = 2
