@@ -1,7 +1,8 @@
+import random
+
 from typing import Union
 
 from model.card_game.suit import Suit
-from model.card_game.card_group import CardGroup
 from model.card_game.deck import Deck
 
 from model.blackjack.blackjack_value import BlackJackValue
@@ -97,7 +98,28 @@ class Game:
 
         return self.status, winners
 
-    def reset_game(self) -> GameStatus:
+    def get_player_order(self, winners: list[Player]) -> list[Player]:
+        # check for no winners
+        if not winners:
+            return None
+
+        # get index of one random winner
+        winner = random.choice(winners)
+        winner_index = self.players.index(winner)
+
+        # create new list with chosen winner a the front
+        players = []
+        for index in range(winner_index, len(self.players)):
+            players.append(self.players[index])
+        for index in range(0, winner_index):
+            players.append(self.players[index])
+
+        return players
+
+    def reset_game(self, winners: list[Player]) -> GameStatus:
+        if winners is not None:
+            self.players = self.get_player_order(winners)
+
         for player in self.players:
             self.deck.return_cards(player.hand)
             player.reset()

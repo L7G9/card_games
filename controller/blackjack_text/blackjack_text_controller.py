@@ -1,6 +1,5 @@
 from time import sleep
 
-from model.card_game.card_group import CardGroup
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
@@ -15,7 +14,7 @@ class BlackjackTextController:
         self.game = Game("Blackjack")
         self.view = view.TextView()
 
-    def play_game(self):
+    def play_game(self) -> list[Player]:
         # setup game
         self.game.deal()
 
@@ -41,7 +40,7 @@ class BlackjackTextController:
                     self.view.write("%s goes bust." % (active_player.name))
 
         # resolve game
-        games_status, results = self.game.resolve_game()
+        games_status, winners = self.game.resolve_game()
 
         self.view.write("")
         self.view.write("Game complete.")
@@ -55,9 +54,11 @@ class BlackjackTextController:
 
         self.view.write("The winner(s) of this round is...")
         sleep(2)
-        for player in results:
+        for player in winners:
             self.view.write(player.name)
         self.view.write("")
+
+        return winners
 
     def run(self):
         self.view.write("Welcome to our game of Blackjack.")
@@ -66,13 +67,16 @@ class BlackjackTextController:
         continue_playing = True
         while continue_playing is True:
 
-            self.play_game()
+            winners = self.play_game()
 
             # reset game
             play_again = self.view.read("Play again? (y or n): ")
             continue_playing = play_again == 'y'
             if continue_playing:
-                self.game.reset_game()
+                self.game.reset_game(winners)
+                self.view.write("Player order now is...")
+                for player in self.game.players:
+                    self.view.write(player.name)
 
     def setup_user_player(self):
         name = self.view.read("Enter name: ")

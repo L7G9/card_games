@@ -2,7 +2,6 @@ from typing import Set
 
 from model.card_game import player
 from model.card_game.card import Card
-from model.card_game.card_group import CardGroup
 
 from model.blackjack.player_status import PlayerStatus
 
