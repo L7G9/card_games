@@ -8,9 +8,13 @@ class ActionSelector:
         self.high_target = high_target
 
     def should_stick(self, best_total: int, game_stats: GameStats) -> bool:
-        all_players_bust = game_stats.bust_count == game_stats.player_count
-        players_not_bust = game_stats.sticking_count+game_stats.waiting_count
-        most_players_not_bust = players_not_bust > game_stats.player_count/2
+        # remove current player from stats
+        player_count = game_stats.player_count - 1
+        waiting_count = game_stats.waiting_count - 1
+
+        all_players_bust = game_stats.bust_count == player_count
+        players_not_bust = game_stats.sticking_count + waiting_count
+        most_players_not_bust = players_not_bust > player_count/2
 
         if all_players_bust:
             return True
