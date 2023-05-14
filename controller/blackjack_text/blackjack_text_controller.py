@@ -23,21 +23,32 @@ class BlackjackTextController:
             active_player = self.game.players[self.game.active_player_index]
             self.game.send_actions(active_player)
 
-            self.view.write(active_player.hand.description())
-            for card in active_player.hand.cards:
-                self.view.write(card.description(True))
+            stick = False
+            if active_player.action_selector:
+                stick = active_player.action_selector.should_stick(
+                    active_player.best_total,
+                    self.game.game_stats
+                )
+            else:
+                self.view.write(active_player.hand.description())
+                for card in active_player.hand.cards:
+                    self.view.write(card.description(True))
+                chosen_action = self.view.read("Stick or Twist? (s or t): ")
+                if chosen_action == 's':
+                    stick = True
+                elif chosen_action == 'f':
+                    stick = False
 
-            chosen_action = self.view.read("Stick or Twist? (s or t): ")
-
-            if chosen_action == 's':
+            if stick:
                 self.view.write("%s sticks." % (active_player.name))
                 self.game.resolve_stick_action(active_player)
-
-            elif chosen_action == 't':
+            else:
                 self.view.write("%s twists." % (active_player.name))
                 self.game.resolve_twist_action(active_player)
                 if active_player.status == PlayerStatus.BUST:
                     self.view.write("%s goes bust." % (active_player.name))
+
+            sleep(2)
 
         # resolve game
         games_status, winners = self.game.resolve_game()
@@ -46,7 +57,9 @@ class BlackjackTextController:
         self.view.write("Game complete.")
         self.view.write("")
         for player in self.game.players:
-            self.view.write("%s has a total of %d with..." % (player.name, player.best_total))
+            self.view.write("%s has a total of %d with..." % (
+                player.name,
+                player.best_total))
             for card in player.hand.cards:
                 self.view.write(card.description(False))
             self.view.write("")
