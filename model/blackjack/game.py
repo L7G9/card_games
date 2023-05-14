@@ -3,6 +3,7 @@ import random
 from typing import Union
 
 from model.card_game.suit import Suit
+from model.card_game.card import Card
 from model.card_game.deck import Deck
 
 from model.blackjack.blackjack_value import BlackJackValue
@@ -10,6 +11,7 @@ from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
 from model.blackjack.game_status import GameStatus
 from model.blackjack.game_stats import GameStats
+from model.blackjack.action_selector import ActionSelector
 
 
 class Game:
@@ -19,9 +21,9 @@ class Game:
         self.name = name
         self.deck = Deck("Deck", BlackJackValue, Suit)
         self.players: list[Player] = [
-            Player(0, "Liz"),
-            Player(1, "Roger"),
-            Player(2, "Noriko")
+            Player(0, "Liz", ActionSelector(13, 15)),
+            Player(1, "Roger", ActionSelector(15, 19)),
+            Player(2, "Noriko", ActionSelector(17, 20))
         ]
         self.status = GameStatus.DEALING
         self.active_player_index: int = 0
@@ -71,11 +73,12 @@ class Game:
     def resolve_twist_action(
         self,
         player: Player,
-    ) -> GameStatus:
+    ) -> Union[GameStatus, Card]:
         if player != self.players[self.active_player_index]:
             return self.status
 
-        if player.twist(self.deck.cards.pop()) == PlayerStatus.BUST:
+        card = self.deck.cards.pop()
+        if player.twist(card) == PlayerStatus.BUST:
             self.active_player_index += 1
             self.game_stats.update(PlayerStatus.BUST)
 
@@ -84,7 +87,7 @@ class Game:
         else:
             self.status = GameStatus.SENDING_ACTIONS
 
-        return self.status
+        return self.status, card
 
     def resolve_game(self) -> Union[GameStatus, list[Player]]:
         winners = []
