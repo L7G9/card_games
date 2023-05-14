@@ -9,6 +9,13 @@ class GameStats:
         self.sticking_count = 0
         self.bust_count = 0
 
+    def description(self) -> str:
+        return ("Stats(players=%d, waiting=%d, sticking=%d, bust=%d)" % (
+                self.player_count,
+                self.waiting_count,
+                self.sticking_count,
+                self.bust_count))
+
     def update(self, player_status: PlayerStatus):
         self.waiting_count -= 1
         if player_status is PlayerStatus.STICK:
