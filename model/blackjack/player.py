@@ -4,6 +4,7 @@ from model.card_game import player
 from model.card_game.card import Card
 
 from model.blackjack.player_status import PlayerStatus
+from model.blackjack.action_selector import ActionSelector
 
 
 class Player(player.Player):
@@ -19,11 +20,14 @@ class Player(player.Player):
           the player's hand could add up to.
         best_total: An integer equal to the best total of the cards in the
           player's hand.
+        action_selector: An ActionSelector instance to choose if this player
+        should stick or twist.  Set for computer controlled players.
     """
     def __init__(
         self,
         id: int,
-        name: str
+        name: str,
+        action_selector: ActionSelector = None
     ):
         """Initializes instance
 
@@ -32,6 +36,7 @@ class Player(player.Player):
             name: A string for the player's name.
         """
         player.Player.__init__(self, id, name)
+        self.action_selector = action_selector
         self.status = PlayerStatus.WAITING_TO_PLAY
         self.totals = {0}
         self.best_total = 0
