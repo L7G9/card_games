@@ -1,5 +1,6 @@
 from time import sleep
 
+from model.card_game.card import Card
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
@@ -44,7 +45,11 @@ class BlackjackTextController:
                 self.game.resolve_stick_action(active_player)
             else:
                 self.view.write("%s twists." % (active_player.name))
-                self.game.resolve_twist_action(active_player)
+                player_status, card = self.game.resolve_twist_action(
+                    active_player
+                )
+                if active_player.action_selector is None:
+                    self.view.write("And draws %s." % (card.description(True)))
                 if active_player.status == PlayerStatus.BUST:
                     self.view.write("%s goes bust." % (active_player.name))
 
