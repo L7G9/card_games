@@ -9,6 +9,7 @@ from model.blackjack.blackjack_value import BlackJackValue
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
 from model.blackjack.game_status import GameStatus
+from model.blackjack.game_stats import GameStats
 
 
 class Game:
@@ -24,6 +25,7 @@ class Game:
         ]
         self.status = GameStatus.DEALING
         self.active_player_index: int = 0
+        self.game_stats: GameStats = None
 
     def deal(self):
         """"""
@@ -34,6 +36,7 @@ class Game:
 
         self.status = GameStatus.SENDING_ACTIONS
         self.active_player_index = 0
+        self.game_stats = GameStats(len(self.players))
 
         return self.status
 
@@ -56,6 +59,7 @@ class Game:
 
         player.stick()
         self.active_player_index += 1
+        self.game_stats.update(PlayerStatus.STICK)
 
         if self.active_player_index == len(self.players):
             self.status = GameStatus.RESOLVING
@@ -73,6 +77,7 @@ class Game:
 
         if player.twist(self.deck.cards.pop()) == PlayerStatus.BUST:
             self.active_player_index += 1
+            self.game_stats.update(PlayerStatus.BUST)
 
         if self.active_player_index == len(self.players):
             self.status = GameStatus.RESOLVING
