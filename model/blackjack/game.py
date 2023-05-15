@@ -20,36 +20,42 @@ class Game:
     def __init__(self, name: str):
         self.name = name
         self.deck = Deck("Deck", BlackJackValue, Suit)
-        self.players: list[Player] = [
-            Player(0, "Liz", ActionSelector(13, 15)),
-            Player(1, "Roger", ActionSelector(15, 19)),
-            Player(2, "Noriko", ActionSelector(17, 20))
-        ]
+
+        self.players: list[Player] = []
         self.status = GameStatus.DEALING
         self.active_player_index: int = 0
         self.game_stats: GameStats = None
 
-    def deal(self):
+    def deal(self) -> GameStatus:
         """"""
         self.deck.shuffle()
         for i in range(2):
             for player in self.players:
                 player.add_card(self.deck.cards.pop())
 
-        self.status = GameStatus.SENDING_ACTIONS
-        self.active_player_index = 0
+        self.active_player_index = -1
+
         self.game_stats = GameStats(len(self.players))
 
+        self.status = GameStatus.NEXT_PLAYER
         return self.status
 
-    def send_actions(self, player: Player):
+    def next_player(self) -> GameStatus:
+        self.active_player_index += 1
+
+        if self.active_player_index == len(self.players):
+            self.status = GameStatus.RESOLVING
+        else:
+            self.status = GameStatus.SENDING_ACTIONS
+        return self.status
+
+    def send_actions(self, player: Player) -> GameStatus:
         if player != self.players[self.active_player_index]:
             return self.status
 
         player.play()
 
         self.status = GameStatus.RECEIVING_ACTION
-
         return self.status
 
     def resolve_stick_action(
@@ -60,14 +66,9 @@ class Game:
             return self.status
 
         player.stick()
-        self.active_player_index += 1
         self.game_stats.update(PlayerStatus.STICK)
 
-        if self.active_player_index == len(self.players):
-            self.status = GameStatus.RESOLVING
-        else:
-            self.status = GameStatus.SENDING_ACTIONS
-
+        self.status = GameStatus.NEXT_PLAYER
         return self.status
 
     def resolve_twist_action(
@@ -79,11 +80,8 @@ class Game:
 
         card = self.deck.cards.pop()
         if player.twist(card) == PlayerStatus.BUST:
-            self.active_player_index += 1
+            self.status = GameStatus.NEXT_PLAYER
             self.game_stats.update(PlayerStatus.BUST)
-
-        if self.active_player_index == len(self.players):
-            self.status = GameStatus.RESOLVING
         else:
             self.status = GameStatus.SENDING_ACTIONS
 
@@ -103,8 +101,18 @@ class Game:
                     winners.append(player)
 
         self.status = GameStatus.RESETTING
-
         return self.status, winners
+
+    def reset_game(self, winners: list[Player]) -> GameStatus:
+        if winners is not None:
+            self.players = self.get_player_order(winners)
+
+        for player in self.players:
+            self.deck.return_cards(player.hand)
+            player.reset()
+
+        self.status = GameStatus.DEALING
+        return self.status
 
     def get_player_order(self, winners: list[Player]) -> list[Player]:
         # check for no winners
@@ -123,15 +131,3 @@ class Game:
             players.append(self.players[index])
 
         return players
-
-    def reset_game(self, winners: list[Player]) -> GameStatus:
-        if winners is not None:
-            self.players = self.get_player_order(winners)
-
-        for player in self.players:
-            self.deck.return_cards(player.hand)
-            player.reset()
-
-        self.status = GameStatus.DEALING
-
-        return self.status
