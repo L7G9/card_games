@@ -14,7 +14,7 @@ class ActionSelector:
         if high_target != 0:
             self.high_target = high_target
         else:
-            self.high_target = randint(low_target+1, 20)
+            self.high_target = randint(self.low_target+1, 20)
 
     def should_stick(self, best_total: int, game_stats: GameStats) -> bool:
         # remove current player from stats
