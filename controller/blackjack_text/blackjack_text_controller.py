@@ -1,6 +1,8 @@
 from time import sleep
 from os import system, name
 
+import inflect
+
 from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
@@ -43,6 +45,12 @@ class BlackjackTextController:
             continue_playing = play_again == 'y'
             if continue_playing:
                 self.reset_game(winners)
+            else:
+                self.clear()
+                print("Thankyou for playing.")
+                sleep(1)
+                for player in self.game.players:
+                    print("%s won %d games." % (player.name, player.win_count))
 
     def setup(self):
         player_name = input("Enter your name: ")
@@ -102,6 +110,13 @@ class BlackjackTextController:
                 )
                 if active_player.action_selector is None:
                     print("And draws %s." % (card.description(True)))
+                else:
+                    inflect_engine = inflect.engine()
+                    nth_card_drawn = inflect_engine.ordinal(
+                        len(active_player.hand.cards)-2
+                    )
+                    print("And draws %s card." % (nth_card_drawn))
+
                 if active_player.status == PlayerStatus.BUST:
                     print("%s goes bust." % (active_player.name))
 
@@ -121,7 +136,8 @@ class BlackjackTextController:
                 print("Went bust.")
             else:
                 print("Has a total of %d." % (player.best_total))
-            sleep(1)
+            sleep(3)
+            self.clear()
 
         if len(winners) == 0:
             print("No winners this round.")
@@ -135,7 +151,8 @@ class BlackjackTextController:
                 sleep(1)
                 print(player.name)
 
-        sleep(2)
+        sleep(3)
+        self.clear()
 
         return winners
 
@@ -146,7 +163,7 @@ class BlackjackTextController:
         for player in self.game.players:
             print(player.name)
 
-        sleep(2)
+        sleep(3)
         self.clear()
 
     def clear(self):
