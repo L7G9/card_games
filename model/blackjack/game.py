@@ -99,6 +99,9 @@ class Game:
                 elif player.best_total == best_total:
                     winners.append(player)
 
+        for player in winners:
+            player.win_count += 1
+
         self.status = GameStatus.RESETTING
         return self.status, winners
 
