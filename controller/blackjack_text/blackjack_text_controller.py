@@ -9,7 +9,7 @@ from model.blackjack.player_status import PlayerStatus
 
 
 class BlackjackTextController:
-    """Controller for BlackJackGame and TextView."""
+    """Controller for BlackJackGame and stdio."""
 
     names = [
         "Adam",
@@ -39,7 +39,7 @@ class BlackjackTextController:
 
             winners = self.resolve_game()
 
-            play_again = self.view.read("Play again? (y or n): ")
+            play_again = input("Play again? (y or n): ")
             continue_playing = play_again == 'y'
             if continue_playing:
                 self.reset_game(winners)
@@ -144,7 +144,7 @@ class BlackjackTextController:
         self.game.reset_game(winners)
         print("Player order now is...")
         for player in self.game.players:
-            self.view.write(player.name)
+            print(player.name)
 
         sleep(2)
         self.clear()
