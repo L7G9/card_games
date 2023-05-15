@@ -10,7 +10,8 @@ class GameStatus(Enum):
         return self.value
 
     DEALING = 0
-    SENDING_ACTIONS = 1
-    RECEIVING_ACTION = 2
-    RESOLVING = 3
-    RESETTING = 4
+    NEXT_PLAYER = 1
+    SENDING_ACTIONS = 2
+    RECEIVING_ACTION = 3
+    RESOLVING = 4
+    RESETTING = 5
