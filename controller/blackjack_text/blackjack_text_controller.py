@@ -1,5 +1,5 @@
 from time import sleep
-from os import system, name
+import os
 
 import inflect
 
@@ -167,7 +167,7 @@ class BlackjackTextController:
         self.clear()
 
     def clear(self):
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
-            _ = system('clear')
+            _ = os.system('clear')
