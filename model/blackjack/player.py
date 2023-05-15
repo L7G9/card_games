@@ -40,6 +40,7 @@ class Player(player.Player):
         self.status = PlayerStatus.WAITING_TO_PLAY
         self.totals = {0}
         self.best_total = 0
+        self.win_count = 0
 
     def play(self) -> PlayerStatus:
         if self.status != PlayerStatus.WAITING_TO_PLAY:
