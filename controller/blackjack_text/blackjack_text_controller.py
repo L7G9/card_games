@@ -84,22 +84,7 @@ class BlackjackTextController:
             print("It is %s's turn." % (active_player.name))
             self.game.send_actions(active_player)
 
-            stick = False
-            if active_player.action_selector:
-                stick = active_player.action_selector.should_stick(
-                    active_player.best_total,
-                    self.game.game_stats
-                )
-            else:
-                print(active_player.hand.description())
-                for card in active_player.hand.cards:
-                    print(card.description(True))
-                chosen_action = input("Stick or Twist? (s or t): ")
-                if chosen_action == 's':
-                    stick = True
-                elif chosen_action == 'f':
-                    stick = False
-
+            stick = self.stick_or_twist(active_player)
             if stick:
                 print("%s sticks." % (active_player.name))
                 self.game.resolve_stick_action(active_player)
@@ -122,6 +107,27 @@ class BlackjackTextController:
 
             sleep(2)
             self.clear()
+
+    def stick_or_twist(self, player) -> bool:
+        if player.action_selector:
+            return player.action_selector.should_stick(
+                player.best_total,
+                self.game.game_stats
+            )
+        else:
+            return self.user_stick_or_twist(player)
+
+    def user_stick_or_twist(self, player) -> bool:
+        print(player.hand.description())
+        for card in player.hand.cards:
+            print(card.description(True))
+
+        while True:
+            chosen_action = input("Stick or Twist? (s or t): ")
+            if chosen_action == 's':
+                return True
+            elif chosen_action == 't':
+                return False
 
     def resolve_game(self):
         print("Results.")
