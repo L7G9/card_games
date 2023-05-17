@@ -1,5 +1,4 @@
 from time import sleep
-import os
 
 import inflect
 
@@ -8,6 +7,9 @@ from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
 from model.blackjack.action_selector import ActionSelector
 from model.blackjack.player_status import PlayerStatus
+
+from view.text_view.text_view import get_option
+from view.text_view.text_view import clear_screen
 
 
 class BlackjackTextController:
@@ -29,7 +31,7 @@ class BlackjackTextController:
         self.game = Game("Blackjack")
 
     def run(self):
-        self.clear()
+        clear_screen()
         print("Welcome to our game of Blackjack.")
         sleep(1)
 
@@ -41,12 +43,12 @@ class BlackjackTextController:
 
             winners = self.resolve_game()
 
-            play_again = input("Play again? (y or n): ")
-            continue_playing = play_again == 'y'
+            play_again = get_option("Play again? (y or n): ", ["y", "n"])
+            continue_playing = play_again == "y"
             if continue_playing:
                 self.reset_game(winners)
             else:
-                self.clear()
+                clear_screen()
                 print("Thankyou for playing.")
                 sleep(1)
                 for player in self.game.players:
@@ -54,80 +56,100 @@ class BlackjackTextController:
 
     def setup(self):
         player_name = input("Enter your name: ")
-        other_count = int(input("Enter number of other players (3 to 9): "))
+        app_player_count = int(
+            get_option(
+                "Enter number of opponent players (3 to 9): ",
+                ["3", "4", "5", "6", "7", "8", "9"]
+            )
+        )
 
-        player = Player(0, player_name)
-        self.game.players.append(player)
-        for i in range(0, other_count):
-            player = Player(i+1, self.names[i], ActionSelector())
-            self.game.players.append(player)
+        user_player = Player(0, player_name)
+        self.game.players.append(user_player)
+        for i in range(0, app_player_count):
+            app_player = Player(i+1, self.names[i], ActionSelector())
+            self.game.players.append(app_player)
 
         print("Our players are...")
         for player in self.game.players:
             print(player.name)
 
         sleep(2)
-        self.clear()
+        clear_screen()
 
     def play_game(self):
         print("Dealing.")
         self.game.deal()
         sleep(1)
-        self.clear()
+        clear_screen()
 
         while self.game.next_player() != GameStatus.RESOLVING:
-            active_player = self.game.players[self.game.active_player_index]
-            self.player_turn(active_player)
+            player = self.game.players[self.game.active_player_index]
+            self.player_turn(player)
 
-    def player_turn(self, active_player):
+    def player_turn(self, player):
         while self.game.status != GameStatus.NEXT_PLAYER:
-            print("It is %s's turn." % (active_player.name))
-            self.game.send_actions(active_player)
+            print("It is %s's turn." % (player.name))
+            self.game.send_actions(player)
 
-            stick = self.player_sticks(active_player)
-            if stick:
-                print("%s sticks." % (active_player.name))
-                self.game.resolve_stick_action(active_player)
+            if player.user_controlled():
+                self.user_player_actions(player)
             else:
-                print("%s twists." % (active_player.name))
-                player_status, card = self.game.resolve_twist_action(
-                    active_player
-                )
-                if active_player.action_selector is None:
-                    print("And draws %s." % (card.description(True)))
-                else:
-                    inflect_engine = inflect.engine()
-                    nth_card_drawn = inflect_engine.ordinal(
-                        len(active_player.hand.cards)-2
-                    )
-                    print("And draws %s card." % (nth_card_drawn))
-
-                if active_player.status == PlayerStatus.BUST:
-                    print("%s goes bust." % (active_player.name))
+                self.app_player_actions(player)
 
             sleep(2)
-            self.clear()
+            clear_screen()
 
-    def player_sticks(self, player) -> bool:
-        if player.action_selector:
-            return player.action_selector.should_stick(
-                player.best_total,
-                self.game.game_stats
-            )
-        else:
-            return self.user_sticks(player)
-
-    def user_sticks(self, player) -> bool:
+    def user_player_actions(self, player):
+        # display player's hand
         print(player.hand.description())
         for card in player.hand.cards:
             print(card.description(True))
 
-        while True:
-            chosen_action = input("Stick or Twist? (s or t): ")
-            if chosen_action == 's':
-                return True
-            elif chosen_action == 't':
-                return False
+        # get stick or twist option
+        option = get_option("Stick or Twist? (s or t): ", ["s", "t"])
+        sticking = option == "s"
+
+        if sticking:
+            # resolve stick action
+            print("%s sticks." % (player.name))
+            self.game.resolve_stick_action(player)
+        else:
+            # resolve twist action
+            print("%s twists." % (player.name))
+            game_status, card = self.game.resolve_twist_action(player)
+
+            # feedback
+            print("And draws %s." % (card.description(True)))
+            if player.status == PlayerStatus.BUST:
+                print("%s goes bust." % (player.name))
+
+    def app_player_actions(self, player):
+        # display count of cards in player's hand
+        print(player.hand.description())
+
+        # get stick or twist option
+        sticking = player.action_selector.should_stick(
+            player.best_total,
+            self.game.game_stats
+        )
+
+        if sticking:
+            # resolve stick action
+            print("%s sticks." % (player.name))
+            self.game.resolve_stick_action(player)
+        else:
+            # resolve twist action
+            print("%s twists." % (player.name))
+            game_status, card = self.game.resolve_twist_action(player)
+
+            # feedback
+            inflect_engine = inflect.engine()
+            nth_card_drawn = inflect_engine.ordinal(
+                len(player.hand.cards)-2
+            )
+            print("And draws %s card." % (nth_card_drawn))
+            if player.status == PlayerStatus.BUST:
+                print("%s goes bust." % (player.name))
 
     def resolve_game(self):
         print("Results.")
@@ -143,7 +165,7 @@ class BlackjackTextController:
             else:
                 print("Has a total of %d." % (player.best_total))
             sleep(3)
-            self.clear()
+            clear_screen()
 
         if len(winners) == 0:
             print("No winners this round.")
@@ -158,7 +180,7 @@ class BlackjackTextController:
                 print(player.name)
 
         sleep(3)
-        self.clear()
+        clear_screen()
 
         return winners
 
@@ -170,10 +192,4 @@ class BlackjackTextController:
             print(player.name)
 
         sleep(3)
-        self.clear()
-
-    def clear(self):
-        if os.name == 'nt':
-            _ = os.system('cls')
-        else:
-            _ = os.system('clear')
+        clear_screen()
