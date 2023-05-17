@@ -49,7 +49,8 @@ class Player(player.Player):
         return self.action_selector is not None
 
     def play(self) -> PlayerStatus:
-        if self.status != PlayerStatus.WAITING_TO_PLAY:
+        if (self.status != PlayerStatus.WAITING_TO_PLAY
+           or self.status != PlayerStatus.DECIDING_ACTION):
             return self.status
 
         self.status = PlayerStatus.DECIDING_ACTION

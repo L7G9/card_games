@@ -16,6 +16,5 @@ class PlayerStatus(Enum):
 
     WAITING_TO_PLAY = 0
     DECIDING_ACTION = 1
-    WAITING_FOR_CARD = 2
-    STICK = 3
-    BUST = 4
+    STICK = 2
+    BUST = 3
