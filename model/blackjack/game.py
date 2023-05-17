@@ -36,16 +36,16 @@ class Game:
 
         self.game_stats = GameStats(len(self.players))
 
-        self.status = GameStatus.NEXT_PLAYER
+        self.status = GameStatus.STARTING_PLAYER
         return self.status
 
     def next_player(self) -> GameStatus:
         self.active_player_index += 1
 
         if self.active_player_index == len(self.players):
-            self.status = GameStatus.RESOLVING
+            self.status = GameStatus.RESOLVING_GAME
         else:
-            self.status = GameStatus.SENDING_ACTIONS
+            self.status = GameStatus.GETTING_PLAYER_ACTION
         return self.status
 
     def start_turn(self, player: Player) -> GameStatus:
@@ -54,7 +54,7 @@ class Game:
 
         player.play()
 
-        self.status = GameStatus.RECEIVING_ACTION
+        self.status = GameStatus.RESOLVING_PLAYER_ACTION
         return self.status
 
     def resolve_stick_action(
@@ -67,7 +67,7 @@ class Game:
         player.stick()
         self.game_stats.update(PlayerStatus.STICK)
 
-        self.status = GameStatus.NEXT_PLAYER
+        self.status = GameStatus.STARTING_PLAYER
         return self.status
 
     def resolve_twist_action(
@@ -79,11 +79,10 @@ class Game:
 
         card = self.deck.cards.pop()
         if player.twist(card) == PlayerStatus.BUST:
-            self.status = GameStatus.NEXT_PLAYER
+            self.status = GameStatus.STARTING_PLAYER
             self.game_stats.update(PlayerStatus.BUST)
         else:
-            self.status = GameStatus.SENDING_ACTIONS
-
+            self.status = GameStatus.GETTING_PLAYER_ACTION
         return self.status, card
 
     def resolve_game(self) -> Union[GameStatus, list[Player]]:
@@ -102,7 +101,7 @@ class Game:
         for player in winners:
             player.win_count += 1
 
-        self.status = GameStatus.RESETTING
+        self.status = GameStatus.RESETTING_GAME
         return self.status, winners
 
     def reset_game(self, winners: list[Player]) -> GameStatus:

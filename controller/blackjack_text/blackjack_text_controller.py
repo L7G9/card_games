@@ -27,13 +27,17 @@ class BlackjackTextController:
         "Jake"
     ]
 
+    SHORT_PAUSE = 1
+    MEDIUM_PAUSE = 3
+    LONG_PAUSE = 5
+
     def __init__(self):
         self.game = Game("Blackjack")
 
     def run(self):
         clear_screen()
         print("Welcome to our game of Blackjack.")
-        sleep(1)
+        sleep(self.SHORT_PAUSE)
 
         self.setup()
 
@@ -50,7 +54,7 @@ class BlackjackTextController:
             else:
                 clear_screen()
                 print("Thankyou for playing.")
-                sleep(1)
+                sleep(self.SHORT_PAUSE)
                 for player in self.game.players:
                     print("%s won %d games." % (player.name, player.win_count))
 
@@ -71,23 +75,24 @@ class BlackjackTextController:
 
         print("Our players are...")
         for player in self.game.players:
+            sleep(self.SHORT_PAUSE)
             print(player.name)
 
-        sleep(2)
+        sleep(self.MEDIUM_PAUSE)
         clear_screen()
 
     def play_game(self):
         print("Dealing.")
         self.game.deal()
-        sleep(1)
+        sleep(self.SHORT_PAUSE)
         clear_screen()
 
-        while self.game.next_player() != GameStatus.RESOLVING:
+        while self.game.next_player() != GameStatus.RESOLVING_GAME:
             player = self.game.players[self.game.active_player_index]
             self.player_turn(player)
 
     def player_turn(self, player):
-        while self.game.status != GameStatus.NEXT_PLAYER:
+        while self.game.status != GameStatus.STARTING_PLAYER:
             print("It is %s's turn." % (player.name))
             self.game.start_turn(player)
 
@@ -96,7 +101,7 @@ class BlackjackTextController:
             else:
                 self.app_player_actions(player)
 
-            sleep(2)
+            sleep(self.MEDIUM_PAUSE)
             clear_screen()
 
     def user_player_actions(self, player):
@@ -164,22 +169,22 @@ class BlackjackTextController:
                 print("Went bust.")
             else:
                 print("Has a total of %d." % (player.best_total))
-            sleep(3)
+            sleep(self.MEDIUM_PAUSE)
             clear_screen()
 
         if len(winners) == 0:
             print("No winners this round.")
         elif len(winners) == 1:
             print("The winner of this round is...")
-            sleep(1)
+            sleep(self.SHORT_PAUSE)
             print(winners[0].name)
         else:
             print("The winners of this round are...")
             for player in winners:
-                sleep(1)
+                sleep(self.SHORT_PAUSE)
                 print(player.name)
 
-        sleep(3)
+        sleep(self.LONG_PAUSE)
         clear_screen()
 
         return winners
@@ -189,7 +194,8 @@ class BlackjackTextController:
         self.game.reset_game(winners)
         print("Player order now is...")
         for player in self.game.players:
+            sleep(self.SHORT_PAUSE)
             print(player.name)
 
-        sleep(3)
+        sleep(self.LONG_PAUSE)
         clear_screen()
