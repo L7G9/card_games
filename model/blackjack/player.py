@@ -50,7 +50,7 @@ class Player(player.Player):
 
     def play(self) -> PlayerStatus:
         if (self.status != PlayerStatus.WAITING_TO_PLAY
-           or self.status != PlayerStatus.DECIDING_ACTION):
+           and self.status != PlayerStatus.DECIDING_ACTION):
             return self.status
 
         self.status = PlayerStatus.DECIDING_ACTION
