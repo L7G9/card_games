@@ -48,7 +48,7 @@ class Game:
             self.status = GameStatus.SENDING_ACTIONS
         return self.status
 
-    def send_actions(self, player: Player) -> GameStatus:
+    def start_turn(self, player: Player) -> GameStatus:
         if player != self.players[self.active_player_index]:
             return self.status
 

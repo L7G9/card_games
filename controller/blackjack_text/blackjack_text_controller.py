@@ -89,7 +89,7 @@ class BlackjackTextController:
     def player_turn(self, player):
         while self.game.status != GameStatus.NEXT_PLAYER:
             print("It is %s's turn." % (player.name))
-            self.game.send_actions(player)
+            self.game.start_turn(player)
 
             if player.user_controlled():
                 self.user_player_actions(player)
