@@ -1,9 +1,18 @@
-class TextView:
-    """A simple view to read and write using stdin and stdout."""
-    def read(self, prompt: str) -> str:
-        """Promt user for input."""
-        return input(prompt)
+import os
 
-    def write(self, line: str):
-        """Write a line."""
-        print(line)
+
+def get_option(prompt: str, options: list[str]) -> str:
+    result = None
+    valid_input = False
+    while not valid_input:
+        result = input(prompt)
+        if result in options:
+            valid_input = True
+    return result
+
+
+def clear_screen():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
