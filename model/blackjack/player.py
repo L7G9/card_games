@@ -42,6 +42,12 @@ class Player(player.Player):
         self.best_total = 0
         self.win_count = 0
 
+    def user_controlled(self) -> bool:
+        return self.action_selector is None
+
+    def app_controlled(self) -> bool:
+        return self.action_selector is not None
+
     def play(self) -> PlayerStatus:
         if self.status != PlayerStatus.WAITING_TO_PLAY:
             return self.status
