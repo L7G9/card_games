@@ -32,8 +32,8 @@ class Deck(CardGroup):
             suits: An Enumeration of the card suits in the deck.
         """
         for value in values:
-                for suit in suits:
-                        self.cards.append(Card(value, suit))
+            for suit in suits:
+                self.cards.append(Card(value, suit))
 
     def deal(self, number_of_cards: int, players: list[Player]):
         """Deal Cards from this Deck.
@@ -64,29 +64,3 @@ class Deck(CardGroup):
             card.face_up = False
             self.cards.append(card)
         card_group.cards = []
-
-if __name__ == '__main__':
-    deck = Deck("Deck", Value, Suit)
-    deck.shuffle()
-    print(deck.description())
-    for card in deck.cards:
-        print(card.description(True))
-
-    players = [
-        Player(1, "John", CardGroup("John's hand")),
-        Player(2, "Jane", CardGroup("Jane's hand")),
-        Player(3, "Jack", CardGroup("Jack's hand")),
-    ]
-
-    deck.deal(5, players)
-    for player in players:
-        print(player.hand.description())
-        for card in player.hand.cards:
-            print(card.description(True))
-
-    for player in players:
-        deck.return_cards(player.hand)
-
-    print(deck.description())
-    for player in players:
-        print(player.hand.description())
