@@ -86,6 +86,15 @@ class Game:
         return self.status, card
 
     def resolve_game(self) -> Union[GameStatus, list[Player]]:
+        winners = self.get_winners()
+
+        for player in winners:
+            player.win_count += 1
+
+        self.status = GameStatus.RESETTING_GAME
+        return self.status, winners
+
+    def get_winners(self) -> list[Player]:
         winners = []
         best_total = 0
 
@@ -98,11 +107,7 @@ class Game:
                 elif player.best_total == best_total:
                     winners.append(player)
 
-        for player in winners:
-            player.win_count += 1
-
-        self.status = GameStatus.RESETTING_GAME
-        return self.status, winners
+        return winners
 
     def reset_game(self, winners: list[Player]) -> GameStatus:
         if winners is not None:
