@@ -15,37 +15,58 @@ from model.blackjack.game_stats import GameStats
 @pytest.fixture(scope="class")
 def new_game():
     game = Game("New Test Game")
-    game.players.append(Player(0, "Test Player 1"))
-    game.players.append(Player(1, "Test Player 2"))
-    game.players.append(Player(2, "Test Player 3"))
-    game.players.append(Player(3, "Test Player 4"))
+    game.players.append(Player(0, "Test Player 0"))
+    game.players.append(Player(1, "Test Player 1"))
+    game.players.append(Player(2, "Test Player 2"))
+    game.players.append(Player(3, "Test Player 3"))
     return game
+
+
+# player who twists then sticks
+@pytest.fixture(scope="class")
+def twist_and_stick_player():
+    player = Player(0, "Test Player 0")
+    player.add_card(Card(Value.TWO, Suit.CLUBS))
+    player.add_card(Card(Value.THREE, Suit.CLUBS))
+    return player
+
+
+# player who twists and goes bust
+@pytest.fixture(scope="class")
+def twist_and_bust_player():
+    player = Player(1, "Test Player 1")
+    player.add_card(Card(Value.QUEEN, Suit.CLUBS))
+    player.add_card(Card(Value.KING, Suit.CLUBS))
+    return player
+
+
+# player with the winning hand
+@pytest.fixture(scope="class")
+def winner_player():
+    player = Player(2, "Test Player 2")
+    player.add_card(Card(Value.ACE, Suit.CLUBS))
+    player.add_card(Card(Value.TEN, Suit.CLUBS))
+    player.play()
+    player.stick()
+    return player
 
 
 # an in progress game for testing player actions and end of game events
 @pytest.fixture(scope="class")
-def in_progress_game():
+def in_progress_game(
+    twist_and_stick_player,
+    twist_and_bust_player,
+    winner_player
+):
     game = Game("In Progress Test Game")
     game.deck.cards.clear()
 
-    # player for twists then sticks
-    player0 = Player(0, "Test Player 0 - stick 9")
-    game.players.append(player0)
-
-    # player who twists and goes bust
-    player1 = Player(1, "Test Player 1 - bust 30")
-    game.players.append(player1)
-
-    # player with winning hand
-    player2 = Player(2, "Test Player 2 - winner 21")
-    player2.add_card(Card(Value.ACE, Suit.CLUBS))
-    player2.add_card(Card(Value.TEN, Suit.CLUBS))
-    player2.play()
-    player2.stick()
-    game.players.append(player2)
+    game.players.append(twist_and_stick_player)
+    game.players.append(twist_and_bust_player)
+    game.players.append(winner_player)
 
     # player with a non-winning hand
-    player3 = Player(3, "Test Player 3 - stick 17")
+    player3 = Player(3, "Test Player 3")
     player3.add_card(Card(Value.EIGHT, Suit.CLUBS))
     player3.add_card(Card(Value.NINE, Suit.CLUBS))
     player3.play()
@@ -59,7 +80,12 @@ def in_progress_game():
     return game
 
 
-@pytest.mark.usefixtures("new_game", "in_progress_game")
+@pytest.mark.usefixtures(
+    "new_game",
+    "in_progress_game",
+    "twist_and_stick_player",
+    "twist_and_bust_player",
+    "winner_player")
 class TestGameClass:
     # deal cards to players
     def test_deal(self, new_game):
@@ -82,72 +108,76 @@ class TestGameClass:
         assert player.status == PlayerStatus.DECIDING_ACTION
 
     # player twists and does not so bust
-    def test_resolve_twist_action_not_bust(self, in_progress_game):
+    def test_resolve_twist_action_not_bust(
+            self,
+            in_progress_game,
+            twist_and_stick_player
+    ):
         # set up deck
         card_from_deck = Card(Value.FOUR, Suit.CLUBS)
         in_progress_game.deck.cards.append(card_from_deck)
 
-        # set up players hand
-        player = in_progress_game.players[0]
-        player.add_card(Card(Value.TWO, Suit.CLUBS))
-        player.add_card(Card(Value.THREE, Suit.CLUBS))
-
         # set game and player status'
         in_progress_game.status = GameStatus.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 0
-        player.status = PlayerStatus.DECIDING_ACTION
+        twist_and_stick_player.status = PlayerStatus.DECIDING_ACTION
 
         # resolve twist action
-        game_status, card = in_progress_game.resolve_twist_action(player)
+        game_status, card = in_progress_game.resolve_twist_action(
+            twist_and_stick_player
+        )
 
         # check results
         assert game_status == GameStatus.GETTING_PLAYER_ACTION
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
-        assert player.status == PlayerStatus.DECIDING_ACTION
-        assert card_from_deck in player.hand.cards
-        assert player.best_total == 9
+        assert twist_and_stick_player.status == PlayerStatus.DECIDING_ACTION
+        assert card_from_deck in twist_and_stick_player.hand.cards
+        assert twist_and_stick_player.best_total == (2 + 3 + 4)
 
     # player sticks
-    def test_resolve_stick_action(self, in_progress_game):
-        # Set up done be previous test
-        player = in_progress_game.players[0]
-
+    def test_resolve_stick_action(
+        self,
+        in_progress_game,
+        twist_and_stick_player
+    ):
         # resolve twist action
-        game_status = in_progress_game.resolve_stick_action(player)
+        game_status = in_progress_game.resolve_stick_action(
+            twist_and_stick_player
+        )
 
         # check results
         assert game_status == GameStatus.STARTING_PLAYER
-        assert player.status == PlayerStatus.STICK
+        assert twist_and_stick_player.status == PlayerStatus.STICK
 
     # player twists and goes bust
-    def test_resolve_twist_action_bust(self, in_progress_game):
+    def test_resolve_twist_action_bust(
+        self, in_progress_game,
+        twist_and_bust_player
+    ):
         # set up deck
         card_from_deck = Card(Value.JACK, Suit.CLUBS)
         in_progress_game.deck.cards.append(card_from_deck)
 
-        # set up players hand
-        player = in_progress_game.players[1]
-        player.add_card(Card(Value.QUEEN, Suit.CLUBS))
-        player.add_card(Card(Value.KING, Suit.CLUBS))
-
         # set game and player status'
         in_progress_game.status = GameStatus.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 1
-        player.status = PlayerStatus.DECIDING_ACTION
+        twist_and_bust_player.status = PlayerStatus.DECIDING_ACTION
 
         # resolve twist action
-        game_status, card = in_progress_game.resolve_twist_action(player)
+        game_status, card = in_progress_game.resolve_twist_action(
+            twist_and_bust_player
+        )
 
         # check results
         assert game_status == GameStatus.STARTING_PLAYER
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
-        assert player.status == PlayerStatus.BUST
-        assert card_from_deck in player.hand.cards
-        assert player.best_total == 30
+        assert twist_and_bust_player.status == PlayerStatus.BUST
+        assert card_from_deck in twist_and_bust_player.hand.cards
+        assert twist_and_bust_player.best_total == (10 + 10 + 10)
 
     # get next player after all players have finished
     def test_next_player_no_more_players(self, in_progress_game):
@@ -155,11 +185,11 @@ class TestGameClass:
         assert in_progress_game.next_player() == GameStatus.RESOLVING_GAME
 
     # resolve game ready to report winners
-    def test_resolve_game(self, in_progress_game):
+    def test_resolve_game(self, in_progress_game, winner_player):
         """Test that winner is found when game is resolved."""
         game_status, winners = in_progress_game.resolve_game()
         assert game_status == GameStatus.RESETTING_GAME
-        assert winners[0] == in_progress_game.players[2]
+        assert winners[0] == winner_player
 
     # get new playing order for players based on winner
     def test_get_player_order(self, in_progress_game):
