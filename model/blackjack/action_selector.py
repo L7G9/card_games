@@ -5,13 +5,13 @@ from model.blackjack.game_stats import GameStats
 
 class ActionSelector:
     """Decide if a player should stick or twist."""
-    def __init__(self, low_target: int = 0, high_target: int = 0):
-        if low_target != 0:
+    def __init__(self, low_target: int = None, high_target: int = None):
+        if low_target is not None:
             self.low_target = low_target
         else:
             self.low_target = randint(12, 18)
 
-        if high_target != 0:
+        if high_target is not None:
             self.high_target = high_target
         else:
             self.high_target = randint(self.low_target+1, 20)
