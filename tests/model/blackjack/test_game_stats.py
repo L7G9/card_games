@@ -3,6 +3,7 @@ import pytest
 from model.blackjack.game_stats import GameStats
 from model.blackjack.player_status import PlayerStatus
 
+
 @pytest.fixture(scope="function")
 def game_stats():
     return GameStats(4)
