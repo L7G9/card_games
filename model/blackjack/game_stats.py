@@ -17,11 +17,12 @@ class GameStats:
                 self.bust_count))
 
     def update(self, player_status: PlayerStatus):
-        self.waiting_count -= 1
         if player_status is PlayerStatus.STICK:
             self.sticking_count += 1
-        if player_status is PlayerStatus.BUST:
+            self.waiting_count -= 1
+        elif player_status is PlayerStatus.BUST:
             self.bust_count += 1
+            self.waiting_count -= 1
 
     def reset(self):
         self.waiting_count = self.player_count
