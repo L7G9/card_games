@@ -9,19 +9,17 @@ class Value(Enum):
         value: An integer unique to each member in this enumeration.
     """
     def __str__(self) -> str:
+        """Return name as a display friendly string."""
         return self.name.capitalize()
-
-    def __int__(self) -> int:
-        return self.game_value()
 
     def game_value(self) -> int:
         """The value of Card when calculating the total of a player's hand.
 
         Picture cards (values 11, 12 & 13) have a game value of 10.
-        All other cards have a game value equal to thier enumeration value.
+        All other cards have a game value equal to their enumeration value.
 
         returns:
-            An integer equal to the value of the card in Blackjack.  None id card just one game value.
+            An integer equal to the value of the card in Blackjack.
         """
         if self.value > 10:
             return 10
@@ -29,14 +27,17 @@ class Value(Enum):
             return self.value
 
     def alt_game_value(self) -> int:
-        """The alternate value of Card when calculating the total od a player's hand.
+        """The alternate game value of Card when calculating the total of a
+        player's hand.
 
-	Aces can have a game value of 1 or 11.
+        Aces can have a game value of 1 or 11.
         All other cards only have one game value.
 
         returns:
-            An integer equal to the alternate game value of the card in Blackjack.
-	"""
+            An integer equal to the alternate game value of the card in
+            Blackjack.  Returns None when card is not an Ace and has no
+            alternate game value.
+        """
         if self.value == 1:
             return 11
         else:
