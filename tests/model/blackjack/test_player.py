@@ -4,7 +4,7 @@ from model.card_game.card import Card
 from model.card_game.suit import Suit
 
 from model.blackjack.player import Player
-from model.blackjack.blackjack_value import BlackJackValue as Value
+from model.blackjack.value import Value as Value
 from model.blackjack.player_status import PlayerStatus
 
 

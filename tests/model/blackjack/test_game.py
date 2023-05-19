@@ -7,7 +7,7 @@ from model.blackjack.game import Game
 from model.blackjack.game_status import GameStatus
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
-from model.blackjack.blackjack_value import BlackJackValue as Value
+from model.blackjack.value import Value as Value
 from model.blackjack.game_stats import GameStats
 
 

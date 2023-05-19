@@ -6,7 +6,7 @@ from model.card_game.suit import Suit
 from model.card_game.card import Card
 from model.card_game.deck import Deck
 
-from model.blackjack.blackjack_value import BlackJackValue
+from model.blackjack.value import Value
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
 from model.blackjack.game_status import GameStatus
@@ -18,7 +18,7 @@ class Game:
 
     def __init__(self, name: str):
         self.name = name
-        self.deck = Deck("Deck", BlackJackValue, Suit)
+        self.deck = Deck("Deck", Value, Suit)
 
         self.players: list[Player] = []
         self.status = GameStatus.DEALING

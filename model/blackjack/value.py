@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class BlackJackValue(Enum):
+class Value(Enum):
     """Values of the playing cards in a game of BlackJack.
 
     Attributes:
