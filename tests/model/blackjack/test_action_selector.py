@@ -10,7 +10,7 @@ def action_selector():
     return ActionSelector(12, 18)
 
 
-class TestGameStats:
+class TestActionSelector:
     # all players bust
     def test_should_stick_all_bust(self, action_selector):
         # all three of the other players are bust
