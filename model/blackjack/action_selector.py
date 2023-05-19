@@ -19,7 +19,7 @@ class ActionSelector:
     def should_stick(self, best_total: int, game_stats: GameStats) -> bool:
         # remove current player from stats
         player_count = game_stats.player_count - 1
-        waiting_count = game_stats.waiting_count - 1
+        waiting_count = game_stats.unfinished_count - 1
 
         all_players_bust = game_stats.bust_count == player_count
         players_not_bust = game_stats.sticking_count + waiting_count
