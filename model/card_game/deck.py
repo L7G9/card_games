@@ -11,10 +11,19 @@ class Deck(CardGroup):
     A deck of cards with no jokers.
 
     Attributes:
-        cards: A list of Card objects.
-        name: A name describing this card card group.
+        cards: A list of Card instances.
+        name: A name describing this deck.
     """
     def __init__(self, name: str, values: Value, suits: Suit):
+        """Initializes instance.
+
+        Adds one standard set of 52 cards to this deck.
+
+        Args:
+            name: A string for the player's name.
+            values: Value enumeration of card values.
+            suits: Suit enumeration of card suits.
+        """
         CardGroup.__init__(self, name)
         self.add_deck(values, suits)
 
@@ -23,9 +32,10 @@ class Deck(CardGroup):
         values: Value,
         suits: Suit
     ):
-        """Fill CardGroup with a whole deck of Cards.
+        """Add deck of Cards.
 
-        Creates all the Card objects for one standard deck of cards.
+        Creates all the Card objects for one standard deck of cards and adds
+        it to this deck.  Can be used multiple times for larger deck sizes.
 
         Args:
             values: An Enumeration of the card values in the deck.
@@ -43,8 +53,8 @@ class Deck(CardGroup):
         Cards.
 
         Args:
-            number_of_cards: An int for the number of card each CardGroup
-            should receive.
+            number_of_cards: An integer equal to the number of cards each
+            Player's hand should receive.
             players: A list of Players to receive the cards.
         """
         for card_count in range(0, number_of_cards):

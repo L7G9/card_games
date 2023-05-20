@@ -4,6 +4,9 @@ from enum import Enum
 class Value(Enum):
     """Enumeration class for the value of a playing card.
 
+    Values for cards in a standard deck of cards where Aces are worth 1 and
+    Kings are worth 13.
+
     Attributes:
         name: A string for the name of the card from Ace to King.
         value: An integer unique to this Card in the Enumeration.
@@ -17,7 +20,7 @@ class Value(Enum):
     def game_value(self):
         """Returns the Value of the Card for the Game it is part of.
 
-        Override this method to implement ace high or picture cards worth 10
+        Edit this method to implement ace high or picture cards worth 10
         for example.
 
         Returns:

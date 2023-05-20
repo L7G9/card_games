@@ -10,10 +10,15 @@ class CardGroup:
     dealt from, a player's hand or the discard pile.
 
     Attributes:
-        name: A name describing this card card group.
-        cards: a list of Card objects.
+        name: A string describing this card group.
+        cards: A list of Card instances.
     """
     def __init__(self, name: str):
+        """Initializes instance.
+
+        Args:
+            name: A string to set the name of card group.
+        """
         self.name = name
         self.cards: list[Card] = []
 

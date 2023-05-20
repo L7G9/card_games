@@ -11,11 +11,20 @@ class Card:
         face_up: A boolean set to True if the card is face up.
     """
     def __init__(self, value: Value, suit: Suit, face_up: bool = False):
+        """Initializes instance.
+
+        Args:
+            value: A member from a Value enumeration.
+            suit: A member from a Suit enumeration.
+            face_up: A boolean set to True when the card is face up and
+              visible to all players.  False by default.
+        """
         self.value = value
         self.suit = suit
         self.face_up = face_up
 
     def __str__(self) -> str:
+        """Return description of the Card, value & suit or face down card."""
         return self.description(False)
 
     def description(self, ignore_face_up: bool) -> str:
