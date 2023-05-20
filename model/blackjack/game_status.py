@@ -2,7 +2,12 @@ from enum import Enum
 
 
 class GameStatus(Enum):
-    """Enumeration class for the status of a game of blackjack."""
+    """Status of a blackjack game.
+
+    Attributes:
+        name: A string for the status of the game.
+        value: An integer unique to each member in this enumeration.
+    """
     def __str__(self) -> str:
         return self.name
 
