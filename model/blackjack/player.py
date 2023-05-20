@@ -43,12 +43,22 @@ class Player(player.Player):
         self.win_count = 0
 
     def user_controlled(self) -> bool:
+        """Return True if player is user controlled."""
         return self.action_selector is None
 
     def app_controlled(self) -> bool:
+        """Return True if player is app controlled with an ActionSelector."""
         return self.action_selector is not None
 
     def play(self) -> PlayerStatus:
+        """Play - player start to or continues their turn.
+
+        Can only be taken when player status is WAITING_TO_PLAY or
+        DECIDING_ACTION.
+
+        Returns:
+            The new PlayerStatus, DECIDING_ACTION.
+        """
         if (self.status != PlayerStatus.WAITING_TO_PLAY
            and self.status != PlayerStatus.DECIDING_ACTION):
             return self.status
@@ -63,7 +73,7 @@ class Player(player.Player):
         Can only be taken when player status is SELECTING_ACTION.
 
         Returns:
-            The new PlayerStatus after taking this action, SICK.
+            The new PlayerStatus after taking this action, STICK.
         """
         if self.status != PlayerStatus.DECIDING_ACTION:
             return self.status
