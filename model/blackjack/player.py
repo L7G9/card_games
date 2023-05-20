@@ -29,7 +29,7 @@ class Player(player.Player):
         name: str,
         action_selector: ActionSelector = None
     ):
-        """Initializes instance
+        """Initializes instance.
 
         Args:
             id: An unique integer id.
