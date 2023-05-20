@@ -95,7 +95,8 @@ class Game:
 
         Returns:
             The GameStatus after this method has been executed.
-              GameStatus.GETTING_PLAYER_ACTION when there are more players to go.
+              GameStatus.GETTING_PLAYER_ACTION when players are waiting to
+              play.
               GameStatus.RESOLVING_GAME when all players have been.
         """
         # TODO: check game status
