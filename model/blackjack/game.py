@@ -16,6 +16,21 @@ from model.blackjack.game_stats import GameStats
 class Game:
     """A Game of Blackjack.
 
+    Contains a set of methods to be called in order to progress through a
+    simplified game of Blackjack with the following rules...
+    - There is a single deck of 52 standard playing cards.
+    - Aces can be worth 1 or 11, picture cards (Jacks, Queens & Kings) are
+      worth 10, all other cards are worth their face value.
+    - Each player is dealt 2 cards face down.
+    - The dealer does not play a hand.
+    - Each player has a turn in which they can draw a card by choosing to
+      twist or end their turn by choosing to stick.  After choosing to
+      twist, if they don't have a total value in their hand equal to under
+      21 they go bust.
+    - After all players have had a turn they reveal their cards.  The players
+      with the highest total under or equal to 21 win.
+    - The next time the game is played
+
     Attributes:
         name: A string describing this game's name.
         deck: A Deck instance representing the cards to be dealt to players in
