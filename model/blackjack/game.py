@@ -9,7 +9,7 @@ from model.card_game.deck import Deck
 from model.blackjack.value import Value
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
-from model.blackjack.game_status import GameStatus
+from model.blackjack.game_state import GameState
 from model.blackjack.game_stats import GameStats
 
 
@@ -37,7 +37,7 @@ class Game:
         this game.
         players: A list of Player instances representing the players in this
         game, what cards are in their hands and their status'.
-        status: A GameStatus for the current status of this game.
+        status: A GameState for the current status of this game.
         active_player_index: An integer holding the index of the Player
         instance in players who's turn it currently is.
         game_stats: A GameStats instance hold details of how many players
@@ -53,11 +53,11 @@ class Game:
         self.name = name
         self.deck = Deck("Deck", Value, Suit)
         self.players: list[Player] = []
-        self.status = GameStatus.DEALING
+        self.state = GameState.DEALING
         self.active_player_index = 0
         self.game_stats: GameStats = None
 
-    def deal(self) -> GameStatus:
+    def deal(self) -> GameState:
         """Deal cards to players.
 
         Use after Game constructor or reset method is called.
@@ -66,8 +66,8 @@ class Game:
         each player.  Initializes active_player_index and active_player_index.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.STARTING_PLAYER to start the 1st player's turn.
+            The GameState after this method has been executed.
+              GameState.STARTING_PLAYER to start the 1st player's turn.
         """
         # TODO: check game status
         self.deck.shuffle()
@@ -79,10 +79,10 @@ class Game:
 
         self.game_stats = GameStats(len(self.players))
 
-        self.status = GameStatus.STARTING_PLAYER
-        return self.status
+        self.state = GameState.STARTING_PLAYER
+        return self.state
 
-    def next_player(self) -> GameStatus:
+    def next_player(self) -> GameState:
         """Update game ready for the next player.
 
         Should be called after deal method is called, a player sticks or goes
@@ -94,21 +94,21 @@ class Game:
         Moves active_player_index on to the next player.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.GETTING_PLAYER_ACTION when players are waiting to
+            The GameState after this method has been executed.
+              GameState.GETTING_PLAYER_ACTION when players are waiting to
               play.
-              GameStatus.RESOLVING_GAME when all players have been.
+              GameState.RESOLVING_GAME when all players have been.
         """
         # TODO: check game status
         self.active_player_index += 1
 
         if self.active_player_index == len(self.players):
-            self.status = GameStatus.RESOLVING_GAME
+            self.state = GameState.RESOLVING_GAME
         else:
-            self.status = GameStatus.GETTING_PLAYER_ACTION
-        return self.status
+            self.state = GameState.GETTING_PLAYER_ACTION
+        return self.state
 
-    def start_turn(self, player: Player) -> GameStatus:
+    def start_turn(self, player: Player) -> GameState:
         """Update game ready for the next player.
 
         Use after next_player and the resolve_twist_action (not
@@ -117,24 +117,24 @@ class Game:
         Informs player they need decide whether to stick or twist.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.RESOLVING_PLAYER_ACTION to wait for player to choose
+            The GameState after this method has been executed.
+              GameState.RESOLVING_PLAYER_ACTION to wait for player to choose
               action.
         """
         # TODO: check game status
         # TODO: rename RESOLVING_PLAYER_ACTION to WAITING_FOR_PLAYER
         if player != self.players[self.active_player_index]:
-            return self.status
+            return self.state
 
         player.play()
 
-        self.status = GameStatus.RESOLVING_PLAYER_ACTION
-        return self.status
+        self.state = GameState.RESOLVING_PLAYER_ACTION
+        return self.state
 
     def resolve_stick_action(
         self,
         player: Player,
-    ) -> GameStatus:
+    ) -> GameState:
         """Resolve a player's stick action.
 
         Use after start_turn methods is called.
@@ -146,23 +146,23 @@ class Game:
             player: The Player instance taking the stick action.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.STARTING_PLAYER to start next player's turn.
+            The GameState after this method has been executed.
+              GameState.STARTING_PLAYER to start next player's turn.
         """
         # TODO: check game status
         if player != self.players[self.active_player_index]:
-            return self.status
+            return self.state
 
         player.stick()
         self.game_stats.update(PlayerStatus.STICK)
 
-        self.status = GameStatus.STARTING_PLAYER
-        return self.status
+        self.state = GameState.STARTING_PLAYER
+        return self.state
 
     def resolve_twist_action(
         self,
         player: Player,
-    ) -> Union[GameStatus, Card]:
+    ) -> Union[GameState, Card]:
         """Resolve a player's twist action.
 
         Use after start_turn methods is called.
@@ -174,26 +174,26 @@ class Game:
             player: The Player instance taking the twist action.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.STARTING_PLAYER to start next player's turn if this
+            The GameState after this method has been executed.
+              GameState.STARTING_PLAYER to start next player's turn if this
               player went bust.
-              GameStatus.GETTING_PLAYER_ACTION for this player to continue if
+              GameState.GETTING_PLAYER_ACTION for this player to continue if
               this player did not bust.
             The Card instance the player drew.
         """
         # TODO: check game status
         if player != self.players[self.active_player_index]:
-            return self.status
+            return self.state
 
         card = self.deck.cards.pop()
         if player.twist(card) == PlayerStatus.BUST:
-            self.status = GameStatus.STARTING_PLAYER
+            self.state = GameState.STARTING_PLAYER
             self.game_stats.update(PlayerStatus.BUST)
         else:
-            self.status = GameStatus.GETTING_PLAYER_ACTION
-        return self.status, card
+            self.state = GameState.GETTING_PLAYER_ACTION
+        return self.state, card
 
-    def resolve_game(self) -> Union[GameStatus, list[Player]]:
+    def resolve_game(self) -> Union[GameState, list[Player]]:
         """Gets finds results of game after all players have been.
 
         Use after next_player method is called and all players have chosen to
@@ -202,8 +202,8 @@ class Game:
         Finds the winning players and updates their win_count.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.RESETTING_GAME to get the game ready to play again.
+            The GameState after this method has been executed.
+              GameState.RESETTING_GAME to get the game ready to play again.
             A list Player instances who won this game.
         """
         # TODO: check game status
@@ -212,8 +212,8 @@ class Game:
         for player in winners:
             player.win_count += 1
 
-        self.status = GameStatus.RESETTING_GAME
-        return self.status, winners
+        self.state = GameState.RESETTING_GAME
+        return self.state, winners
 
     def get_winners(self) -> list[Player]:
         """Finds winners of this game of Blackjack.
@@ -242,7 +242,7 @@ class Game:
 
         return winners
 
-    def reset_game(self, winners: list[Player]) -> GameStatus:
+    def reset_game(self, winners: list[Player]) -> GameState:
         """Gets finds results of game after all players have been.
 
         Use after resolve_game method is called.
@@ -255,8 +255,8 @@ class Game:
             winners: List of Player instances who won this game.
 
         Returns:
-            The GameStatus after this method has been executed.
-              GameStatus.DEALING game is ready to deal again.
+            The GameState after this method has been executed.
+              GameState.DEALING game is ready to deal again.
         """
         # TODO: check game status
         if winners is not None:
@@ -266,8 +266,8 @@ class Game:
             self.deck.return_cards(player.hand)
             player.reset()
 
-        self.status = GameStatus.DEALING
-        return self.status
+        self.state = GameState.DEALING
+        return self.state
 
     def get_player_order(self, winners: list[Player]) -> list[Player]:
         """Get an updated player order based on the which player won this

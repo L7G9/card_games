@@ -3,7 +3,7 @@ from time import sleep
 import inflect
 
 from model.blackjack.game import Game
-from model.blackjack.game_status import GameStatus
+from model.blackjack.game_state import GameState
 from model.blackjack.player import Player
 from model.blackjack.action_selector import ActionSelector
 from model.blackjack.player_status import PlayerStatus
@@ -87,12 +87,12 @@ class BlackjackTextController:
         sleep(self.SHORT_PAUSE)
         clear_screen()
 
-        while self.game.next_player() != GameStatus.RESOLVING_GAME:
+        while self.game.next_player() != GameState.RESOLVING_GAME:
             player = self.game.players[self.game.active_player_index]
             self.player_turn(player)
 
     def player_turn(self, player):
-        while self.game.status != GameStatus.STARTING_PLAYER:
+        while self.game.state != GameState.STARTING_PLAYER:
             print("It is %s's turn." % (player.name))
             self.game.start_turn(player)
 

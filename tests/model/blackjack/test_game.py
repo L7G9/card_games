@@ -4,7 +4,7 @@ from model.card_game.card import Card
 from model.card_game.suit import Suit
 
 from model.blackjack.game import Game
-from model.blackjack.game_status import GameStatus
+from model.blackjack.game_state import GameState
 from model.blackjack.player import Player
 from model.blackjack.player_status import PlayerStatus
 from model.blackjack.value import Value as Value
@@ -75,7 +75,7 @@ def in_progress_game(
 
     game.active_player_index = -1
     game.game_stats = GameStats(len(game.players))
-    game.status = GameStatus.STARTING_PLAYER
+    game.state = GameState.STARTING_PLAYER
 
     return game
 
@@ -89,21 +89,21 @@ def in_progress_game(
 class TestGameClass:
     # deal cards to players
     def test_deal(self, new_game):
-        assert new_game.deal() == GameStatus.STARTING_PLAYER
+        assert new_game.deal() == GameState.STARTING_PLAYER
         assert len(new_game.deck.cards) == (52 - 8)
         for player in new_game.players:
             assert len(player.hand.cards) == 2
 
     # get next player after dealing
     def test_next_player_after_deal(self, new_game):
-        assert new_game.next_player() == GameStatus.GETTING_PLAYER_ACTION
+        assert new_game.next_player() == GameState.GETTING_PLAYER_ACTION
 
     # player starts their turn
     def test_start_turn(self, new_game):
         player = new_game.players[new_game.active_player_index]
         assert (
             new_game.start_turn(player)
-            == GameStatus.RESOLVING_PLAYER_ACTION
+            == GameState.RESOLVING_PLAYER_ACTION
         )
         assert player.status == PlayerStatus.DECIDING_ACTION
 
@@ -118,7 +118,7 @@ class TestGameClass:
         in_progress_game.deck.cards.append(card_from_deck)
 
         # set game and player status'
-        in_progress_game.status = GameStatus.RESOLVING_PLAYER_ACTION
+        in_progress_game.status = GameState.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 0
         twist_and_stick_player.status = PlayerStatus.DECIDING_ACTION
 
@@ -128,7 +128,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_status == GameStatus.GETTING_PLAYER_ACTION
+        assert game_status == GameState.GETTING_PLAYER_ACTION
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
@@ -148,7 +148,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_status == GameStatus.STARTING_PLAYER
+        assert game_status == GameState.STARTING_PLAYER
         assert twist_and_stick_player.status == PlayerStatus.STICK
 
     # player twists and goes bust
@@ -161,7 +161,7 @@ class TestGameClass:
         in_progress_game.deck.cards.append(card_from_deck)
 
         # set game and player status'
-        in_progress_game.status = GameStatus.RESOLVING_PLAYER_ACTION
+        in_progress_game.status = GameState.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 1
         twist_and_bust_player.status = PlayerStatus.DECIDING_ACTION
 
@@ -171,7 +171,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_status == GameStatus.STARTING_PLAYER
+        assert game_status == GameState.STARTING_PLAYER
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
@@ -182,13 +182,13 @@ class TestGameClass:
     # get next player after all players have finished
     def test_next_player_no_more_players(self, in_progress_game):
         in_progress_game.active_player_index = 3
-        assert in_progress_game.next_player() == GameStatus.RESOLVING_GAME
+        assert in_progress_game.next_player() == GameState.RESOLVING_GAME
 
     # resolve game ready to report winners
     def test_resolve_game(self, in_progress_game, winner_player):
         """Test that winner is found when game is resolved."""
         game_status, winners = in_progress_game.resolve_game()
-        assert game_status == GameStatus.RESETTING_GAME
+        assert game_status == GameState.RESETTING_GAME
         assert winners[0] == winner_player
 
     # get new playing order for players based on winner
@@ -205,5 +205,5 @@ class TestGameClass:
     # reset game ready to deal again
     def test_reset_game(self, in_progress_game):
         winners = in_progress_game.get_winners()
-        assert in_progress_game.reset_game(winners) == GameStatus.DEALING
+        assert in_progress_game.reset_game(winners) == GameState.DEALING
         assert len(in_progress_game.deck.cards) == (3 + 3 + 2 + 2)
