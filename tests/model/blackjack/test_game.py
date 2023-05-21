@@ -75,7 +75,7 @@ def in_progress_game(
 
     game.active_player_index = -1
     game.game_stats = GameStats(len(game.players))
-    game.state = GameState.STARTING_PLAYER
+    game.state = GameState.GETTING_NEXT_PLAYER
 
     return game
 
@@ -89,21 +89,21 @@ def in_progress_game(
 class TestGameClass:
     # deal cards to players
     def test_deal(self, new_game):
-        assert new_game.deal() == GameState.STARTING_PLAYER
+        assert new_game.deal() == GameState.GETTING_NEXT_PLAYER
         assert len(new_game.deck.cards) == (52 - 8)
         for player in new_game.players:
             assert len(player.hand.cards) == 2
 
     # get next player after dealing
     def test_next_player_after_deal(self, new_game):
-        assert new_game.next_player() == GameState.GETTING_PLAYER_ACTION
+        assert new_game.next_player() == GameState.STARTING_PLAYER_TURN
 
     # player starts their turn
     def test_start_turn(self, new_game):
         player = new_game.players[new_game.active_player_index]
         assert (
             new_game.start_turn(player)
-            == GameState.RESOLVING_PLAYER_ACTION
+            == GameState.WAITING_FOR_PLAYER
         )
         assert player.state == PlayerState.DECIDING_ACTION
 
@@ -118,7 +118,7 @@ class TestGameClass:
         in_progress_game.deck.cards.append(card_from_deck)
 
         # set game and player state'
-        in_progress_game.state = GameState.RESOLVING_PLAYER_ACTION
+        in_progress_game.state = GameState.WAITING_FOR_PLAYER
         in_progress_game.active_player_index = 0
         twist_and_stick_player.state = PlayerState.DECIDING_ACTION
 
@@ -128,7 +128,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_state == GameState.GETTING_PLAYER_ACTION
+        assert game_state == GameState.STARTING_PLAYER_TURN
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
@@ -148,7 +148,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_state == GameState.STARTING_PLAYER
+        assert game_state == GameState.GETTING_NEXT_PLAYER
         assert twist_and_stick_player.state == PlayerState.STICK
 
     # player twists and goes bust
@@ -161,7 +161,7 @@ class TestGameClass:
         in_progress_game.deck.cards.append(card_from_deck)
 
         # set game and player state'
-        in_progress_game.state = GameState.RESOLVING_PLAYER_ACTION
+        in_progress_game.state = GameState.WAITING_FOR_PLAYER
         in_progress_game.active_player_index = 1
         twist_and_bust_player.state = PlayerState.DECIDING_ACTION
 
@@ -171,7 +171,7 @@ class TestGameClass:
         )
 
         # check results
-        assert game_state == GameState.STARTING_PLAYER
+        assert game_state == GameState.GETTING_NEXT_PLAYER
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 

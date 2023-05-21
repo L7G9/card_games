@@ -67,7 +67,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.STARTING_PLAYER to start the 1st player's turn.
+              GameState.GETTING_NEXT_PLAYER to start the 1st player's turn.
         """
         # TODO: check game state
         self.deck.shuffle()
@@ -79,7 +79,7 @@ class Game:
 
         self.game_stats = GameStats(len(self.players))
 
-        self.state = GameState.STARTING_PLAYER
+        self.state = GameState.GETTING_NEXT_PLAYER
         return self.state
 
     def next_player(self) -> GameState:
@@ -95,7 +95,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.GETTING_PLAYER_ACTION when players are waiting to
+              GameState.STARTING_PLAYER_TURN when players are waiting to
               play.
               GameState.RESOLVING_GAME when all players have been.
         """
@@ -105,7 +105,7 @@ class Game:
         if self.active_player_index == len(self.players):
             self.state = GameState.RESOLVING_GAME
         else:
-            self.state = GameState.GETTING_PLAYER_ACTION
+            self.state = GameState.STARTING_PLAYER_TURN
         return self.state
 
     def start_turn(self, player: Player) -> GameState:
@@ -118,17 +118,16 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.RESOLVING_PLAYER_ACTION to wait for player to choose
+              GameState.WAITING_FOR_PLAYER to wait for player to choose
               action.
         """
         # TODO: check game state
-        # TODO: rename RESOLVING_PLAYER_ACTION to WAITING_FOR_PLAYER
         if player != self.players[self.active_player_index]:
             return self.state
 
         player.play()
 
-        self.state = GameState.RESOLVING_PLAYER_ACTION
+        self.state = GameState.WAITING_FOR_PLAYER
         return self.state
 
     def resolve_stick_action(
@@ -147,7 +146,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.STARTING_PLAYER to start next player's turn.
+              GameState.GETTING_NEXT_PLAYER to start next player's turn.
         """
         # TODO: check game state
         if player != self.players[self.active_player_index]:
@@ -156,7 +155,7 @@ class Game:
         player.stick()
         self.game_stats.update(PlayerState.STICK)
 
-        self.state = GameState.STARTING_PLAYER
+        self.state = GameState.GETTING_NEXT_PLAYER
         return self.state
 
     def resolve_twist_action(
@@ -175,9 +174,9 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.STARTING_PLAYER to start next player's turn if this
+              GameState.GETTING_NEXT_PLAYER to start next player's turn if this
               player went bust.
-              GameState.GETTING_PLAYER_ACTION for this player to continue if
+              GameState.STARTING_PLAYER_TURN for this player to continue if
               this player did not bust.
             The Card instance the player drew.
         """
@@ -187,10 +186,10 @@ class Game:
 
         card = self.deck.cards.pop()
         if player.twist(card) == PlayerState.BUST:
-            self.state = GameState.STARTING_PLAYER
+            self.state = GameState.GETTING_NEXT_PLAYER
             self.game_stats.update(PlayerState.BUST)
         else:
-            self.state = GameState.GETTING_PLAYER_ACTION
+            self.state = GameState.STARTING_PLAYER_TURN
         return self.state, card
 
     def resolve_game(self) -> Union[GameState, list[Player]]:
