@@ -8,7 +8,7 @@ from model.card_game.deck import Deck
 
 from model.blackjack.value import Value
 from model.blackjack.player import Player
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 from model.blackjack.game_state import GameState
 from model.blackjack.game_stats import GameStats
 
@@ -36,8 +36,8 @@ class Game:
         deck: A Deck instance representing the cards to be dealt to players in
         this game.
         players: A list of Player instances representing the players in this
-        game, what cards are in their hands and their status'.
-        status: A GameState for the current status of this game.
+        game, what cards are in their hands and their state'.
+        state: A GameState for the current state of this game.
         active_player_index: An integer holding the index of the Player
         instance in players who's turn it currently is.
         game_stats: A GameStats instance hold details of how many players
@@ -69,7 +69,7 @@ class Game:
             The GameState after this method has been executed.
               GameState.STARTING_PLAYER to start the 1st player's turn.
         """
-        # TODO: check game status
+        # TODO: check game state
         self.deck.shuffle()
         for i in range(2):
             for player in self.players:
@@ -99,7 +99,7 @@ class Game:
               play.
               GameState.RESOLVING_GAME when all players have been.
         """
-        # TODO: check game status
+        # TODO: check game state
         self.active_player_index += 1
 
         if self.active_player_index == len(self.players):
@@ -121,7 +121,7 @@ class Game:
               GameState.RESOLVING_PLAYER_ACTION to wait for player to choose
               action.
         """
-        # TODO: check game status
+        # TODO: check game state
         # TODO: rename RESOLVING_PLAYER_ACTION to WAITING_FOR_PLAYER
         if player != self.players[self.active_player_index]:
             return self.state
@@ -139,7 +139,7 @@ class Game:
 
         Use after start_turn methods is called.
 
-        Sets the player's status.
+        Sets the player's state.
         Updates game_stats to reflect the change.
 
         Args:
@@ -149,12 +149,12 @@ class Game:
             The GameState after this method has been executed.
               GameState.STARTING_PLAYER to start next player's turn.
         """
-        # TODO: check game status
+        # TODO: check game state
         if player != self.players[self.active_player_index]:
             return self.state
 
         player.stick()
-        self.game_stats.update(PlayerStatus.STICK)
+        self.game_stats.update(PlayerState.STICK)
 
         self.state = GameState.STARTING_PLAYER
         return self.state
@@ -167,7 +167,7 @@ class Game:
 
         Use after start_turn methods is called.
 
-        Updates the player's status using a card taken from the deck.
+        Updates the player's state using a card taken from the deck.
         Updates game_stats to reflect the change.
 
         Args:
@@ -181,14 +181,14 @@ class Game:
               this player did not bust.
             The Card instance the player drew.
         """
-        # TODO: check game status
+        # TODO: check game state
         if player != self.players[self.active_player_index]:
             return self.state
 
         card = self.deck.cards.pop()
-        if player.twist(card) == PlayerStatus.BUST:
+        if player.twist(card) == PlayerState.BUST:
             self.state = GameState.STARTING_PLAYER
-            self.game_stats.update(PlayerStatus.BUST)
+            self.game_stats.update(PlayerState.BUST)
         else:
             self.state = GameState.GETTING_PLAYER_ACTION
         return self.state, card
@@ -206,7 +206,7 @@ class Game:
               GameState.RESETTING_GAME to get the game ready to play again.
             A list Player instances who won this game.
         """
-        # TODO: check game status
+        # TODO: check game state
         winners = self.get_winners()
 
         for player in winners:
@@ -231,7 +231,7 @@ class Game:
 
         for player in self.players:
             player.reveal_hand()
-            if player.status == PlayerStatus.STICK:
+            if player.state == PlayerState.STICK:
                 if player.best_total > best_total:
                     # if better then current best_total start new list
                     best_total = player.best_total
@@ -258,7 +258,7 @@ class Game:
             The GameState after this method has been executed.
               GameState.DEALING game is ready to deal again.
         """
-        # TODO: check game status
+        # TODO: check game state
         if winners is not None:
             self.players = self.get_player_order(winners)
 

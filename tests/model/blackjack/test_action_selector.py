@@ -2,7 +2,7 @@ import pytest
 
 from model.blackjack.action_selector import ActionSelector
 from model.blackjack.game_stats import GameStats
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 
 
 @pytest.fixture(scope="class")
@@ -16,7 +16,7 @@ class TestActionSelector:
         # all three of the other players are bust
         game_stats = GameStats(4)
         for i in range(3):
-            game_stats.update(PlayerStatus.BUST)
+            game_stats.update(PlayerState.BUST)
 
         assert action_selector.should_stick(2, game_stats) is True
 
@@ -24,7 +24,7 @@ class TestActionSelector:
     def test_should_stick_met_high_target(self, action_selector):
         # two other other players sticking or not played yet
         game_stats = GameStats(4)
-        game_stats.update(PlayerStatus.STICK)
+        game_stats.update(PlayerState.STICK)
 
         assert action_selector.should_stick(20, game_stats) is True
 
@@ -32,7 +32,7 @@ class TestActionSelector:
     def test_should_stick_under_high_target(self, action_selector):
         # two other other players sticking or not played yet
         game_stats = GameStats(4)
-        game_stats.update(PlayerStatus.STICK)
+        game_stats.update(PlayerState.STICK)
 
         assert action_selector.should_stick(17, game_stats) is False
 
@@ -41,7 +41,7 @@ class TestActionSelector:
         # over half of the other players are bust
         game_stats = GameStats(4)
         for i in range(2):
-            game_stats.update(PlayerStatus.BUST)
+            game_stats.update(PlayerState.BUST)
 
         assert action_selector.should_stick(13, game_stats) is True
 
@@ -50,6 +50,6 @@ class TestActionSelector:
         # over half of the other players are bust
         game_stats = GameStats(4)
         for i in range(2):
-            game_stats.update(PlayerStatus.BUST)
+            game_stats.update(PlayerState.BUST)
 
         assert action_selector.should_stick(11, game_stats) is False

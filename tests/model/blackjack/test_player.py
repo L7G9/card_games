@@ -5,7 +5,7 @@ from model.card_game.suit import Suit
 
 from model.blackjack.player import Player
 from model.blackjack.value import Value as Value
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 
 
 @pytest.fixture(scope="function")
@@ -29,17 +29,17 @@ class TestPlayerClass:
 
     # player sticks
     def test_stick(self, player):
-        assert player.stick() == PlayerStatus.STICK
+        assert player.stick() == PlayerState.STICK
 
     # player twists and does not go bust
     def test_twist_safe(self, player, eight_of_clubs):
-        assert player.twist(eight_of_clubs) == PlayerStatus.DECIDING_ACTION
+        assert player.twist(eight_of_clubs) == PlayerState.DECIDING_ACTION
 
     # player twists does and goes bust
     def test_twist_bust(self, player, eight_of_clubs):
         player.add_card(eight_of_clubs)
         player.add_card(eight_of_clubs)
-        assert player.twist(eight_of_clubs) == PlayerStatus.BUST
+        assert player.twist(eight_of_clubs) == PlayerState.BUST
 
     # add a card to player's hand
     def test_add_card(self, player, eight_of_clubs):

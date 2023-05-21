@@ -3,7 +3,7 @@ from typing import Set
 from model.card_game import player
 from model.card_game.card import Card
 
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 from model.blackjack.action_selector import ActionSelector
 
 
@@ -14,7 +14,7 @@ class Player(player.Player):
     Blackjack.
 
     Attributes:
-        status: A PlayerStatus set to the current status of the player in the
+        state: A PlayerState set to the current state of the player in the
           game.
         totals: A set of integers containing all the totals that the cards in
           the player's hand could add up to.
@@ -37,7 +37,7 @@ class Player(player.Player):
         """
         player.Player.__init__(self, id, name)
         self.action_selector = action_selector
-        self.status = PlayerStatus.WAITING_TO_PLAY
+        self.state = PlayerState.WAITING_TO_PLAY
         self.totals = {0}
         self.best_total = 0
         self.win_count = 0
@@ -50,42 +50,42 @@ class Player(player.Player):
         """Return True if player is app controlled with an ActionSelector."""
         return self.action_selector is not None
 
-    def play(self) -> PlayerStatus:
+    def play(self) -> PlayerState:
         """Play - player start to or continues their turn.
 
-        Can only be taken when player status is WAITING_TO_PLAY or
+        Can only be taken when player state is WAITING_TO_PLAY or
         DECIDING_ACTION.
 
         Returns:
-            The new PlayerStatus, DECIDING_ACTION.
+            The new PlayerState, DECIDING_ACTION.
         """
-        if (self.status != PlayerStatus.WAITING_TO_PLAY
-           and self.status != PlayerStatus.DECIDING_ACTION):
-            return self.status
+        if (self.state != PlayerState.WAITING_TO_PLAY
+           and self.state != PlayerState.DECIDING_ACTION):
+            return self.state
 
-        self.status = PlayerStatus.DECIDING_ACTION
+        self.state = PlayerState.DECIDING_ACTION
 
-        return self.status
+        return self.state
 
-    def stick(self) -> PlayerStatus:
+    def stick(self) -> PlayerState:
         """Stick action - player ends their go drawing no more cards.
 
-        Can only be taken when player status is SELECTING_ACTION.
+        Can only be taken when player state is SELECTING_ACTION.
 
         Returns:
-            The new PlayerStatus after taking this action, STICK.
+            The new PlayerState after taking this action, STICK.
         """
-        if self.status != PlayerStatus.DECIDING_ACTION:
-            return self.status
+        if self.state != PlayerState.DECIDING_ACTION:
+            return self.state
 
-        self.status = PlayerStatus.STICK
+        self.state = PlayerState.STICK
 
-        return self.status
+        return self.state
 
-    def twist(self, card: Card) -> PlayerStatus:
+    def twist(self, card: Card) -> PlayerState:
         """Twist action - player receives a card.
 
-        Can only be taken when player status is SELECTING_ACTION.
+        Can only be taken when player state is SELECTING_ACTION.
         Will increase the player's totals.
         The plyer will either be able to continue playing or go bust.
 
@@ -93,20 +93,20 @@ class Player(player.Player):
             card: A Card instance to add to the player's hand.
 
         Returns:
-            The new PlayerStatus after taking this action, either
+            The new PlayerState after taking this action, either
               WAITING_FOR_ACTIONS or BUST.
         """
-        if self.status != PlayerStatus.DECIDING_ACTION:
-            return self.status
+        if self.state != PlayerState.DECIDING_ACTION:
+            return self.state
 
         self.add_card(card)
 
         if self.best_total > 21:
-            self.status = PlayerStatus.BUST
+            self.state = PlayerState.BUST
         else:
-            self.status = PlayerStatus.DECIDING_ACTION
+            self.state = PlayerState.DECIDING_ACTION
 
-        return self.status
+        return self.state
 
     def add_card(self, card: Card):
         """Add card to player's hand.
@@ -126,7 +126,7 @@ class Player(player.Player):
         self.hand.cards = []
         self.totals = {0}
         self.best_total = 0
-        self.status = PlayerStatus.WAITING_TO_PLAY
+        self.state = PlayerState.WAITING_TO_PLAY
 
     def reveal_hand(self):
         """Set all player's cards to face up."""

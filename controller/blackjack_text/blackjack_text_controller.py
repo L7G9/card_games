@@ -6,7 +6,7 @@ from model.blackjack.game import Game
 from model.blackjack.game_state import GameState
 from model.blackjack.player import Player
 from model.blackjack.action_selector import ActionSelector
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 
 from view.text_view.text_view import get_option
 from view.text_view.text_view import clear_screen
@@ -121,11 +121,11 @@ class BlackjackTextController:
         else:
             # resolve twist action
             print("%s twists." % (player.name))
-            game_status, card = self.game.resolve_twist_action(player)
+            game_state, card = self.game.resolve_twist_action(player)
 
             # feedback
             print("And draws %s." % (card.description(True)))
-            if player.status == PlayerStatus.BUST:
+            if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))
 
     def app_player_actions(self, player):
@@ -145,7 +145,7 @@ class BlackjackTextController:
         else:
             # resolve twist action
             print("%s twists." % (player.name))
-            game_status, card = self.game.resolve_twist_action(player)
+            game_state, card = self.game.resolve_twist_action(player)
 
             # feedback
             inflect_engine = inflect.engine()
@@ -153,19 +153,19 @@ class BlackjackTextController:
                 len(player.hand.cards)-2
             )
             print("And draws %s card." % (nth_card_drawn))
-            if player.status == PlayerStatus.BUST:
+            if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))
 
     def resolve_game(self):
         print("Results.")
 
-        games_status, winners = self.game.resolve_game()
+        games_state, winners = self.game.resolve_game()
 
         for player in self.game.players:
             print("%s reveals their cards..." % (player.name))
             for card in player.hand.cards:
                 print(card.description(False))
-            if player.status == PlayerStatus.BUST:
+            if player.state == PlayerState.BUST:
                 print("Went bust.")
             else:
                 print("Has a total of %d." % (player.best_total))

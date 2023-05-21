@@ -6,7 +6,7 @@ from model.card_game.suit import Suit
 from model.blackjack.game import Game
 from model.blackjack.game_state import GameState
 from model.blackjack.player import Player
-from model.blackjack.player_status import PlayerStatus
+from model.blackjack.player_state import PlayerState
 from model.blackjack.value import Value as Value
 from model.blackjack.game_stats import GameStats
 
@@ -105,7 +105,7 @@ class TestGameClass:
             new_game.start_turn(player)
             == GameState.RESOLVING_PLAYER_ACTION
         )
-        assert player.status == PlayerStatus.DECIDING_ACTION
+        assert player.state == PlayerState.DECIDING_ACTION
 
     # player twists and does not so bust
     def test_resolve_twist_action_not_bust(
@@ -117,22 +117,22 @@ class TestGameClass:
         card_from_deck = Card(Value.FOUR, Suit.CLUBS)
         in_progress_game.deck.cards.append(card_from_deck)
 
-        # set game and player status'
-        in_progress_game.status = GameState.RESOLVING_PLAYER_ACTION
+        # set game and player state'
+        in_progress_game.state = GameState.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 0
-        twist_and_stick_player.status = PlayerStatus.DECIDING_ACTION
+        twist_and_stick_player.state = PlayerState.DECIDING_ACTION
 
         # resolve twist action
-        game_status, card = in_progress_game.resolve_twist_action(
+        game_state, card = in_progress_game.resolve_twist_action(
             twist_and_stick_player
         )
 
         # check results
-        assert game_status == GameState.GETTING_PLAYER_ACTION
+        assert game_state == GameState.GETTING_PLAYER_ACTION
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
-        assert twist_and_stick_player.status == PlayerStatus.DECIDING_ACTION
+        assert twist_and_stick_player.state == PlayerState.DECIDING_ACTION
         assert card_from_deck in twist_and_stick_player.hand.cards
         assert twist_and_stick_player.best_total == (2 + 3 + 4)
 
@@ -143,13 +143,13 @@ class TestGameClass:
         twist_and_stick_player
     ):
         # resolve twist action
-        game_status = in_progress_game.resolve_stick_action(
+        game_state = in_progress_game.resolve_stick_action(
             twist_and_stick_player
         )
 
         # check results
-        assert game_status == GameState.STARTING_PLAYER
-        assert twist_and_stick_player.status == PlayerStatus.STICK
+        assert game_state == GameState.STARTING_PLAYER
+        assert twist_and_stick_player.state == PlayerState.STICK
 
     # player twists and goes bust
     def test_resolve_twist_action_bust(
@@ -160,22 +160,22 @@ class TestGameClass:
         card_from_deck = Card(Value.JACK, Suit.CLUBS)
         in_progress_game.deck.cards.append(card_from_deck)
 
-        # set game and player status'
-        in_progress_game.status = GameState.RESOLVING_PLAYER_ACTION
+        # set game and player state'
+        in_progress_game.state = GameState.RESOLVING_PLAYER_ACTION
         in_progress_game.active_player_index = 1
-        twist_and_bust_player.status = PlayerStatus.DECIDING_ACTION
+        twist_and_bust_player.state = PlayerState.DECIDING_ACTION
 
         # resolve twist action
-        game_status, card = in_progress_game.resolve_twist_action(
+        game_state, card = in_progress_game.resolve_twist_action(
             twist_and_bust_player
         )
 
         # check results
-        assert game_status == GameState.STARTING_PLAYER
+        assert game_state == GameState.STARTING_PLAYER
         assert card == card_from_deck
         assert in_progress_game.deck.cards == []
 
-        assert twist_and_bust_player.status == PlayerStatus.BUST
+        assert twist_and_bust_player.state == PlayerState.BUST
         assert card_from_deck in twist_and_bust_player.hand.cards
         assert twist_and_bust_player.best_total == (10 + 10 + 10)
 
@@ -187,8 +187,8 @@ class TestGameClass:
     # resolve game ready to report winners
     def test_resolve_game(self, in_progress_game, winner_player):
         """Test that winner is found when game is resolved."""
-        game_status, winners = in_progress_game.resolve_game()
-        assert game_status == GameState.RESETTING_GAME
+        game_state, winners = in_progress_game.resolve_game()
+        assert game_state == GameState.RESETTING_GAME
         assert winners[0] == winner_player
 
     # get new playing order for players based on winner
