@@ -10,8 +10,10 @@ from model.blackjack.value import Value
 from model.blackjack.player import Player
 from model.blackjack.player_state import PlayerState
 from model.blackjack.game_state import GameState
-from model.blackjack.game_state_error import GameStateError
 from model.blackjack.game_stats import GameStats
+
+from model.blackjack.game_state_error import GameStateError
+from model.blackjack.player_order_error import PlayerOrderError
 
 
 class Game:
@@ -167,13 +169,14 @@ class Game:
 
         Raises:
             GameStateError: If state is not WAITING_FOR_PLAYER.
+            PlayerOrderError: If player is not players[active_player_index].
         """
         if self.state is not GameState.WAITING_FOR_PLAYER:
             raise GameStateError(self.state, [GameState.WAITING_FOR_PLAYER])
 
-        if player != self.players[self.active_player_index]:
-            # TODO: raise error
-            return self.state
+        active_player = self.players[self.active_player_index]
+        if player is not active_player:
+            raise PlayerOrderError(player, active_player)
 
         player.stick()
         self.game_stats.update(PlayerState.STICK)
@@ -205,13 +208,14 @@ class Game:
 
         Raises:
             GameStateError: If state is not WAITING_FOR_PLAYER.
+            PlayerOrderError: If player is not players[active_player_index].
         """
         if self.state is not GameState.WAITING_FOR_PLAYER:
             raise GameStateError(self.state, [GameState.WAITING_FOR_PLAYER])
 
-        if player != self.players[self.active_player_index]:
-            # todo: raise error
-            return self.state
+        active_player = self.players[self.active_player_index]
+        if player is not active_player:
+            raise PlayerOrderError(player, active_player)
 
         card = self.deck.cards.pop()
         if player.twist(card) == PlayerState.BUST:
