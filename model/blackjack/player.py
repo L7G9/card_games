@@ -5,6 +5,7 @@ from model.card_game.card import Card
 
 from model.blackjack.player_state import PlayerState
 from model.blackjack.action_selector import ActionSelector
+from model.blackjack.player_state_error import PlayerStateError
 
 
 class Player(player.Player):
@@ -58,10 +59,17 @@ class Player(player.Player):
 
         Returns:
             The new PlayerState, DECIDING_ACTION.
+
+        Raises:
+            PlayerStateError: Is state is not WAITING_TO_PLAY and is not
+              DECIDING_ACTION.
         """
         if (self.state != PlayerState.WAITING_TO_PLAY
            and self.state != PlayerState.DECIDING_ACTION):
-            return self.state
+            raise PlayerStateError(
+                self.state,
+                [PlayerState.WAITING_TO_PLAY, PlayerState.DECIDING_ACTION]
+            )
 
         self.state = PlayerState.DECIDING_ACTION
 
@@ -74,9 +82,12 @@ class Player(player.Player):
 
         Returns:
             The new PlayerState after taking this action, STICK.
+
+        Raises:
+            PlayerStateError: If state is not DECIDING_ACTION.
         """
         if self.state != PlayerState.DECIDING_ACTION:
-            return self.state
+            raise PlayerStateError(self.state, [PlayerState.DECIDING_ACTION])
 
         self.state = PlayerState.STICK
 
@@ -95,9 +106,12 @@ class Player(player.Player):
         Returns:
             The new PlayerState after taking this action, either
               WAITING_FOR_ACTIONS or BUST.
+
+        Raises:
+            PlayerStateError: If state is not DECIDING_ACTION.
         """
         if self.state != PlayerState.DECIDING_ACTION:
-            return self.state
+            raise PlayerStateError(self.state, [PlayerState.DECIDING_ACTION])
 
         self.add_card(card)
 
