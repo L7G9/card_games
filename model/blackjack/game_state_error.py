@@ -2,7 +2,7 @@ from model.blackjack.game_state import GameState
 
 
 class GameStateError(Exception):
-    """Game State Error
+    """Game State Error.
 
     Occur when the order which a method in Game is called is incompatible with
     it's state.
