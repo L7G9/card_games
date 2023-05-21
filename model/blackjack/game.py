@@ -10,6 +10,7 @@ from model.blackjack.value import Value
 from model.blackjack.player import Player
 from model.blackjack.player_state import PlayerState
 from model.blackjack.game_state import GameState
+from model.blackjack.game_state_error import GameStateError
 from model.blackjack.game_stats import GameStats
 
 
@@ -68,8 +69,13 @@ class Game:
         Returns:
             The GameState after this method has been executed.
               GameState.GETTING_NEXT_PLAYER to start the 1st player's turn.
+
+        Raises:
+            GameStateError: If state is not DEALING.
         """
-        # TODO: check game state
+        if self.state is not GameState.DEALING:
+            raise GameStateError(self.state, [GameState.DEALING])
+
         self.deck.shuffle()
         for i in range(2):
             for player in self.players:
@@ -98,8 +104,13 @@ class Game:
               GameState.STARTING_PLAYER_TURN when players are waiting to
               play.
               GameState.RESOLVING_GAME when all players have been.
+
+        Raises:
+            GameStateError: If state is not GETTING_NEXT_PLAYER.
         """
-        # TODO: check game state
+        if self.state is not GameState.GETTING_NEXT_PLAYER:
+            raise GameStateError(self.state, [GameState.GETTING_NEXT_PLAYER])
+
         self.active_player_index += 1
 
         if self.active_player_index == len(self.players):
@@ -120,8 +131,14 @@ class Game:
             The GameState after this method has been executed.
               GameState.WAITING_FOR_PLAYER to wait for player to choose
               action.
+
+        Raises:
+            GameStateError: If state is not STARTING_PLAYER_TURN.
         """
-        # TODO: check game state
+
+        if self.state is not GameState.STARTING_PLAYER_TURN:
+            raise GameStateError(self.state, [GameState.STARTING_PLAYER_TURN])
+
         if player != self.players[self.active_player_index]:
             return self.state
 
@@ -147,9 +164,15 @@ class Game:
         Returns:
             The GameState after this method has been executed.
               GameState.GETTING_NEXT_PLAYER to start next player's turn.
+
+        Raises:
+            GameStateError: If state is not WAITING_FOR_PLAYER.
         """
-        # TODO: check game state
+        if self.state is not GameState.WAITING_FOR_PLAYER:
+            raise GameStateError(self.state, [GameState.WAITING_FOR_PLAYER])
+
         if player != self.players[self.active_player_index]:
+            # TODO: raise error
             return self.state
 
         player.stick()
@@ -179,9 +202,15 @@ class Game:
               GameState.STARTING_PLAYER_TURN for this player to continue if
               this player did not bust.
             The Card instance the player drew.
+
+        Raises:
+            GameStateError: If state is not WAITING_FOR_PLAYER.
         """
-        # TODO: check game state
+        if self.state is not GameState.WAITING_FOR_PLAYER:
+            raise GameStateError(self.state, [GameState.WAITING_FOR_PLAYER])
+
         if player != self.players[self.active_player_index]:
+            # todo: raise error
             return self.state
 
         card = self.deck.cards.pop()
@@ -204,8 +233,13 @@ class Game:
             The GameState after this method has been executed.
               GameState.RESETTING_GAME to get the game ready to play again.
             A list Player instances who won this game.
+
+        Raises:
+            GameStateError: If state is not RESOLVING_GAME.
         """
-        # TODO: check game state
+        if self.state is not GameState.RESOLVING_GAME:
+            raise GameStateError(self.state, [GameState.RESOLVING_GAME])
+
         winners = self.get_winners()
 
         for player in winners:
@@ -256,8 +290,13 @@ class Game:
         Returns:
             The GameState after this method has been executed.
               GameState.DEALING game is ready to deal again.
+
+        Raises:
+            GameStateError: If state is not RESETTING_GAME.
         """
-        # TODO: check game state
+        if self.state is not GameState.RESETTING_GAME:
+            raise GameStateError(self.state, [GameState.RESETTING_GAME])
+
         if winners is not None:
             self.players = self.get_player_order(winners)
 

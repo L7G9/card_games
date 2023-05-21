@@ -1,3 +1,6 @@
+from model.blackjack.game_state import GameState
+
+
 class GameStateError(Exception):
     """Game State Error
 
@@ -5,8 +8,15 @@ class GameStateError(Exception):
     it's state.
     For example when deal is called and the game state is WAITING_FOR_PLAYER.
     """
-    def __init__(self):
-        pass
+    def __init__(
+        self,
+        current_state: GameState,
+        expected_states: list[GameState]
+    ):
+        self.current_state = current_state
+        self.expected_state = expected_states
 
     def __str__(self):
-        return ("Game State error occurred")
+        return ("Current State=%s Expected States=%s" % (
+            self.current_state,
+            self.expected_state))
