@@ -143,6 +143,7 @@ class TestGameClass:
         twist_and_stick_player
     ):
         # resolve twist action
+        in_progress_game.start_turn(twist_and_stick_player)
         game_state = in_progress_game.resolve_stick_action(
             twist_and_stick_player
         )
