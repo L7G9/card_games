@@ -12,7 +12,7 @@ from model.blackjack.game_stats import GameStats
 
 
 # a new game for testing start of game events
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def new_game():
     game = Game("New Test Game")
     game.players.append(Player(0, "Test Player 0"))
@@ -23,7 +23,7 @@ def new_game():
 
 
 # player who twists then sticks
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def twist_and_stick_player():
     player = Player(0, "Test Player 0")
     player.add_card(Card(Value.TWO, Suit.CLUBS))
@@ -32,7 +32,7 @@ def twist_and_stick_player():
 
 
 # player who twists and goes bust
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def twist_and_bust_player():
     player = Player(1, "Test Player 1")
     player.add_card(Card(Value.QUEEN, Suit.CLUBS))
@@ -41,22 +41,32 @@ def twist_and_bust_player():
 
 
 # player with the winning hand
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def winner_player():
     player = Player(2, "Test Player 2")
     player.add_card(Card(Value.ACE, Suit.CLUBS))
     player.add_card(Card(Value.TEN, Suit.CLUBS))
-    player.play()
-    player.stick()
+    player.state = PlayerState.STICK
     return player
 
 
-# an in progress game for testing player actions and end of game events
-@pytest.fixture(scope="class")
+# player with a non-winning hand
+@pytest.fixture(scope="function")
+def other_player():
+    player = Player(2, "Test Player 3")
+    player.add_card(Card(Value.EIGHT, Suit.CLUBS))
+    player.add_card(Card(Value.NINE, Suit.CLUBS))
+    player.state = PlayerState.STICK
+    return player
+
+
+# an in progress game for testing player actions
+@pytest.fixture(scope="function")
 def in_progress_game(
     twist_and_stick_player,
     twist_and_bust_player,
-    winner_player
+    winner_player,
+    other_player
 ):
     game = Game("In Progress Test Game")
     game.deck.cards.clear()
@@ -64,14 +74,7 @@ def in_progress_game(
     game.players.append(twist_and_stick_player)
     game.players.append(twist_and_bust_player)
     game.players.append(winner_player)
-
-    # player with a non-winning hand
-    player3 = Player(3, "Test Player 3")
-    player3.add_card(Card(Value.EIGHT, Suit.CLUBS))
-    player3.add_card(Card(Value.NINE, Suit.CLUBS))
-    player3.play()
-    player3.stick()
-    game.players.append(player3)
+    game.players.append(other_player)
 
     game.active_player_index = -1
     game.game_stats = GameStats(len(game.players))
@@ -80,12 +83,35 @@ def in_progress_game(
     return game
 
 
-@pytest.mark.usefixtures(
-    "new_game",
-    "in_progress_game",
-    "twist_and_stick_player",
-    "twist_and_bust_player",
-    "winner_player")
+# a finished game for testing end of game actions
+@pytest.fixture(scope="function")
+def finished_game(
+    twist_and_stick_player,
+    twist_and_bust_player,
+    winner_player,
+    other_player
+):
+    game = Game("In Progress Test Game")
+    game.deck.cards.clear()
+
+    twist_and_stick_player.add_card(Card(Value.FOUR, Suit.CLUBS))
+    twist_and_stick_player.state = PlayerState.STICK
+    game.players.append(twist_and_stick_player)
+
+    twist_and_bust_player.add_card(Card(Value.KING, Suit.CLUBS))
+    twist_and_stick_player.state = PlayerState.BUST
+    game.players.append(twist_and_bust_player)
+
+    game.players.append(winner_player)
+    game.players.append(other_player)
+
+    game.active_player_index = 3
+    game.game_stats = GameStats(len(game.players))
+    game.state = GameState.GETTING_NEXT_PLAYER
+
+    return game
+
+
 class TestGameClass:
     # deal cards to players
     def test_deal(self, new_game):
@@ -96,10 +122,14 @@ class TestGameClass:
 
     # get next player after dealing
     def test_next_player_after_deal(self, new_game):
+        new_game.state = GameState.GETTING_NEXT_PLAYER
         assert new_game.next_player() == GameState.STARTING_PLAYER_TURN
+        assert new_game.active_player_index == 0
 
     # player starts their turn
     def test_start_turn(self, new_game):
+        new_game.deal()
+        new_game.next_player()
         player = new_game.players[new_game.active_player_index]
         assert (
             new_game.start_turn(player)
@@ -117,7 +147,7 @@ class TestGameClass:
         card_from_deck = Card(Value.FOUR, Suit.CLUBS)
         in_progress_game.deck.cards.append(card_from_deck)
 
-        # set game and player state'
+        # set game and player states
         in_progress_game.state = GameState.WAITING_FOR_PLAYER
         in_progress_game.active_player_index = 0
         twist_and_stick_player.state = PlayerState.DECIDING_ACTION
@@ -142,8 +172,12 @@ class TestGameClass:
         in_progress_game,
         twist_and_stick_player
     ):
+        # set game and player states
+        in_progress_game.state = GameState.WAITING_FOR_PLAYER
+        in_progress_game.active_player_index = 0
+        twist_and_stick_player.state = PlayerState.DECIDING_ACTION
+
         # resolve twist action
-        in_progress_game.start_turn(twist_and_stick_player)
         game_state = in_progress_game.resolve_stick_action(
             twist_and_stick_player
         )
@@ -181,30 +215,30 @@ class TestGameClass:
         assert twist_and_bust_player.best_total == (10 + 10 + 10)
 
     # get next player after all players have finished
-    def test_next_player_no_more_players(self, in_progress_game):
-        in_progress_game.active_player_index = 3
-        assert in_progress_game.next_player() == GameState.RESOLVING_GAME
+    def test_next_player_no_more_players(self, finished_game):
+        assert finished_game.next_player() == GameState.RESOLVING_GAME
 
     # resolve game ready to report winners
-    def test_resolve_game(self, in_progress_game, winner_player):
-        """Test that winner is found when game is resolved."""
-        game_state, winners = in_progress_game.resolve_game()
+    def test_resolve_game(self, finished_game, winner_player):
+        finished_game.next_player()
+        game_state, winners = finished_game.resolve_game()
         assert game_state == GameState.RESETTING_GAME
         assert winners[0] == winner_player
 
     # get new playing order for players based on winner
-    def test_get_player_order(self, in_progress_game):
-        winners = in_progress_game.get_winners()
+    def test_get_player_order(self, finished_game):
+        winners = finished_game.get_winners()
         correct_order = [
-            in_progress_game.players[2],
-            in_progress_game.players[3],
-            in_progress_game.players[0],
-            in_progress_game.players[1]
+            finished_game.players[2],
+            finished_game.players[3],
+            finished_game.players[0],
+            finished_game.players[1]
         ]
-        assert in_progress_game.get_player_order(winners) == correct_order
+        assert finished_game.get_player_order(winners) == correct_order
 
     # reset game ready to deal again
-    def test_reset_game(self, in_progress_game):
-        winners = in_progress_game.get_winners()
-        assert in_progress_game.reset_game(winners) == GameState.DEALING
-        assert len(in_progress_game.deck.cards) == (3 + 3 + 2 + 2)
+    def test_reset_game(self, finished_game):
+        winners = finished_game.get_winners()
+        finished_game.state = GameState.RESETTING_GAME
+        assert finished_game.reset_game(winners) == GameState.DEALING
+        assert len(finished_game.deck.cards) == (3 + 3 + 2 + 2)
