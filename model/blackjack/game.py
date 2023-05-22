@@ -57,7 +57,7 @@ class Game:
         self.deck = Deck("Deck", Value, Suit)
         self.players: list[Player] = []
         self.state = GameState.DEALING
-        self.active_player_index = 0
+        self.active_player_index = -1
         self.game_stats: GameStats = None
 
     def deal(self) -> GameState:
