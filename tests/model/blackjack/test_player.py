@@ -1,11 +1,10 @@
 import pytest
 
+from model.blackjack.player import Player
+from model.blackjack.player_state import PlayerState
+from model.blackjack.value import Value as Value
 from model.card_game.card import Card
 from model.card_game.suit import Suit
-
-from model.blackjack.player import Player
-from model.blackjack.value import Value as Value
-from model.blackjack.player_state import PlayerState
 
 
 @pytest.fixture(scope="function")

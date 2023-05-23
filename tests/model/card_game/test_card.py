@@ -1,8 +1,8 @@
 import pytest
 
+from model.card_game.card import Card
 from model.card_game.suit import Suit
 from model.card_game.value import Value
-from model.card_game.card import Card
 
 
 @pytest.fixture(scope="class")

@@ -1,10 +1,9 @@
 import pytest
 
-
 from model.card_game.deck import Deck
-from model.card_game.value import Value
-from model.card_game.suit import Suit
 from model.card_game.player import Player
+from model.card_game.suit import Suit
+from model.card_game.value import Value
 
 
 @pytest.fixture(scope="class")

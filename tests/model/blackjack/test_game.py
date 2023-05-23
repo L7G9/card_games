@@ -1,14 +1,13 @@
 import pytest
 
-from model.card_game.card import Card
-from model.card_game.suit import Suit
-
 from model.blackjack.game import Game
 from model.blackjack.game_state import GameState
+from model.blackjack.game_stats import GameStats
 from model.blackjack.player import Player
 from model.blackjack.player_state import PlayerState
 from model.blackjack.value import Value as Value
-from model.blackjack.game_stats import GameStats
+from model.card_game.card import Card
+from model.card_game.suit import Suit
 
 
 # a new game for testing start of game events
