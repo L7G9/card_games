@@ -1,11 +1,10 @@
 from typing import Set
 
+from model.blackjack.action_selector import ActionSelector
+from model.blackjack.player_state import PlayerState
+from model.blackjack.player_state_error import PlayerStateError
 from model.card_game import player
 from model.card_game.card import Card
-
-from model.blackjack.player_state import PlayerState
-from model.blackjack.action_selector import ActionSelector
-from model.blackjack.player_state_error import PlayerStateError
 
 
 class Player(player.Player):

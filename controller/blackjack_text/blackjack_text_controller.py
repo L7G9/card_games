@@ -2,14 +2,12 @@ from time import sleep
 
 import inflect
 
+from model.blackjack.action_selector import ActionSelector
 from model.blackjack.game import Game
 from model.blackjack.game_state import GameState
 from model.blackjack.player import Player
-from model.blackjack.action_selector import ActionSelector
 from model.blackjack.player_state import PlayerState
-
-from view.text_view.text_view import get_option
-from view.text_view.text_view import clear_screen
+from view.text_view.text_view import clear_screen, get_option
 
 
 class BlackjackTextController:

@@ -1,8 +1,8 @@
-from model.card_game.value import Value
-from model.card_game.suit import Suit
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 from model.card_game.player import Player
+from model.card_game.suit import Suit
+from model.card_game.value import Value
 
 
 class Deck(CardGroup):

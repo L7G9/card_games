@@ -1,19 +1,16 @@
 import random
-
 from typing import Union
 
-from model.card_game.suit import Suit
+from model.blackjack.game_state import GameState
+from model.blackjack.game_state_error import GameStateError
+from model.blackjack.game_stats import GameStats
+from model.blackjack.player import Player
+from model.blackjack.player_order_error import PlayerOrderError
+from model.blackjack.player_state import PlayerState
+from model.blackjack.value import Value
 from model.card_game.card import Card
 from model.card_game.deck import Deck
-
-from model.blackjack.value import Value
-from model.blackjack.player import Player
-from model.blackjack.player_state import PlayerState
-from model.blackjack.game_state import GameState
-from model.blackjack.game_stats import GameStats
-
-from model.blackjack.game_state_error import GameStateError
-from model.blackjack.player_order_error import PlayerOrderError
+from model.card_game.suit import Suit
 
 
 class Game:
