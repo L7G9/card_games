@@ -13,7 +13,18 @@ from view.text_view.text_view import clear_screen
 
 
 class BlackjackTextController:
-    """Controller for BlackJackGame and stdio."""
+    """Controller for model.blackjack.game.Game and console.
+
+    Coordinates model and text view (print, input, get_option & clear_screen)
+    to run a game of BlackJack for the user.
+
+    Attributes:
+        names: A list of strings holding the name of app controlled players.
+        SHORT_PAUSE: An integer equal to a short duration to wait in seconds.
+        MEDIUM_PAUSE: An integer equal to a medium duration to wait in seconds.
+        LONG_PAUSE: An integer equal to a long duration to wait in seconds.
+        game: A Game instance of our blackjack game.
+    """
 
     names = [
         "Adam",
@@ -32,9 +43,16 @@ class BlackjackTextController:
     LONG_PAUSE = 5
 
     def __init__(self):
+        """Initializes instance."""
         self.game = Game("Blackjack")
 
     def run(self):
+        """Enters main loop for the game of blackjack.
+
+        Performs inital Setup, plays game then asks promts user to play again.
+        Then depending on their response, resets the game and repeats or prints each player's win count.
+
+        """
         clear_screen()
         print("Welcome to our game of Blackjack.")
         sleep(self.SHORT_PAUSE)
@@ -59,6 +77,12 @@ class BlackjackTextController:
                     print("%s won %d games." % (player.name, player.win_count))
 
     def setup(self):
+        """Perform initial setup of game.
+
+        Asks user for their name and how many players they would like to play
+        against.  Creates player instances for each of those and provides
+        feedback.
+        """
         player_name = input("Enter your name: ")
         app_player_count = int(
             get_option(
@@ -82,6 +106,11 @@ class BlackjackTextController:
         clear_screen()
 
     def play_game(self):
+        """Plays the game.
+
+        Deals cards and loops through each player until each had completed
+        their turn.
+        """
         print("Dealing.")
         self.game.deal()
         sleep(self.SHORT_PAUSE)
@@ -92,6 +121,13 @@ class BlackjackTextController:
             self.player_turn(player)
 
     def player_turn(self, player):
+        """Process a player's turn.
+
+        Loops through player's actions until their turn is complete.
+
+        Args:
+            player: The Player instance who's turn it is.
+        """
         while self.game.state != GameState.GETTING_NEXT_PLAYER:
             print("It is %s's turn." % (player.name))
             self.game.start_turn(player)
@@ -105,6 +141,14 @@ class BlackjackTextController:
             clear_screen()
 
     def user_player_actions(self, player):
+        """Process a user controlled player's action.
+
+        Prompts user to stick to twist, updates game instance with their choice and provides feedback.
+
+        Args:
+            player: The Player instance who's turn it is.
+        """
+        # TODO: rename to user_player_action
         # display player's hand
         print(player.hand.description())
         for card in player.hand.cards:
@@ -129,6 +173,14 @@ class BlackjackTextController:
                 print("%s goes bust." % (player.name))
 
     def app_player_actions(self, player):
+        """Process an app controlled player's action.
+
+        Uses players' action selector instance to stick to twist, updates game instance with their choice and provides feedback.
+
+        Args:
+            player: The Player instance who's turn it is.
+        """
+        # TODO: rename to ap_player_action
         # display count of cards in player's hand
         print(player.hand.description())
 
@@ -157,6 +209,11 @@ class BlackjackTextController:
                 print("%s goes bust." % (player.name))
 
     def resolve_game(self):
+        """Provides feedback to user on the results of the game.
+
+        Updates the game instance now all players have had their turn.  Displays the contents of each players hand and the total when sicking or if they went bust,
+        then diplays who won this game.
+        """
         print("Results.")
 
         games_state, winners = self.game.resolve_game()
@@ -190,6 +247,13 @@ class BlackjackTextController:
         return winners
 
     def reset_game(self, winners):
+        """Prepare game to play again.
+
+        Update the game instance ready to play again.  Display the new order in which the players will take their turn.
+
+        Args:
+            winners: A list of player instances who won the last game.
+        """
         print("Resetting game.")
         self.game.reset_game(winners)
         print("Player order now is...")
