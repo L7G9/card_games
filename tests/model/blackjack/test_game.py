@@ -212,14 +212,13 @@ class TestGameClass:
 
     # get new playing order for players based on winner
     def test_get_player_order(self, finished_game):
-        winners = finished_game.get_winners()
         correct_order = [
             finished_game.players[2],
             finished_game.players[3],
             finished_game.players[0],
             finished_game.players[1],
         ]
-        assert finished_game.get_player_order(winners) == correct_order
+        assert finished_game.get_player_order(2) == correct_order
 
     # reset game ready to deal again
     def test_reset_game(self, finished_game):
