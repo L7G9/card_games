@@ -36,7 +36,9 @@ class Game:
         deck: A Deck instance representing the cards to be dealt to players in
         this game.
         players: A list of Player instances representing the players in this
-        game, what cards are in their hands and their state'.
+        game, what cards are in their hands and their state'.  The order of
+        the players in this this is used to control the order which the
+        players take their turn each time the game is played.
         state: A GameState for the current state of this game.
         active_player_index: An integer holding the index of the Player
         instance in players who's turn it currently is.
@@ -86,6 +88,16 @@ class Game:
 
         self.state = GameState.GETTING_NEXT_PLAYER
         return self.state
+
+    def randomize_first_player(self):
+        """Choose a random player and update order so that player goes first.
+
+        returns:
+            The Player selected to go first.
+        """
+        random_player_index = random.randint(0, len(self.players) - 1)
+        self.players = self.get_player_order(random_player_index)
+        return self.players[0]
 
     def next_player(self) -> GameState:
         """Update game ready for the next player.
@@ -299,7 +311,9 @@ class Game:
             raise GameStateError(self.state, [GameState.RESETTING_GAME])
 
         if winners is not None:
-            self.players = self.get_player_order(winners)
+            winner = random.choice(winners)
+            player_index = self.players.index(winner)
+            self.players = self.get_player_order(player_index)
 
         for player in self.players:
             self.deck.return_cards(player.hand)
@@ -308,35 +322,24 @@ class Game:
         self.state = GameState.DEALING
         return self.state
 
-    def get_player_order(self, winners: list[Player]) -> list[Player]:
-        """Get an updated player order based on the which player won this
-        game.
+    def get_player_order(self, first_player_index) -> list[Player]:
+        """Get an updated player order with player at first_player_index first.
 
-        Chooses one winner at random.  That winner is placed at the start of
-        the list and has to go first next round. The remaining players are
-        added, starting with any after the winner, then any before.  This
-        gives the effect of players sitting round a table, the player who
-        starts changes but the direction of the next player always the same.
+        Create new list with player at players[first_player_index] first,
+        other players in the list maintain the same relative positions to each
+        other.
 
         Args:
-            winners: List of Player instances who won this game.
+            first_player_index: An integer equal to the index of the player in
+            players that should be the start of the returned list.
 
         Returns:
             List of Player instances in the new playing order.
         """
-        # check for no winners
-        if not winners:
-            return None
-
-        # get index of one random winner
-        winner = random.choice(winners)
-        winner_index = self.players.index(winner)
-
-        # create new list with chosen winner a the front
         players = []
-        for index in range(winner_index, len(self.players)):
+        for index in range(first_player_index, len(self.players)):
             players.append(self.players[index])
-        for index in range(0, winner_index):
+        for index in range(0, first_player_index):
             players.append(self.players[index])
 
         return players
