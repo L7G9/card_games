@@ -8,6 +8,7 @@ class PlayerState(Enum):
         name: A string for the state of the player in the game.
         value: An integer unique to each member in this enumeration.
     """
+
     def __str__(self) -> str:
         return self.name
 

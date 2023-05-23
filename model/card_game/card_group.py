@@ -13,6 +13,7 @@ class CardGroup:
         name: A string describing this card group.
         cards: A list of Card instances.
     """
+
     def __init__(self, name: str):
         """Initializes instance.
 

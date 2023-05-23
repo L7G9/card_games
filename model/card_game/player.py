@@ -9,6 +9,7 @@ class Player:
         name: A string describing this player.
         hand: A CardGroup for the Cards this player is holding.
     """
+
     def __init__(self, id: int, name: str):
         """Initializes instance.
 

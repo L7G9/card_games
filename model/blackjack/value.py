@@ -8,6 +8,7 @@ class Value(Enum):
         name: A string for the name of the card from Ace to King.
         value: An integer unique to each member in this enumeration.
     """
+
     def __str__(self) -> str:
         """Return name as a display friendly string."""
         return self.name.capitalize()

@@ -16,6 +16,7 @@ class GameStats:
         bust_count: An integer equal to the number of players who have gone
           bust.
     """
+
     def __init__(self, player_count: int):
         """Initializes instance.
 
@@ -38,7 +39,7 @@ class GameStats:
             player_state: PlayerState enum member of the player who chose to
               stick or wen bust.
         """
-        if (self.unfinished_count == 0):
+        if self.unfinished_count == 0:
             return
 
         if player_state is PlayerState.STICK:

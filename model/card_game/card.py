@@ -10,6 +10,7 @@ class Card:
         suit: The Suit of the card Diamonds, Spades etc.
         face_up: A boolean set to True if the card is face up.
     """
+
     def __init__(self, value: Value, suit: Suit, face_up: bool = False):
         """Initializes instance.
 
@@ -38,6 +39,6 @@ class Card:
             A string describing the Card.
         """
         if ignore_face_up or self.face_up:
-            return ("%s of %s" % (self.value, self.suit))
+            return "%s of %s" % (self.value, self.suit)
         else:
             return "Facedown card"

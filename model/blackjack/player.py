@@ -23,11 +23,9 @@ class Player(player.Player):
         action_selector: An ActionSelector instance to choose if this player
         should stick or twist.  Set for computer controlled players.
     """
+
     def __init__(
-        self,
-        id: int,
-        name: str,
-        action_selector: ActionSelector = None
+        self, id: int, name: str, action_selector: ActionSelector = None
     ):
         """Initializes instance.
 
@@ -63,11 +61,13 @@ class Player(player.Player):
             PlayerStateError: Is state is not WAITING_TO_PLAY and is not
               DECIDING_ACTION.
         """
-        if (self.state != PlayerState.WAITING_TO_PLAY
-           and self.state != PlayerState.DECIDING_ACTION):
+        if (
+            self.state != PlayerState.WAITING_TO_PLAY
+            and self.state != PlayerState.DECIDING_ACTION
+        ):
             raise PlayerStateError(
                 self.state,
-                [PlayerState.WAITING_TO_PLAY, PlayerState.DECIDING_ACTION]
+                [PlayerState.WAITING_TO_PLAY, PlayerState.DECIDING_ACTION],
             )
 
         self.state = PlayerState.DECIDING_ACTION

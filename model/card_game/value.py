@@ -11,6 +11,7 @@ class Value(Enum):
         name: A string for the name of the card from Ace to King.
         value: An integer unique to this Card in the Enumeration.
     """
+
     def __str__(self) -> str:
         return self.name.capitalize()
 
