@@ -33,7 +33,7 @@ class BlackjackTextController:
         "Francesca",
         "Gregory",
         "Harriet",
-        "Jake"
+        "Jake",
     ]
 
     SHORT_PAUSE = 1
@@ -85,14 +85,14 @@ class BlackjackTextController:
         app_player_count = int(
             get_option(
                 "Enter number of opponent players (3 to 9): ",
-                ["3", "4", "5", "6", "7", "8", "9"]
+                ["3", "4", "5", "6", "7", "8", "9"],
             )
         )
 
         user_player = Player(0, player_name)
         self.game.players.append(user_player)
         for i in range(0, app_player_count):
-            app_player = Player(i+1, self.names[i], ActionSelector())
+            app_player = Player(i + 1, self.names[i], ActionSelector())
             self.game.players.append(app_player)
 
         print("Our players are...")
@@ -184,8 +184,7 @@ class BlackjackTextController:
 
         # get stick or twist option
         sticking = player.action_selector.should_stick(
-            player.best_total,
-            self.game.game_stats
+            player.best_total, self.game.game_stats
         )
 
         if sticking:
@@ -199,9 +198,7 @@ class BlackjackTextController:
 
             # feedback
             inflect_engine = inflect.engine()
-            nth_card_drawn = inflect_engine.ordinal(
-                len(player.hand.cards)-2
-            )
+            nth_card_drawn = inflect_engine.ordinal(len(player.hand.cards) - 2)
             print("And draws %s card." % (nth_card_drawn))
             if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))

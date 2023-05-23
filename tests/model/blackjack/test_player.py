@@ -26,7 +26,6 @@ def ace_of_clubs():
 
 
 class TestPlayerClass:
-
     # player sticks
     def test_stick(self, player):
         assert player.stick() == PlayerState.STICK

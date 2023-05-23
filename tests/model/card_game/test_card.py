@@ -12,7 +12,6 @@ def seven_of_spades():
 
 @pytest.mark.usefixtures("seven_of_spades")
 class TestCardClass:
-
     def test_description_facedown(self, seven_of_spades):
         assert seven_of_spades.description(False) == "Facedown card"
 

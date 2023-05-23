@@ -24,7 +24,6 @@ def players():
 
 @pytest.mark.usefixtures("deck", "players")
 class TestDeckClass:
-
     # deal cards to players
     def test_deal(self, deck, players):
         deck.deal(5, players)

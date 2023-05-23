@@ -24,7 +24,7 @@ def get_option(prompt: str, options: list[str]) -> str:
 
 def clear_screen():
     """Clear screen depending on operating system."""
-    if os.name == 'nt':
-        os.system('cls')
+    if os.name == "nt":
+        os.system("cls")
     else:
-        os.system('clear')
+        os.system("clear")

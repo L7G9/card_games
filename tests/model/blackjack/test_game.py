@@ -63,10 +63,7 @@ def other_player():
 # an in progress game for testing player actions
 @pytest.fixture(scope="function")
 def in_progress_game(
-    twist_and_stick_player,
-    twist_and_bust_player,
-    winner_player,
-    other_player
+    twist_and_stick_player, twist_and_bust_player, winner_player, other_player
 ):
     game = Game("In Progress Test Game")
     game.deck.cards.clear()
@@ -86,10 +83,7 @@ def in_progress_game(
 # a finished game for testing end of game actions
 @pytest.fixture(scope="function")
 def finished_game(
-    twist_and_stick_player,
-    twist_and_bust_player,
-    winner_player,
-    other_player
+    twist_and_stick_player, twist_and_bust_player, winner_player, other_player
 ):
     game = Game("In Progress Test Game")
     game.deck.cards.clear()
@@ -131,17 +125,12 @@ class TestGameClass:
         new_game.deal()
         new_game.next_player()
         player = new_game.players[new_game.active_player_index]
-        assert (
-            new_game.start_turn(player)
-            == GameState.WAITING_FOR_PLAYER
-        )
+        assert new_game.start_turn(player) == GameState.WAITING_FOR_PLAYER
         assert player.state == PlayerState.DECIDING_ACTION
 
     # player twists and does not so bust
     def test_resolve_twist_action_not_bust(
-            self,
-            in_progress_game,
-            twist_and_stick_player
+        self, in_progress_game, twist_and_stick_player
     ):
         # set up deck
         card_from_deck = Card(Value.FOUR, Suit.CLUBS)
@@ -168,9 +157,7 @@ class TestGameClass:
 
     # player sticks
     def test_resolve_stick_action(
-        self,
-        in_progress_game,
-        twist_and_stick_player
+        self, in_progress_game, twist_and_stick_player
     ):
         # set game and player states
         in_progress_game.state = GameState.WAITING_FOR_PLAYER
@@ -188,8 +175,7 @@ class TestGameClass:
 
     # player twists and goes bust
     def test_resolve_twist_action_bust(
-        self, in_progress_game,
-        twist_and_bust_player
+        self, in_progress_game, twist_and_bust_player
     ):
         # set up deck
         card_from_deck = Card(Value.JACK, Suit.CLUBS)
@@ -232,7 +218,7 @@ class TestGameClass:
             finished_game.players[2],
             finished_game.players[3],
             finished_game.players[0],
-            finished_game.players[1]
+            finished_game.players[1],
         ]
         assert finished_game.get_player_order(winners) == correct_order
 
