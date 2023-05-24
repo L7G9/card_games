@@ -1,8 +1,8 @@
 import pytest
 
-from model.blackjack.action_selector import ActionSelector
-from model.blackjack.game_stats import GameStats
-from model.blackjack.player_state import PlayerState
+from model.twenty_one_bust.action_selector import ActionSelector
+from model.twenty_one_bust.game_stats import GameStats
+from model.twenty_one_bust.player_state import PlayerState
 
 
 @pytest.fixture(scope="class")

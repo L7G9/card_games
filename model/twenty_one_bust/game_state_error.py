@@ -1,4 +1,4 @@
-from model.blackjack.game_state import GameState
+from model.twenty_one_bust.game_state import GameState
 
 
 class GameStateError(Exception):

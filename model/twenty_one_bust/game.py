@@ -1,23 +1,23 @@
 import random
 from typing import Union
 
-from model.blackjack.game_state import GameState
-from model.blackjack.game_state_error import GameStateError
-from model.blackjack.game_stats import GameStats
-from model.blackjack.player import Player
-from model.blackjack.player_order_error import PlayerOrderError
-from model.blackjack.player_state import PlayerState
-from model.blackjack.value import Value
 from model.card_game.card import Card
 from model.card_game.deck import Deck
 from model.card_game.suit import Suit
+from model.twenty_one_bust.game_state import GameState
+from model.twenty_one_bust.game_state_error import GameStateError
+from model.twenty_one_bust.game_stats import GameStats
+from model.twenty_one_bust.player import Player
+from model.twenty_one_bust.player_order_error import PlayerOrderError
+from model.twenty_one_bust.player_state import PlayerState
+from model.twenty_one_bust.value import Value
 
 
 class Game:
-    """A Game of Blackjack.
+    """A Game of 21 Bust.
 
     Contains a set of methods to be called in order to progress through a
-    simplified game of Blackjack with the following rules...
+    simplified game of 21 Bust with the following rules...
     - There is a single deck of 52 standard playing cards.
     - Aces can be worth 1 or 11, picture cards (Jacks, Queens & Kings) are
       worth 10, all other cards are worth their face value.
@@ -262,7 +262,7 @@ class Game:
         return self.state, winners
 
     def get_winners(self) -> list[Player]:
-        """Finds winners of this game of Blackjack.
+        """Finds winners of this game of 21 Bust.
 
         Use after next_player method is called and all players have been.
 

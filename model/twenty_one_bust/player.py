@@ -1,17 +1,17 @@
 from typing import Set
 
-from model.blackjack.action_selector import ActionSelector
-from model.blackjack.player_state import PlayerState
-from model.blackjack.player_state_error import PlayerStateError
 from model.card_game import player
 from model.card_game.card import Card
+from model.twenty_one_bust.action_selector import ActionSelector
+from model.twenty_one_bust.player_state import PlayerState
+from model.twenty_one_bust.player_state_error import PlayerStateError
 
 
 class Player(player.Player):
-    """A Player in a game of Blackjack.
+    """A Player in a game of 21 Bust.
 
     Subclass of model.card_game.player.player with the functionality to for
-    Blackjack.
+    21 Bust.
 
     Attributes:
         state: A PlayerState set to the current state of the player in the
@@ -135,7 +135,7 @@ class Player(player.Player):
         self.best_total = self.get_best_total(self.totals)
 
     def reset(self):
-        """Reset player ready to start a new game of Blackjack."""
+        """Reset player ready to start a new game of 21 Bust."""
         self.hand.cards = []
         self.totals = {0}
         self.best_total = 0

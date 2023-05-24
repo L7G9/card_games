@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class GameState(Enum):
-    """State of a blackjack game.
+    """State of a 21 Bust game.
 
     Attributes:
         name: A string for the State of the game.

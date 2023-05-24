@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class Value(Enum):
-    """Values of the playing cards in a game of BlackJack.
+    """Values of the playing cards in a game of 21 Bust.
 
     Attributes:
         name: A string for the name of the card from Ace to King.
@@ -20,7 +20,7 @@ class Value(Enum):
         All other cards have a game value equal to their enumeration value.
 
         returns:
-            An integer equal to the value of the card in Blackjack.
+            An integer equal to the value of the card in 21 Bust.
         """
         if self.value > 10:
             return 10
@@ -36,7 +36,7 @@ class Value(Enum):
 
         returns:
             An integer equal to the alternate game value of the card in
-            Blackjack.  Returns None when card is not an Ace and has no
+            21 Bust.  Returns None when card is not an Ace and has no
             alternate game value.
         """
         if self.value == 1:

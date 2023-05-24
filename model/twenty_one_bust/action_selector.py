@@ -1,10 +1,10 @@
 from random import randint
 
-from model.blackjack.game_stats import GameStats
+from model.twenty_one_bust.game_stats import GameStats
 
 
 class ActionSelector:
-    """Simple decision making Class for app controlled blackjack players.
+    """Simple decision making Class for app controlled 21 Bust players.
 
     Has a single method that tells a player to stick if...
     1: All other players have gone bust.
