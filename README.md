@@ -1,78 +1,95 @@
-# Deck of cards
-Simple project to test out development tools in Python
+# Card Games
+> Card games written in Python using the Model-View-Controller pattern.
 
-## Mark Down
-[Cheat Sheet](https://towardsdatascience.com/the-ultimate-markdown-cheat-sheet-3d3976b31a0#fd13)
+Created as example of Python project structure, testing, documentation and use of code quality tools.  
 
-## Virtual environment
+Currently there is a single text based game called 21 Bust, in which a single user can play against application controlled players using a simple algorithm.  
+
+## Requirements
+[Python3](https://www.python.org/downloads/)\
+[Infelct package](https://pypi.org/project/inflect/)
+
+## Getting Started
+Ubuntu setup.  
+
+Clone GitHub repository.  
+```bash
+git clone https://github.com/L7G9/card_games.git
+cd card_games
 ```
-python -m venv venv
+Create a virtual environment (optional).  
+```bash
+python3 -m venv venv
 source venv/bin/activate
-deactivate
+```
+Install packages.
+```bash
+pip install -r requirements.txt
+```
+Run game
+```bash
+python3 run_21Bust.py
 ```
 
 ## Project Structure
-[RealPython.com](https://realpython.com/python-application-layouts/)
-
-## Documentation
-[RealPython.com](https://realpython.com/documenting-python-code/)
-
-### Type Hinting
-[RealPython.com](https://realpython.com/lessons/type-hinting/)
-'''
-def happy_birthday(name: str, age: int) -> str:
-    return ("%s is %d years old today.  HAPPY BIRTHDAY!" % (name, age))
-'''
-
-### Doctstrings
-Add doctrings to...
+- controller
+	- twenty_one_bust : Controller class for 21 Bust model and Text View
+- model
+	- card_game : Generic classes for any card game
+	- twenty_one_bust : Classes specific to the game of 21 Bust
+- tests
+	- model : Pytest units tests
+- view
+	- text_view : Functions to supplement print, input and sleep while using the console as a text based view
+- run_21Bust.py : Python script to run the 21 Bust game
 
 
+## Development Environment
+Ubuntu development setup, includes pakages for testing and code quality.  
+```bash
+git clone https://github.com/L7G9/card_games.git
+cd card_games
+python3 -m venv venv
+source venv/bin/activate
+pip install -r dev_requirements.txt
+```
 
-[Google docstrings standard](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings)
-'''
-def happy_birthday(name: str, age: int) -> str:
-    """Creates birthday greeting.
-
-    Uses the name and age aguments to create a birthday greeting as a string.
-
-    Args:
-        name: The name of the person who's birthday it is.
-        age : The age of the person in years.
-
-    Returns:
-        A string containing the birthday greeting.  For example:
-
-        'Bob is 12 years old today.  HAPPY BIRTHDAY!'
-    """
-
-    return ("%s is %d years old today.  HAPPY BIRTHDAY!" % (name, age))
-'''
-
-### Sphinx
-
-
-## Python Tools
-[Code Quality](https://itnext.io/essential-tools-for-improving-code-quality-in-python-d24ca3b963d4?gi=97defc488bb3)
+### Pytest
+Python unit testing.  
+```bash
+pytest test/
+```
 
 ### Flake8
+Combines serveral tools to enhance code quality including...
+- Pycodestyle : PEP 8 style compilance.
+- PyFlakes : Defect analysis.
+- McCabe : Complixity analysis.
+```bash
+flake8 .
+```
 
-
-#### Pycodestyle
-Compliance with PEP 8 style guidelines
-
-#### PyFlakes
-Systax Checker
-
-#### McCabe
-Complexity analysis
-
-### isort
+### iSort
+Import statement sorter.
+```bash
+isort .
+```
 
 ### Black
+Code sytle formatter.  
+```bash
+black --line-length 79 .
+```
 
-### Pyright
+## Authors
+- [@L7G9](https://www.github.com/L7G9)
 
-### Bandit
-
-
+## Acknowledgements
+- [Online Markdown Editor](https://markdownlivepreview.com/)
+- [Markdown Guide]()
+- [Python Project Structure]()
+- [Docstrings](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings)
+- [Sphinx]()
+- [Type Hinting](https://realpython.com/lessons/type-hinting/)
+- [Unit Testing]()
+- [Code Quality Tools](https://itnext.io/essential-tools-for-improving-code-quality-in-python-d24ca3b963d4?gi=778eda09d9b7)
