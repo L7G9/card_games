@@ -246,7 +246,7 @@ class ConsoleController:
                 sleep(self.SHORT_PAUSE)
                 print(player.name)
 
-        sleep(self.LONG_PAUSE)
+        sleep(self.MEDIUM_PAUSE)
         clear_screen()
 
         return winners
