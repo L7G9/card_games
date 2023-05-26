@@ -19,17 +19,19 @@ class Game:
     Contains a set of methods to be called in order to progress through a
     simplified game of 21 Bust with the following rules...
     - There is a single deck of 52 standard playing cards.
-    - Aces can be worth 1 or 11, picture cards (Jacks, Queens & Kings) are
-      worth 10, all other cards are worth their face value.
+    - Aces can be worth 1 or 11
+    - Picture cards (Jacks, Queens & Kings) are worth 10
+    - All other cards are worth their face value.
     - Each player is dealt 2 cards face down.
     - The dealer does not play a hand.
-    - Each player has a turn in which they can draw a card by choosing to
-      twist or end their turn by choosing to stick.  After choosing to
-      twist, if they don't have a total value in their hand equal to under
-      21 they go bust.
-    - After all players have had a turn they reveal their cards.  The players
-      with the highest total under or equal to 21 win.
-    - The next time the game is played
+    - Each player has one turn in which they can...
+    - Either draw a card by choosing to twist.
+    - Or end their turn by choosing to stick.
+    - A player goes bust the total value of their cards is over 21.
+    - If a player goes bust their turn ends.
+    - After all players have had a turn they reveal their cards.
+    - The players with the highest total under or equal to 21 win.
+    - In the next game the winner goes 1st.
 
     Attributes:
         name: A string describing this game's name.
@@ -208,11 +210,7 @@ class Game:
             player: The Player instance taking the twist action.
 
         Returns:
-            The GameState after this method has been executed.
-              GameState.GETTING_NEXT_PLAYER to start next player's turn if this
-              player went bust.
-              GameState.STARTING_PLAYER_TURN for this player to continue if
-              this player did not bust.
+            The GameState after this method has been executed.  GameState.GETTING_NEXT_PLAYER to start next player's turn if this player went bust.  GameState.STARTING_PLAYER_TURN for this player to continue if this player did not bust.
             The Card instance the player drew.
 
         Raises:
@@ -237,14 +235,12 @@ class Game:
     def resolve_game(self) -> Union[GameState, list[Player]]:
         """Gets finds results of game after all players have been.
 
-        Use after next_player method is called and all players have chosen to
-        stick or gone bust.
+        Use after next_player method is called and all players have chosen to stick or gone bust.
 
         Finds the winning players and updates their win_count.
 
         Returns:
-            The GameState after this method has been executed.
-              GameState.RESETTING_GAME to get the game ready to play again.
+            The GameState after this method has been executed.  GameState.RESETTING_GAME to get the game ready to play again.
             A list Player instances who won this game.
 
         Raises:
