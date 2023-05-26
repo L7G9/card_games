@@ -1,7 +1,7 @@
 # Card Games
 > Card games written in Python using the Model-View-Controller pattern.
 
-Created as example of Python project structure, testing, documentation and use of code quality tools.  
+Created as example of Python project structure, testing, documentation and use of code quality tools.
 
 Currently there is a single text based game called 21 Bust, in which a single user can play against application controlled players using a simple algorithm.  
 
@@ -10,14 +10,14 @@ Currently there is a single text based game called 21 Bust, in which a single us
 [Infelct package](https://pypi.org/project/inflect/)
 
 ## Getting Started
-Ubuntu setup.  
+Ubuntu setup.
 
-Clone GitHub repository.  
+Clone GitHub repository.
 ```bash
 git clone https://github.com/L7G9/card_games.git
 cd card_games
 ```
-Create a virtual environment (optional).  
+Create a virtual environment (optional).
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -45,7 +45,7 @@ python3 run_21Bust.py
 
 
 ## Development Environment
-Ubuntu development setup, includes pakages for testing and code quality.  
+Ubuntu development setup, includes pakages for testing and code quality.
 ```bash
 git clone https://github.com/L7G9/card_games.git
 cd card_games
@@ -55,7 +55,7 @@ pip install -r dev_requirements.txt
 ```
 
 ### Pytest
-Python unit testing.  
+Python unit testing.
 ```bash
 pytest test/
 ```
@@ -76,9 +76,16 @@ isort .
 ```
 
 ### Black
-Code sytle formatter.  
+Code sytle formatter.
 ```bash
 black --line-length 79 .
+```
+
+### Sphinx
+Documentation generator.
+```Bash
+sphinx-apidoc -o docs/source .
+sphinx-build -b html docs/source/ docs/build/
 ```
 
 ## Authors
