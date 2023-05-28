@@ -18,7 +18,7 @@ class Card:
             value: A member from a Value enumeration.
             suit: A member from a Suit enumeration.
             face_up: A boolean set to True when the card is face up and
-              visible to all players.  False by default.
+                visible to all players.  False by default.
         """
         self.value = value
         self.suit = suit
@@ -33,7 +33,7 @@ class Card:
 
         Args:
             ignore_face_up: A boolean set to True to return the full
-            description of the Card even if face_up is False.
+                description of the Card even if face_up is False.
 
         Returns:
             A string describing the Card.

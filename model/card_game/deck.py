@@ -51,7 +51,7 @@ class Deck(CardGroup):
 
         Args:
             number_of_cards: An integer equal to the number of cards each
-            Player's hand should receive.
+                Player's hand should receive.
             players: A list of Players to receive the cards.
         """
         for card_count in range(0, number_of_cards):

@@ -15,13 +15,13 @@ class Player(player.Player):
 
     Attributes:
         state: A PlayerState set to the current state of the player in the
-          game.
+            game.
         totals: A set of integers containing all the totals that the cards in
-          the player's hand could add up to.
+            the player's hand could add up to.
         best_total: An integer equal to the best total of the cards in the
-          player's hand.
+            player's hand.
         action_selector: An ActionSelector instance to choose if this player
-        should stick or twist.  Set for computer controlled players.
+            should stick or twist.  Set for computer controlled players.
     """
 
     def __init__(
@@ -59,7 +59,7 @@ class Player(player.Player):
 
         Raises:
             PlayerStateError: Is state is not WAITING_TO_PLAY and is not
-              DECIDING_ACTION.
+                DECIDING_ACTION.
         """
         if (
             self.state != PlayerState.WAITING_TO_PLAY
@@ -104,7 +104,7 @@ class Player(player.Player):
 
         Returns:
             The new PlayerState after taking this action, either
-              WAITING_FOR_ACTIONS or BUST.
+                WAITING_FOR_ACTIONS or BUST.
 
         Raises:
             PlayerStateError: If state is not DECIDING_ACTION.
@@ -154,7 +154,7 @@ class Player(player.Player):
 
         Args:
             totals: A set of integers with the current totals in the player's
-              hand.
+                hand.
             card: A Card instance whose value is to be added to the totals.
 
         Returns:
@@ -178,7 +178,7 @@ class Player(player.Player):
 
         Args:
             totals: A set of integers holding all possible totals in the
-              player's hand.
+                player's hand.
 
         Returns:
             An integer with the best total.

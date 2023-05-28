@@ -14,9 +14,9 @@ class ActionSelector:
 
     Attributes:
         low_target: An integer representing the target hand total when the
-        player should aim for a low total.
+            player should aim for a low total.
         high_target: An integer representing the target hand total when the
-        player should aim for a high target.
+            player should aim for a high target.
 
     """
 
@@ -25,9 +25,10 @@ class ActionSelector:
 
         Args:
             low_target: An integer representing the low target hand total.
-            Default of None sets it to random value from 12 to 18.
+                Default of None sets it to random value from 12 to 18.
             high_target: An integer representing the high target hand total.
-            Default of None sets it to random value from low_target+1 to 20.
+                Default of None sets it to random value from low_target+1 to
+                20.
         """
         # TODO: checks for valid args
         if low_target is not None:
@@ -45,13 +46,13 @@ class ActionSelector:
 
         Args:
             best_total: An integer representing current best total in the
-            player's hand.
+                player's hand.
             game_stats: A GameStats instance show how many players are
-            sticking, have gone bust or are yet to complete their turn.
+                sticking, have gone bust or are yet to complete their turn.
 
         Returns:
             A boolean set True is the player should stick and False when they
-            should twist.
+                should twist.
         """
         # remove current player from stats
         player_count = game_stats.player_count - 1

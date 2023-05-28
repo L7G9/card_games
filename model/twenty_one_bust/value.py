@@ -36,8 +36,8 @@ class Value(Enum):
 
         returns:
             An integer equal to the alternate game value of the card in
-            21 Bust.  Returns None when card is not an Ace and has no
-            alternate game value.
+                21 Bust.  Returns None when card is not an Ace and has no
+                alternate game value.
         """
         if self.value == 1:
             return 11

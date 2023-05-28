@@ -10,11 +10,11 @@ class GameStats:
     Attributes:
         player_count: An integer equal to the number of players in the game.
         unfinished_count: An integer equal to the number of player yet to
-          start or finish their turn.
+            start or finish their turn.
         sticking_count: An integer equal to the number of players who have
-          chosen to stick.
+            chosen to stick.
         bust_count: An integer equal to the number of players who have gone
-          bust.
+            bust.
     """
 
     def __init__(self, player_count: int):
@@ -37,7 +37,7 @@ class GameStats:
 
         Args:
             player_state: PlayerState enum member of the player who chose to
-              stick or wen bust.
+                stick or wen bust.
         """
         if self.unfinished_count == 0:
             return

@@ -18,34 +18,34 @@ class Game:
 
     Contains a set of methods to be called in order to progress through a
     simplified game of 21 Bust with the following rules...
-    - There is a single deck of 52 standard playing cards.
-    - Aces can be worth 1 or 11
-    - Picture cards (Jacks, Queens & Kings) are worth 10
-    - All other cards are worth their face value.
-    - Each player is dealt 2 cards face down.
-    - The dealer does not play a hand.
-    - Each player has one turn in which they can...
-    - Either draw a card by choosing to twist.
-    - Or end their turn by choosing to stick.
-    - A player goes bust the total value of their cards is over 21.
-    - If a player goes bust their turn ends.
-    - After all players have had a turn they reveal their cards.
-    - The players with the highest total under or equal to 21 win.
-    - In the next game the winner goes 1st.
+        - There is a single deck of 52 standard playing cards.
+        - Aces can be worth 1 or 11
+        - Picture cards (Jacks, Queens & Kings) are worth 10
+        - All other cards are worth their face value.
+        - Each player is dealt 2 cards face down.
+        - The dealer does not play a hand.
+        - Each player has one turn in which they can...
+        - Either draw a card by choosing to twist.
+        - Or end their turn by choosing to stick.
+        - A player goes bust the total value of their cards is over 21.
+        - If a player goes bust their turn ends.
+        - After all players have had a turn they reveal their cards.
+        - The players with the highest total under or equal to 21 win.
+        - In the next game the winner goes 1st.
 
     Attributes:
         name: A string describing this game's name.
         deck: A Deck instance representing the cards to be dealt to players in
-        this game.
+            this game.
         players: A list of Player instances representing the players in this
-        game, what cards are in their hands and their state'.  The order of
-        the players in this this is used to control the order which the
-        players take their turn each time the game is played.
+            game, what cards are in their hands and their state'.  The order
+            of the players in this this is used to control the order which the
+            players take their turn each time the game is played.
         state: A GameState for the current state of this game.
         active_player_index: An integer holding the index of the Player
-        instance in players who's turn it currently is.
+            instance in players who's turn it currently is.
         game_stats: A GameStats instance hold details of how many players
-        have yet to complete their turn, have gone bust and so on.
+            have yet to complete their turn, have gone bust and so on.
     """
 
     def __init__(self, name: str):
@@ -71,7 +71,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.GETTING_NEXT_PLAYER to start the 1st player's turn.
+                GameState.GETTING_NEXT_PLAYER to start the 1st player's turn.
 
         Raises:
             GameStateError: If state is not DEALING.
@@ -114,9 +114,9 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.STARTING_PLAYER_TURN when players are waiting to
-              play.
-              GameState.RESOLVING_GAME when all players have been.
+                GameState.STARTING_PLAYER_TURN when players are waiting to
+                play.
+                GameState.RESOLVING_GAME when all players have been.
 
         Raises:
             GameStateError: If state is not GETTING_NEXT_PLAYER.
@@ -142,8 +142,8 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.WAITING_FOR_PLAYER to wait for player to choose
-              action.
+                GameState.WAITING_FOR_PLAYER to wait for player to choose
+                action.
 
         Raises:
             GameStateError: If state is not STARTING_PLAYER_TURN.
@@ -176,7 +176,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.GETTING_NEXT_PLAYER to start next player's turn.
+                GameState.GETTING_NEXT_PLAYER to start next player's turn.
 
         Raises:
             GameStateError: If state is not WAITING_FOR_PLAYER.
