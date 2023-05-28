@@ -210,8 +210,13 @@ class Game:
             player: The Player instance taking the twist action.
 
         Returns:
-            The GameState after this method has been executed.  GameState.GETTING_NEXT_PLAYER to start next player's turn if this player went bust.  GameState.STARTING_PLAYER_TURN for this player to continue if this player did not bust.
-            The Card instance the player drew.
+            A Tuple containing...
+                The GameState after this method has been executed.
+                GameState.GETTING_NEXT_PLAYER to start next player's turn if
+                this player went bust.
+                GameState.STARTING_PLAYER_TURN for this player to continue if
+                this player did not bust.
+                The Card instance the player drew.
 
         Raises:
             GameStateError: If state is not WAITING_FOR_PLAYER.
@@ -235,13 +240,16 @@ class Game:
     def resolve_game(self) -> Union[GameState, list[Player]]:
         """Gets finds results of game after all players have been.
 
-        Use after next_player method is called and all players have chosen to stick or gone bust.
+        Use after next_player method is called and all players have chosen to
+        stick or gone bust.
 
         Finds the winning players and updates their win_count.
 
         Returns:
-            The GameState after this method has been executed.  GameState.RESETTING_GAME to get the game ready to play again.
-            A list Player instances who won this game.
+            A Tuple containing...
+                The GameState after this method has been executed.
+                GameState.RESETTING_GAME to get the game ready to play again.
+                A list Player instances who won this game.
 
         Raises:
             GameStateError: If state is not RESOLVING_GAME.
@@ -298,7 +306,7 @@ class Game:
 
         Returns:
             The GameState after this method has been executed.
-              GameState.DEALING game is ready to deal again.
+                GameState.DEALING game is ready to deal again.
 
         Raises:
             GameStateError: If state is not RESETTING_GAME.
@@ -322,12 +330,12 @@ class Game:
         """Get an updated player order with player at first_player_index first.
 
         Create new list with player at players[first_player_index] first,
-        other players in the list maintain the same relative positions to each
-        other.
+        other players in the list maintain the same relative positions to
+        each other.
 
         Args:
             first_player_index: An integer equal to the index of the player in
-            players that should be the start of the returned list.
+                players that should be the start of the returned list.
 
         Returns:
             List of Player instances in the new playing order.
