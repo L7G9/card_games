@@ -17,10 +17,6 @@ class ConsoleController:
     to run a game of 21 Bust for the user.
 
     Attributes:
-        names: A list of strings holding the name of app controlled players.
-        SHORT_PAUSE: An integer equal to a short duration to wait in seconds.
-        MEDIUM_PAUSE: An integer equal to a medium duration to wait in seconds.
-        LONG_PAUSE: An integer equal to a long duration to wait in seconds.
         game: A Game instance of our 21 Bust game.
     """
 
