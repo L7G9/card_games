@@ -1,3 +1,14 @@
+"""Contains class for a player order error in a game of 21 Bust.
+
+Classes:
+
+    PlayerOrderError
+
+Typical usage examples:
+
+    raise PlayerOrderError(player, expected_player)
+"""
+
 from model.twenty_one_bust.player import PlayerState
 
 

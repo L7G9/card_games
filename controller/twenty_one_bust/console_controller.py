@@ -1,3 +1,16 @@
+"""MVC Controller class for the twenty_one_bust model and text view.
+
+Classes:
+
+    ConsoleController
+
+Typical usage examples:
+
+    controller = ConsoleController()
+
+    controller.run()
+"""
+
 from time import sleep
 
 import inflect

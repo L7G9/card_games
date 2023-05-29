@@ -1,3 +1,20 @@
+"""Functions to enable the use of the console as a text based view in MVC.
+
+Use these to supplement print, read and sleep.
+
+Functions:
+
+    get_option(prompt, options) -> string
+
+    clear_screen()
+
+Typical usage examples:
+
+    number = get_option("Pick a number fro 1 to 4", ["1", "2", "3", "4"])
+
+    clear_screen()
+"""
+
 import os
 
 

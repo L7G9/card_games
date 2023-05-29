@@ -1,3 +1,16 @@
+"""Contains class for the suit of a card.
+
+Classes:
+
+    Suit
+
+Typical usage examples:
+
+    card = Card(Value.ACE, Suit.SPADES)
+
+    deck = Deck("Deck", Value, Suit)
+"""
+
 from enum import Enum
 
 

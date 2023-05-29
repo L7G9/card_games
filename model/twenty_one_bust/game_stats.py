@@ -1,3 +1,16 @@
+"""Contains class for collecting stats in a game of 21 Bust.
+
+Classes:
+
+    GameStats
+
+Typical usage examples:
+
+    stats = GameStats(number_of_players)
+
+    stats.update(player)
+"""
+
 from model.twenty_one_bust.player_state import PlayerState
 
 
@@ -37,7 +50,7 @@ class GameStats:
 
         Args:
             player_state: PlayerState enum member of the player who chose to
-                stick or wen bust.
+                stick or went bust.
         """
         if self.unfinished_count == 0:
             return

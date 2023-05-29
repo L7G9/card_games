@@ -1,3 +1,16 @@
+"""Contains class for a single card.
+
+Classes:
+
+    Card
+
+Typical usage examples:
+
+    card = Card(Value.ACE, Suit.SPADES, True)
+
+    print(card)
+"""
+
 from model.card_game.suit import Suit
 from model.card_game.value import Value
 

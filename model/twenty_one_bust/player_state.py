@@ -1,3 +1,15 @@
+"""Contains class for state of a player in a game of 21 Bust.
+
+Classes:
+
+    PlayerState
+
+Typical usage examples:
+
+    state = PlayerState.STICK
+"""
+
+
 from enum import Enum
 
 

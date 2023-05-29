@@ -1,3 +1,14 @@
+"""Contains class for a player in a card game.
+
+Classes:
+
+    Player
+
+Typical usage examples:
+
+    player = Player(1, "John")
+"""
+
 from model.card_game.card_group import CardGroup
 
 

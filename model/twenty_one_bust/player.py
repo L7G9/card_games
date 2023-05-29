@@ -1,3 +1,16 @@
+"""Contains class for a 21 bust player.
+
+Classes:
+
+    Player
+
+Typical usage examples:
+
+    player = Player(1, "John")
+
+    game.players.append(player)
+"""
+
 from typing import Set
 
 from model.card_game import player

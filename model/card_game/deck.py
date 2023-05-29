@@ -1,3 +1,20 @@
+"""Contains class for a card of cards.
+
+Classes:
+
+    Deck
+
+Typical usage examples:
+
+    deck = Deck("Deck", Value, Suit)
+
+    players = [Player(1, "John"), Player(2, "Jane")]
+
+    deck.deal(5, players)
+
+    deck.return_cards(players[0].cards)
+"""
+
 from model.card_game.card import Card
 from model.card_game.card_group import CardGroup
 from model.card_game.player import Player

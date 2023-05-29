@@ -1,3 +1,22 @@
+"""Contains class for a group of cards.
+
+Classes:
+
+    CardGroup
+
+Typical usage examples:
+
+    hand = CardGroup("My hand of cards")
+
+    hand.cards.append(Card(Value.ACE, Suit.SPADES))
+
+    hand.cards.append(Card(Value.QUEEN, Suit.HEARTS))
+
+    hand.shuffle()
+
+    print(hand.description())
+"""
+
 from random import shuffle
 
 from model.card_game.card import Card

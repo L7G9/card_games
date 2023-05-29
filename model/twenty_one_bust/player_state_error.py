@@ -1,3 +1,14 @@
+"""Contains class for a player state error in a game of 21 Bust.
+
+Classes:
+
+    PlayerStateError
+
+Typical usage examples:
+
+    raise PlayerStateError(current_state, expected_state_list)
+"""
+
 from model.twenty_one_bust.player_state import PlayerState
 
 

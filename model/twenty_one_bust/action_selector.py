@@ -1,3 +1,22 @@
+"""Contains class for a player's action selector in a game of 21 Bust.
+
+Classes:
+
+    ActionSelector
+
+Typical usage examples:
+
+    player = Player(1, "John", ActionSelector(15, 20))
+
+    stick = player.action_selector.should_stick(
+
+        player.best_total,
+
+        game.game_stats
+
+    )
+"""
+
 from random import randint
 
 from model.twenty_one_bust.game_stats import GameStats

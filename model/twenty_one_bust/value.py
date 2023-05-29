@@ -1,3 +1,16 @@
+"""Contains class for the value of a card in a game of 21 Bust.
+
+Classes:
+
+    Value
+
+Typical usage examples:
+
+    card = Card(Value.ACE, Suit.SPADES)
+
+    deck = Deck("Deck", Value, Suit)
+"""
+
 from enum import Enum
 
 

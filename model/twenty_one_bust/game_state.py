@@ -1,3 +1,14 @@
+"""Contains class for state of a game of 21 Bust.
+
+Classes:
+
+    GameState
+
+Typical usage examples:
+
+    state = GameState.DEALING
+"""
+
 from enum import Enum
 
 

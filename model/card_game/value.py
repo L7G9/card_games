@@ -1,3 +1,16 @@
+"""Contains class for the value of a card.
+
+Classes:
+
+    Value
+
+Typical usage examples:
+
+    card = Card(Value.ACE, Suit.SPADES)
+
+    deck = Deck("Deck", Value, Suit)
+"""
+
 from enum import Enum
 
 
