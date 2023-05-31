@@ -48,7 +48,7 @@ class Game:
     """A Game of 21 Bust.
 
     Contains a set of methods to be called in order to progress through a
-        simplified game of 21 Bust with the following rules...
+        simplified game of 21 Bust with the following rules:
         - There is a single deck of 52 standard playing cards.
         - Aces can be worth 1 or 11
         - Picture cards (Jacks, Queens & Kings) are worth 10
