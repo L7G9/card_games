@@ -286,6 +286,7 @@ class Game:
         Raises:
             GameStateError: If state is not RESOLVING_GAME.
         """
+        # TODO: rename to resolve
         if self.state is not GameState.RESOLVING_GAME:
             raise GameStateError(self.state, [GameState.RESOLVING_GAME])
 
@@ -343,6 +344,7 @@ class Game:
         Raises:
             GameStateError: If state is not RESETTING_GAME.
         """
+        # TODO: rename to reset
         if self.state is not GameState.RESETTING_GAME:
             raise GameStateError(self.state, [GameState.RESETTING_GAME])
 
