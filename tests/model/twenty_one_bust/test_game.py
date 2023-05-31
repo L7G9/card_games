@@ -204,9 +204,9 @@ class TestGameClass:
         assert finished_game.next_player() == GameState.RESOLVING_GAME
 
     # resolve game ready to report winners
-    def test_resolve_game(self, finished_game, winner_player):
+    def test_resolve(self, finished_game, winner_player):
         finished_game.next_player()
-        game_state, winners = finished_game.resolve_game()
+        game_state, winners = finished_game.resolve()
         assert game_state == GameState.RESETTING_GAME
         assert winners[0] == winner_player
 
@@ -221,8 +221,8 @@ class TestGameClass:
         assert finished_game.get_player_order(2) == correct_order
 
     # reset game ready to deal again
-    def test_reset_game(self, finished_game):
+    def test_reset(self, finished_game):
         winners = finished_game.get_winners()
         finished_game.state = GameState.RESETTING_GAME
-        assert finished_game.reset_game(winners) == GameState.DEALING
+        assert finished_game.reset(winners) == GameState.DEALING
         assert len(finished_game.deck.cards) == (3 + 3 + 2 + 2)
