@@ -71,7 +71,7 @@ class Player(player.Player):
             The new PlayerState, DECIDING_ACTION.
 
         Raises:
-            PlayerStateError: If state is not WAITING_TO_PLAY and is not
+            PlayerStateError: Is state is not WAITING_TO_PLAY and is not
                 DECIDING_ACTION.
         """
         if (

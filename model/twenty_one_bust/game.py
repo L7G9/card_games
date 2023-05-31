@@ -48,22 +48,21 @@ class Game:
     """A Game of 21 Bust.
 
     Contains a set of methods to be called in order to progress through a
-    simplified game of 21 Bust with the following rules...
-    - There is a single deck of 52 standard playing cards.
-    - Aces can be worth 1 or 11
-    - Picture cards (Jacks, Queens & Kings) are worth 10
-    - All other cards are worth their face value.
-    - Each player is dealt 2 cards face down.
-    - The dealer does not play a hand.
-    - Each player has one turn in which they can...
-    - Either draw a card by choosing to twist.
-    - Or end their turn by choosing to stick.
-    - A player goes bust the total value of their cards is over 21.
-    - If a player goes bust their turn ends.
-    - After all players have had a turn they reveal their cards.
-    - The players with the highest total under or equal to 21 win.
-    - In the next game the winner goes 1st.
-    TODO: move to package docstring
+        simplified game of 21 Bust with the following rules...
+        - There is a single deck of 52 standard playing cards.
+        - Aces can be worth 1 or 11
+        - Picture cards (Jacks, Queens & Kings) are worth 10
+        - All other cards are worth their face value.
+        - Each player is dealt 2 cards face down.
+        - The dealer does not play a hand.
+        - Each player has one turn in which they can...
+        - Either draw a card by choosing to twist.
+        - Or end their turn by choosing to stick.
+        - A player goes bust the total value of their cards is over 21.
+        - If a player goes bust their turn ends.
+        - After all players have had a turn they reveal their cards.
+        - The players with the highest total under or equal to 21 win.
+        - In the next game the winner goes 1st.
 
     Attributes:
         name: A string describing this game's name.
