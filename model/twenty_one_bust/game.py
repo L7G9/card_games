@@ -269,7 +269,7 @@ class Game:
             self.state = GameState.STARTING_PLAYER_TURN
         return self.state, card
 
-    def resolve_game(self) -> Union[GameState, list[Player]]:
+    def resolve(self) -> Union[GameState, list[Player]]:
         """Gets finds results of game after all players have been.
 
         Use after next_player method is called and all players have chosen to
@@ -286,7 +286,6 @@ class Game:
         Raises:
             GameStateError: If state is not RESOLVING_GAME.
         """
-        # TODO: rename to resolve
         if self.state is not GameState.RESOLVING_GAME:
             raise GameStateError(self.state, [GameState.RESOLVING_GAME])
 
@@ -325,7 +324,7 @@ class Game:
 
         return winners
 
-    def reset_game(self, winners: list[Player]) -> GameState:
+    def reset(self, winners: list[Player]) -> GameState:
         """Gets finds results of game after all players have been.
 
         Use after resolve_game method is called.
@@ -344,7 +343,6 @@ class Game:
         Raises:
             GameStateError: If state is not RESETTING_GAME.
         """
-        # TODO: rename to reset
         if self.state is not GameState.RESETTING_GAME:
             raise GameStateError(self.state, [GameState.RESETTING_GAME])
 

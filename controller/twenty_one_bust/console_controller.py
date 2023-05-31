@@ -230,7 +230,7 @@ class ConsoleController:
         """
         print("Results.")
 
-        games_state, winners = self.game.resolve_game()
+        games_state, winners = self.game.resolve()
 
         for player in self.game.players:
             print("%s reveals their cards..." % (player.name))
@@ -270,7 +270,7 @@ class ConsoleController:
             winners: A list of player instances who won the last game.
         """
         print("Resetting game.")
-        self.game.reset_game(winners)
+        self.game.reset(winners)
         print("Player order now is...")
         for player in self.game.players:
             sleep(self.SHORT_PAUSE)
