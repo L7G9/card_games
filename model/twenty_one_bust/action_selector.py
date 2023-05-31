@@ -26,10 +26,11 @@ class ActionSelector:
     """Simple decision making Class for app controlled 21 Bust players.
 
     Has a single method that tells a player to stick if...
-    1: All other players have gone bust.
-    2: Most players have stuck or are yet to go and a high target total
-    has been reached.
-    3: Most players have gone bust and a low target total has been reached.
+        1: All other players have gone bust.
+        2: Most players have stuck or are yet to go and a high target total
+        has been reached.
+        3: Most players have gone bust and a low target total has been
+        reached.
 
     Attributes:
         low_target: An integer representing the target hand total when the
@@ -37,6 +38,9 @@ class ActionSelector:
         high_target: An integer representing the target hand total when the
             player should aim for a high target.
 
+    Raises:
+        ValueError: If low_target and high_target are not within the
+            range 1 to 21.
     """
 
     def __init__(self, low_target: int = None, high_target: int = None):
@@ -48,8 +52,13 @@ class ActionSelector:
             high_target: An integer representing the high target hand total.
                 Default of None sets it to random value from low_target+1 to
                 20.
+
         """
-        # TODO: checks for valid args
+        if low_target is not None and (low_target < 1 or low_target > 21):
+            raise ValueError("low_target must be in range 1 to 21")
+        if high_target is not None and (high_target < 1 or high_target > 21):
+            raise ValueError("low_target must be in range 1 to 21")
+
         if low_target is not None:
             self.low_target = low_target
         else:
