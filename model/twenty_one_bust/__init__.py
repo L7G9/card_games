@@ -1,4 +1,4 @@
-"""Logic and data structures specific to game of 21 Bust.
+"""Logic and data structures specific to game of Twenty One Bust.
 
 Modules:
     action_selector
