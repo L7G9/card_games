@@ -1,3 +1,4 @@
+"""Runner for text version of 21 Bust."""
 from controller.twenty_one_bust import console_controller as controller
 
 if __name__ == "__main__":
