@@ -1,0 +1,41 @@
+name: Deploy to GitHub pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11.3
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install sphinx
+
+      - name: Build HTML
+        run: |
+          sphinx-build -b html -a docs/source/ docs/build/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-docs
+          path: docs/build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
