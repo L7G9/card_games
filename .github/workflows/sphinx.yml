@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install sphinx
+          python3 -m pip install -r dev_requirements.txt
 
       - name: Build HTML
         run: |
