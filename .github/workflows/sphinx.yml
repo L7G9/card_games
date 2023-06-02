@@ -28,11 +28,11 @@ jobs:
 
       - name: Create repo and commit all
         run: |
+          git config --global --add safe.directory /github/workspace/docs/build
           cd docs/build
           git config --global user.email "lukewgregory@gmail.com"
           git config --global user.name "L7G9"
           git config --global init.defaultBranch "main"
-          git config --global --add safe.directory /github/workspace/docs/build
           git init
           git add -A
           git commit -m 'deploy'
