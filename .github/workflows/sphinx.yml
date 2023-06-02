@@ -31,7 +31,7 @@ jobs:
           cd docs/build
           git config --global user.email "lukewgregory@gmail.com"
           git config --global user.name "L7G9"
-          git config --global init-defaultBranch "main"
+          git config --global init.defaultBranch "main"
           git init
           git add -A
           git commit -m 'deploy'
