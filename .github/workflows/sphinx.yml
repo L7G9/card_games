@@ -29,8 +29,9 @@ jobs:
       - name: Create repo and commit all
         run: |
           cd docs/build
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --global user.email "lukewgregory@gmail.com"
+          git config --global user.name "L7G9"
+          git config --global init-defaultBranch "main"
           git init
           git add -A
           git commit -m 'deploy'
