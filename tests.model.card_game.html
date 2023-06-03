@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tests.model.card_game package &mdash; Card Games 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -25,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Card Games
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Card Games
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -39,8 +44,27 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">tests.model.card_game package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-tests.model.card_game.test_card">tests.model.card_game.test_card module</a></li>
-<li><a class="reference internal" href="#module-tests.model.card_game.test_deck">tests.model.card_game.test_deck module</a></li>
+<li><a class="reference internal" href="#module-tests.model.card_game.test_card">tests.model.card_game.test_card module</a><ul>
+<li><a class="reference internal" href="#tests.model.card_game.test_card.TestCardClass"><code class="docutils literal notranslate"><span class="pre">TestCardClass</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.card_game.test_card.TestCardClass.pytestmark"><code class="docutils literal notranslate"><span class="pre">TestCardClass.pytestmark</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.card_game.test_card.TestCardClass.test_description_facedown"><code class="docutils literal notranslate"><span class="pre">TestCardClass.test_description_facedown()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.card_game.test_card.TestCardClass.test_description_faceup_ignore"><code class="docutils literal notranslate"><span class="pre">TestCardClass.test_description_faceup_ignore()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.card_game.test_card.seven_of_spades"><code class="docutils literal notranslate"><span class="pre">seven_of_spades()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-tests.model.card_game.test_deck">tests.model.card_game.test_deck module</a><ul>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.TestDeckClass"><code class="docutils literal notranslate"><span class="pre">TestDeckClass</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.TestDeckClass.pytestmark"><code class="docutils literal notranslate"><span class="pre">TestDeckClass.pytestmark</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.TestDeckClass.test_deal"><code class="docutils literal notranslate"><span class="pre">TestDeckClass.test_deal()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.TestDeckClass.test_return_cards"><code class="docutils literal notranslate"><span class="pre">TestDeckClass.test_return_cards()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.deck"><code class="docutils literal notranslate"><span class="pre">deck()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.card_game.test_deck.players"><code class="docutils literal notranslate"><span class="pre">players()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-tests.model.card_game">Module contents</a></li>
 </ul>
 </li>
@@ -59,7 +83,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">tests.model.card_game package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tests.model.card_game.rst.txt" rel="nofollow"> View page source</a>
@@ -71,12 +95,12 @@
            <div itemprop="articleBody">
              
   <section id="tests-model-card-game-package">
-<h1>tests.model.card_game package<a class="headerlink" href="#tests-model-card-game-package" title="Permalink to this headline"></a></h1>
+<h1>tests.model.card_game package<a class="headerlink" href="#tests-model-card-game-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-tests.model.card_game.test_card">
-<span id="tests-model-card-game-test-card-module"></span><h2>tests.model.card_game.test_card module<a class="headerlink" href="#module-tests.model.card_game.test_card" title="Permalink to this headline"></a></h2>
+<span id="tests-model-card-game-test-card-module"></span><h2>tests.model.card_game.test_card module<a class="headerlink" href="#module-tests.model.card_game.test_card" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.card_game.test_card.TestCardClass">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.card_game.test_card.</span></span><span class="sig-name descname"><span class="pre">TestCardClass</span></span><a class="headerlink" href="#tests.model.card_game.test_card.TestCardClass" title="Permalink to this definition"></a></dt>
@@ -105,7 +129,7 @@
 
 </section>
 <section id="module-tests.model.card_game.test_deck">
-<span id="tests-model-card-game-test-deck-module"></span><h2>tests.model.card_game.test_deck module<a class="headerlink" href="#module-tests.model.card_game.test_deck" title="Permalink to this headline"></a></h2>
+<span id="tests-model-card-game-test-deck-module"></span><h2>tests.model.card_game.test_deck module<a class="headerlink" href="#module-tests.model.card_game.test_deck" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.card_game.test_deck.TestDeckClass">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.card_game.test_deck.</span></span><span class="sig-name descname"><span class="pre">TestDeckClass</span></span><a class="headerlink" href="#tests.model.card_game.test_deck.TestDeckClass" title="Permalink to this definition"></a></dt>
@@ -139,7 +163,7 @@
 
 </section>
 <section id="module-tests.model.card_game">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests.model.card_game" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests.model.card_game" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

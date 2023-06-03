@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>tests.model.twenty_one_bust package &mdash; Card Games 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -25,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Card Games
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Card Games
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -39,10 +44,71 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">tests.model.twenty_one_bust package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_action_selector">tests.model.twenty_one_bust.test_action_selector module</a></li>
-<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_game">tests.model.twenty_one_bust.test_game module</a></li>
-<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_game_stats">tests.model.twenty_one_bust.test_game_stats module</a></li>
-<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_player">tests.model.twenty_one_bust.test_player module</a></li>
+<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_action_selector">tests.model.twenty_one_bust.test_action_selector module</a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector"><code class="docutils literal notranslate"><span class="pre">TestActionSelector</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector.test_should_stick_all_bust"><code class="docutils literal notranslate"><span class="pre">TestActionSelector.test_should_stick_all_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector.test_should_stick_met_high_target"><code class="docutils literal notranslate"><span class="pre">TestActionSelector.test_should_stick_met_high_target()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector.test_should_stick_met_low_target"><code class="docutils literal notranslate"><span class="pre">TestActionSelector.test_should_stick_met_low_target()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector.test_should_stick_under_high_target"><code class="docutils literal notranslate"><span class="pre">TestActionSelector.test_should_stick_under_high_target()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector.test_should_stick_under_low_target"><code class="docutils literal notranslate"><span class="pre">TestActionSelector.test_should_stick_under_low_target()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_action_selector.action_selector"><code class="docutils literal notranslate"><span class="pre">action_selector()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_game">tests.model.twenty_one_bust.test_game module</a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass"><code class="docutils literal notranslate"><span class="pre">TestGameClass</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_deal"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_deal()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_get_player_order"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_get_player_order()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_next_player_after_deal"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_next_player_after_deal()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_next_player_no_more_players"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_next_player_no_more_players()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_reset"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_reset()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_resolve"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_resolve()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_resolve_stick_action"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_resolve_stick_action()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_resolve_twist_action_bust"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_resolve_twist_action_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_resolve_twist_action_not_bust"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_resolve_twist_action_not_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.TestGameClass.test_start_turn"><code class="docutils literal notranslate"><span class="pre">TestGameClass.test_start_turn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.finished_game"><code class="docutils literal notranslate"><span class="pre">finished_game()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.in_progress_game"><code class="docutils literal notranslate"><span class="pre">in_progress_game()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.new_game"><code class="docutils literal notranslate"><span class="pre">new_game()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.other_player"><code class="docutils literal notranslate"><span class="pre">other_player()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.twist_and_bust_player"><code class="docutils literal notranslate"><span class="pre">twist_and_bust_player()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.twist_and_stick_player"><code class="docutils literal notranslate"><span class="pre">twist_and_stick_player()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game.winner_player"><code class="docutils literal notranslate"><span class="pre">winner_player()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_game_stats">tests.model.twenty_one_bust.test_game_stats module</a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game_stats.TestGameStats"><code class="docutils literal notranslate"><span class="pre">TestGameStats</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game_stats.TestGameStats.test_update_bust"><code class="docutils literal notranslate"><span class="pre">TestGameStats.test_update_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game_stats.TestGameStats.test_update_stick"><code class="docutils literal notranslate"><span class="pre">TestGameStats.test_update_stick()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_game_stats.game_stats"><code class="docutils literal notranslate"><span class="pre">game_stats()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-tests.model.twenty_one_bust.test_player">tests.model.twenty_one_bust.test_player module</a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass</span></code></a><ul>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_add_card"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_add_card()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_best_total_1_bust"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_best_total_1_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_best_total_1_safe"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_best_total_1_safe()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_best_total_multiple_safe"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_best_total_multiple_safe()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_best_total_safe_and_bust"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_best_total_safe_and_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_totals_empty_add_ace"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_totals_empty_add_ace()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_totals_empty_add_card"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_totals_empty_add_card()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_totals_multiple_add_ace"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_totals_multiple_add_ace()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_get_totals_multiple_add_card"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_get_totals_multiple_add_card()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_stick"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_stick()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_twist_bust"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_twist_bust()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass.test_twist_safe"><code class="docutils literal notranslate"><span class="pre">TestPlayerClass.test_twist_safe()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.ace_of_clubs"><code class="docutils literal notranslate"><span class="pre">ace_of_clubs()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.eight_of_clubs"><code class="docutils literal notranslate"><span class="pre">eight_of_clubs()</span></code></a></li>
+<li><a class="reference internal" href="#tests.model.twenty_one_bust.test_player.player"><code class="docutils literal notranslate"><span class="pre">player()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-tests.model.twenty_one_bust">Module contents</a></li>
 </ul>
 </li>
@@ -61,7 +127,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">tests.model.twenty_one_bust package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tests.model.twenty_one_bust.rst.txt" rel="nofollow"> View page source</a>
@@ -73,12 +139,12 @@
            <div itemprop="articleBody">
              
   <section id="tests-model-twenty-one-bust-package">
-<h1>tests.model.twenty_one_bust package<a class="headerlink" href="#tests-model-twenty-one-bust-package" title="Permalink to this headline"></a></h1>
+<h1>tests.model.twenty_one_bust package<a class="headerlink" href="#tests-model-twenty-one-bust-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-tests.model.twenty_one_bust.test_action_selector">
-<span id="tests-model-twenty-one-bust-test-action-selector-module"></span><h2>tests.model.twenty_one_bust.test_action_selector module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_action_selector" title="Permalink to this headline"></a></h2>
+<span id="tests-model-twenty-one-bust-test-action-selector-module"></span><h2>tests.model.twenty_one_bust.test_action_selector module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_action_selector" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.twenty_one_bust.test_action_selector.TestActionSelector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.twenty_one_bust.test_action_selector.</span></span><span class="sig-name descname"><span class="pre">TestActionSelector</span></span><a class="headerlink" href="#tests.model.twenty_one_bust.test_action_selector.TestActionSelector" title="Permalink to this definition"></a></dt>
@@ -117,7 +183,7 @@
 
 </section>
 <section id="module-tests.model.twenty_one_bust.test_game">
-<span id="tests-model-twenty-one-bust-test-game-module"></span><h2>tests.model.twenty_one_bust.test_game module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_game" title="Permalink to this headline"></a></h2>
+<span id="tests-model-twenty-one-bust-test-game-module"></span><h2>tests.model.twenty_one_bust.test_game module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_game" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.twenty_one_bust.test_game.TestGameClass">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.twenty_one_bust.test_game.</span></span><span class="sig-name descname"><span class="pre">TestGameClass</span></span><a class="headerlink" href="#tests.model.twenty_one_bust.test_game.TestGameClass" title="Permalink to this definition"></a></dt>
@@ -211,7 +277,7 @@
 
 </section>
 <section id="module-tests.model.twenty_one_bust.test_game_stats">
-<span id="tests-model-twenty-one-bust-test-game-stats-module"></span><h2>tests.model.twenty_one_bust.test_game_stats module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_game_stats" title="Permalink to this headline"></a></h2>
+<span id="tests-model-twenty-one-bust-test-game-stats-module"></span><h2>tests.model.twenty_one_bust.test_game_stats module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_game_stats" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.twenty_one_bust.test_game_stats.TestGameStats">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.twenty_one_bust.test_game_stats.</span></span><span class="sig-name descname"><span class="pre">TestGameStats</span></span><a class="headerlink" href="#tests.model.twenty_one_bust.test_game_stats.TestGameStats" title="Permalink to this definition"></a></dt>
@@ -235,7 +301,7 @@
 
 </section>
 <section id="module-tests.model.twenty_one_bust.test_player">
-<span id="tests-model-twenty-one-bust-test-player-module"></span><h2>tests.model.twenty_one_bust.test_player module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_player" title="Permalink to this headline"></a></h2>
+<span id="tests-model-twenty-one-bust-test-player-module"></span><h2>tests.model.twenty_one_bust.test_player module<a class="headerlink" href="#module-tests.model.twenty_one_bust.test_player" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tests.model.twenty_one_bust.test_player.TestPlayerClass">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.model.twenty_one_bust.test_player.</span></span><span class="sig-name descname"><span class="pre">TestPlayerClass</span></span><a class="headerlink" href="#tests.model.twenty_one_bust.test_player.TestPlayerClass" title="Permalink to this definition"></a></dt>
@@ -319,7 +385,7 @@
 
 </section>
 <section id="module-tests.model.twenty_one_bust">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests.model.twenty_one_bust" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests.model.twenty_one_bust" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

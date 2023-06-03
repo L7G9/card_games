@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>controller.twenty_one_bust package &mdash; Card Games 1.0 documentation</title>
@@ -11,10 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -25,11 +26,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Card Games
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Card Games
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -39,7 +44,25 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">controller.twenty_one_bust package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-controller.twenty_one_bust.console_controller">controller.twenty_one_bust.console_controller module</a></li>
+<li><a class="reference internal" href="#module-controller.twenty_one_bust.console_controller">controller.twenty_one_bust.console_controller module</a><ul>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController"><code class="docutils literal notranslate"><span class="pre">ConsoleController</span></code></a><ul>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.game</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.LONG_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.LONG_PAUSE</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.MEDIUM_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.MEDIUM_PAUSE</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.SHORT_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.SHORT_PAUSE</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions"><code class="docutils literal notranslate"><span class="pre">ConsoleController.app_player_actions()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.names"><code class="docutils literal notranslate"><span class="pre">ConsoleController.names</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.play_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.play_game()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.player_turn"><code class="docutils literal notranslate"><span class="pre">ConsoleController.player_turn()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.reset_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.reset_game()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.resolve_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.resolve_game()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.run"><code class="docutils literal notranslate"><span class="pre">ConsoleController.run()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.setup"><code class="docutils literal notranslate"><span class="pre">ConsoleController.setup()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions"><code class="docutils literal notranslate"><span class="pre">ConsoleController.user_player_actions()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-controller.twenty_one_bust">Module contents</a></li>
 </ul>
 </li>
@@ -58,7 +81,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">controller.twenty_one_bust package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/controller.twenty_one_bust.rst.txt" rel="nofollow"> View page source</a>
@@ -70,12 +93,12 @@
            <div itemprop="articleBody">
              
   <section id="controller-twenty-one-bust-package">
-<h1>controller.twenty_one_bust package<a class="headerlink" href="#controller-twenty-one-bust-package" title="Permalink to this headline"></a></h1>
+<h1>controller.twenty_one_bust package<a class="headerlink" href="#controller-twenty-one-bust-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-controller.twenty_one_bust.console_controller">
-<span id="controller-twenty-one-bust-console-controller-module"></span><h2>controller.twenty_one_bust.console_controller module<a class="headerlink" href="#module-controller.twenty_one_bust.console_controller" title="Permalink to this headline"></a></h2>
+<span id="controller-twenty-one-bust-console-controller-module"></span><h2>controller.twenty_one_bust.console_controller module<a class="headerlink" href="#module-controller.twenty_one_bust.console_controller" title="Permalink to this heading"></a></h2>
 <p>MVC Controller class for the twenty_one_bust model and text view.</p>
 <p>Classes:</p>
 <blockquote>
@@ -121,7 +144,7 @@ to run a game of 21 Bust for the user.</p>
 <p>Uses players’ action selector instance to stick to twist, updates game
 instance with their choice and provides feedback.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>player</strong> – The Player instance who’s turn it is.</p>
 </dd>
 </dl>
@@ -146,7 +169,7 @@ their turn.</p>
 <dd><p>Process a player’s turn.</p>
 <p>Loops through player’s actions until their turn is complete.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>player</strong> – The Player instance who’s turn it is.</p>
 </dd>
 </dl>
@@ -159,7 +182,7 @@ their turn.</p>
 <p>Update the game instance ready to play again.  Display the new order
 in which the players will take their turn.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>winners</strong> – A list of player instances who won the last game.</p>
 </dd>
 </dl>
@@ -199,7 +222,7 @@ feedback.</p>
 <p>Prompts user to stick to twist, updates game instance with their
 choice and provides feedback.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>player</strong> – The Player instance who’s turn it is.</p>
 </dd>
 </dl>
@@ -209,7 +232,7 @@ choice and provides feedback.</p>
 
 </section>
 <section id="module-controller.twenty_one_bust">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-controller.twenty_one_bust" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-controller.twenty_one_bust" title="Permalink to this heading"></a></h2>
 <p>Controller for twenty one bust model and text view.</p>
 <dl class="simple">
 <dt>Modules:</dt><dd><p>console_controller</p>
