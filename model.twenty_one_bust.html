@@ -1,47 +1,90 @@
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>model.twenty_one_bust package &#8212; Card Games 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
-    
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>model.twenty_one_bust package &mdash; Card Games 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Card Games 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">model.twenty_one_bust package</a></li> 
-      </ul>
-    </div>  
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Card Games
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">model.twenty_one_bust package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.action_selector">model.twenty_one_bust.action_selector module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.game">model.twenty_one_bust.game module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.game_state">model.twenty_one_bust.game_state module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.game_state_error">model.twenty_one_bust.game_state_error module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.game_stats">model.twenty_one_bust.game_stats module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.player">model.twenty_one_bust.player module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.player_order_error">model.twenty_one_bust.player_order_error module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.player_state">model.twenty_one_bust.player_state module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.player_state_error">model.twenty_one_bust.player_state_error module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust.value">model.twenty_one_bust.value module</a></li>
+<li><a class="reference internal" href="#module-model.twenty_one_bust">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Card Games</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">model.twenty_one_bust package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/model.twenty_one_bust.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="model-twenty-one-bust-package">
-<h1>model.twenty_one_bust package<a class="headerlink" href="#model-twenty-one-bust-package" title="Permalink to this heading">¶</a></h1>
+<h1>model.twenty_one_bust package<a class="headerlink" href="#model-twenty-one-bust-package" title="Permalink to this headline"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
 </section>
 <section id="module-model.twenty_one_bust.action_selector">
-<span id="model-twenty-one-bust-action-selector-module"></span><h2>model.twenty_one_bust.action_selector module<a class="headerlink" href="#module-model.twenty_one_bust.action_selector" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-action-selector-module"></span><h2>model.twenty_one_bust.action_selector module<a class="headerlink" href="#module-model.twenty_one_bust.action_selector" title="Permalink to this headline"></a></h2>
 <p>Contains class for a player’s action selector in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -59,7 +102,7 @@
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.action_selector.ActionSelector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.action_selector.</span></span><span class="sig-name descname"><span class="pre">ActionSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.action_selector.</span></span><span class="sig-name descname"><span class="pre">ActionSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Simple decision making Class for app controlled 21 Bust players.</p>
 <dl class="simple">
@@ -72,30 +115,30 @@ reached.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.action_selector.ActionSelector.low_target">
-<span class="sig-name descname"><span class="pre">low_target</span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.low_target" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">low_target</span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.low_target" title="Permalink to this definition"></a></dt>
 <dd><p>An integer representing the target hand total when the
 player should aim for a low total.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.action_selector.ActionSelector.high_target">
-<span class="sig-name descname"><span class="pre">high_target</span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.high_target" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">high_target</span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.high_target" title="Permalink to this definition"></a></dt>
 <dd><p>An integer representing the target hand total when the
 player should aim for a high target.</p>
 </dd></dl>
 
 <dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><strong>ValueError</strong> – If low_target and high_target are not within the
     range 1 to 21.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.action_selector.ActionSelector.should_stick">
-<span class="sig-name descname"><span class="pre">should_stick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game_stats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats" title="model.twenty_one_bust.game_stats.GameStats"><span class="pre">GameStats</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.should_stick" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">should_stick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_total</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game_stats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats" title="model.twenty_one_bust.game_stats.GameStats"><span class="pre">model.twenty_one_bust.game_stats.GameStats</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.action_selector.ActionSelector.should_stick" title="Permalink to this definition"></a></dt>
 <dd><p>Decides if a player should stick.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>best_total</strong> – An integer representing current best total in the
 player’s hand.</p></li>
@@ -103,7 +146,7 @@ player’s hand.</p></li>
 sticking, have gone bust or are yet to complete their turn.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>A boolean set True is the player should stick and False when they</dt><dd><p>should twist.</p>
 </dd>
@@ -117,7 +160,7 @@ sticking, have gone bust or are yet to complete their turn.</p></li>
 
 </section>
 <section id="module-model.twenty_one_bust.game">
-<span id="model-twenty-one-bust-game-module"></span><h2>model.twenty_one_bust.game module<a class="headerlink" href="#module-model.twenty_one_bust.game" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-game-module"></span><h2>model.twenty_one_bust.game module<a class="headerlink" href="#module-model.twenty_one_bust.game" title="Permalink to this headline"></a></h2>
 <p>Contains class for a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -139,7 +182,7 @@ sticking, have gone bust or are yet to complete their turn.</p></li>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game.Game" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game.Game" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A Game of 21 Bust.</p>
 <dl class="simple">
@@ -162,20 +205,20 @@ sticking, have gone bust or are yet to complete their turn.</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.name" title="Permalink to this definition"></a></dt>
 <dd><p>A string describing this game’s name.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.deck">
-<span class="sig-name descname"><span class="pre">deck</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.deck" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">deck</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.deck" title="Permalink to this definition"></a></dt>
 <dd><p>A Deck instance representing the cards to be dealt to players in
 this game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.players">
-<span class="sig-name descname"><span class="pre">players</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.players" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">players</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.players" title="Permalink to this definition"></a></dt>
 <dd><p>A list of Player instances representing the players in this
 game, what cards are in their hands and their state’.  The order
 of the players in this this is used to control the order which the
@@ -184,40 +227,40 @@ players take their turn each time the game is played.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.state">
-<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.state" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.state" title="Permalink to this definition"></a></dt>
 <dd><p>A GameState for the current state of this game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.active_player_index">
-<span class="sig-name descname"><span class="pre">active_player_index</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.active_player_index" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">active_player_index</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.active_player_index" title="Permalink to this definition"></a></dt>
 <dd><p>An integer holding the index of the Player
 instance in players who’s turn it currently is.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.game_stats">
-<span class="sig-name descname"><span class="pre">game_stats</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.game_stats" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">game_stats</span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.game_stats" title="Permalink to this definition"></a></dt>
 <dd><p>A GameStats instance hold details of how many players
 have yet to complete their turn, have gone bust and so on.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.deal">
-<span class="sig-name descname"><span class="pre">deal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.deal" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">deal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.deal" title="Permalink to this definition"></a></dt>
 <dd><p>Deal cards to players.</p>
 <p>Use after Game constructor or reset method is called.</p>
 <p>Gets the game started by shuffling the deck, and dealing 2 cards
 each player.  Initializes active_player_index and active_player_index.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>The GameState after this method has been executed.</dt><dd><p>GameState.GETTING_NEXT_PLAYER to start the 1st player’s turn.</p>
 </dd>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not DEALING.</p>
 </dd>
 </dl>
@@ -225,17 +268,17 @@ each player.  Initializes active_player_index and active_player_index.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.get_player_order">
-<span class="sig-name descname"><span class="pre">get_player_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_player_index</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.get_player_order" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_player_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_player_index</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.get_player_order" title="Permalink to this definition"></a></dt>
 <dd><p>Get an updated player order with player at first_player_index first.</p>
 <p>Create new list with player at players[first_player_index] first,
 other players in the list maintain the same relative positions to
 each other.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>first_player_index</strong> – An integer equal to the index of the player in
 players that should be the start of the returned list.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>List of Player instances in the new playing order.</p>
 </dd>
 </dl>
@@ -243,13 +286,13 @@ players that should be the start of the returned list.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.get_winners">
-<span class="sig-name descname"><span class="pre">get_winners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.get_winners" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_winners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.get_winners" title="Permalink to this definition"></a></dt>
 <dd><p>Finds winners of this game of 21 Bust.</p>
 <p>Use after next_player method is called and all players have been.</p>
 <p>Search for winners by looking for the players who have stuck and have
 highest best_total.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A list Player instances who won this game.</p>
 </dd>
 </dl>
@@ -257,7 +300,7 @@ highest best_total.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.next_player">
-<span class="sig-name descname"><span class="pre">next_player</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.next_player" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">next_player</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.next_player" title="Permalink to this definition"></a></dt>
 <dd><p>Update game ready for the next player.</p>
 <p>Should be called after deal method is called, a player sticks or goes
 bust.</p>
@@ -265,7 +308,7 @@ bust.</p>
 resolve_twist_action (resulting in bust) methods are called.</p>
 <p>Moves active_player_index on to the next player.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>The GameState after this method has been executed.</dt><dd><p>GameState.STARTING_PLAYER_TURN when players are waiting to
 play.
@@ -274,7 +317,7 @@ GameState.RESOLVING_GAME when all players have been.</p>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not GETTING_NEXT_PLAYER.</p>
 </dd>
 </dl>
@@ -282,10 +325,10 @@ GameState.RESOLVING_GAME when all players have been.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.randomize_first_player">
-<span class="sig-name descname"><span class="pre">randomize_first_player</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game.Game.randomize_first_player" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">randomize_first_player</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game.Game.randomize_first_player" title="Permalink to this definition"></a></dt>
 <dd><p>Choose a random player and update order so that player goes first.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The Player selected to go first.</p>
 </dd>
 </dl>
@@ -293,24 +336,24 @@ GameState.RESOLVING_GAME when all players have been.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">winners</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">winners</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.reset" title="Permalink to this definition"></a></dt>
 <dd><p>Gets finds results of game after all players have been.</p>
 <p>Use after resolve_game method is called.</p>
 <p>Updates the order which the players have their turn next game.
 Returns the cards in each player’s hand to the deck.
 Resets each player ready for the next game.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>winners</strong> – List of Player instances who won this game.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>The GameState after this method has been executed.</dt><dd><p>GameState.DEALING game is ready to deal again.</p>
 </dd>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not RESETTING_GAME.</p>
 </dd>
 </dl>
@@ -318,13 +361,13 @@ Resets each player ready for the next game.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.resolve">
-<span class="sig-name descname"><span class="pre">resolve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resolve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve" title="Permalink to this definition"></a></dt>
 <dd><p>Gets finds results of game after all players have been.</p>
 <p>Use after next_player method is called and all players have chosen to
 stick or gone bust.</p>
 <p>Finds the winning players and updates their win_count.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>A Tuple containing…</dt><dd><p>The GameState after this method has been executed.
 GameState.RESETTING_GAME to get the game ready to play again.
@@ -333,7 +376,7 @@ A list Player instances who won this game.</p>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not RESOLVING_GAME.</p>
 </dd>
 </dl>
@@ -341,23 +384,23 @@ A list Player instances who won this game.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.resolve_stick_action">
-<span class="sig-name descname"><span class="pre">resolve_stick_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve_stick_action" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resolve_stick_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve_stick_action" title="Permalink to this definition"></a></dt>
 <dd><p>Resolve a player’s stick action.</p>
 <p>Use after start_turn methods is called.</p>
 <p>Sets the player’s state.
 Updates game_stats to reflect the change.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>player</strong> – The Player instance taking the stick action.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>The GameState after this method has been executed.</dt><dd><p>GameState.GETTING_NEXT_PLAYER to start next player’s turn.</p>
 </dd>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not WAITING_FOR_PLAYER.</p></li>
 <li><p><a class="reference internal" href="#model.twenty_one_bust.player_order_error.PlayerOrderError" title="model.twenty_one_bust.player_order_error.PlayerOrderError"><strong>PlayerOrderError</strong></a> – If player is not players[active_player_index].</p></li>
@@ -368,16 +411,16 @@ Updates game_stats to reflect the change.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.resolve_twist_action">
-<span class="sig-name descname"><span class="pre">resolve_twist_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">Card</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve_twist_action" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resolve_twist_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">model.card_game.card.Card</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.resolve_twist_action" title="Permalink to this definition"></a></dt>
 <dd><p>Resolve a player’s twist action.</p>
 <p>Use after start_turn methods is called.</p>
 <p>Updates the player’s state using a card taken from the deck.
 Updates game_stats to reflect the change.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>player</strong> – The Player instance taking the twist action.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>A Tuple containing…</dt><dd><p>The GameState after this method has been executed.
 GameState.GETTING_NEXT_PLAYER to start next player’s turn if
@@ -389,7 +432,7 @@ The Card instance the player drew.</p>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not WAITING_FOR_PLAYER.</p></li>
 <li><p><a class="reference internal" href="#model.twenty_one_bust.player_order_error.PlayerOrderError" title="model.twenty_one_bust.player_order_error.PlayerOrderError"><strong>PlayerOrderError</strong></a> – If player is not players[active_player_index].</p></li>
@@ -400,13 +443,13 @@ The Card instance the player drew.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game.Game.start_turn">
-<span class="sig-name descname"><span class="pre">start_turn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.start_turn" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">start_turn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.game.Game.start_turn" title="Permalink to this definition"></a></dt>
 <dd><p>Update game ready for the next player.</p>
 <p>Use after next_player and the resolve_twist_action (not
 resulting in bust) methods are called.</p>
 <p>Informs player they need decide whether to stick or twist.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>The GameState after this method has been executed.</dt><dd><p>GameState.WAITING_FOR_PLAYER to wait for player to choose
 action.</p>
@@ -414,7 +457,7 @@ action.</p>
 </dl>
 </p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError" title="model.twenty_one_bust.game_state_error.GameStateError"><strong>GameStateError</strong></a> – If state is not STARTING_PLAYER_TURN.</p>
 </dd>
 </dl>
@@ -424,7 +467,7 @@ action.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.game_state">
-<span id="model-twenty-one-bust-game-state-module"></span><h2>model.twenty_one_bust.game_state module<a class="headerlink" href="#module-model.twenty_one_bust.game_state" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-game-state-module"></span><h2>model.twenty_one_bust.game_state module<a class="headerlink" href="#module-model.twenty_one_bust.game_state" title="Permalink to this headline"></a></h2>
 <p>Contains class for state of a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -436,56 +479,56 @@ action.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_state.</span></span><span class="sig-name descname"><span class="pre">GameState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_state.</span></span><span class="sig-name descname"><span class="pre">GameState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>State of a 21 Bust game.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.name" title="Permalink to this definition"></a></dt>
 <dd><p>A string for the State of the game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.value">
-<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.value" title="Permalink to this definition"></a></dt>
 <dd><p>An integer unique to each member in this enumeration.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.DEALING">
-<span class="sig-name descname"><span class="pre">DEALING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.DEALING" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEALING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.DEALING" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.GETTING_NEXT_PLAYER">
-<span class="sig-name descname"><span class="pre">GETTING_NEXT_PLAYER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.GETTING_NEXT_PLAYER" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">GETTING_NEXT_PLAYER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.GETTING_NEXT_PLAYER" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.RESETTING_GAME">
-<span class="sig-name descname"><span class="pre">RESETTING_GAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.RESETTING_GAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RESETTING_GAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.RESETTING_GAME" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.RESOLVING_GAME">
-<span class="sig-name descname"><span class="pre">RESOLVING_GAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.RESOLVING_GAME" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">RESOLVING_GAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.RESOLVING_GAME" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.STARTING_PLAYER_TURN">
-<span class="sig-name descname"><span class="pre">STARTING_PLAYER_TURN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.STARTING_PLAYER_TURN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">STARTING_PLAYER_TURN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.STARTING_PLAYER_TURN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state.GameState.WAITING_FOR_PLAYER">
-<span class="sig-name descname"><span class="pre">WAITING_FOR_PLAYER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.WAITING_FOR_PLAYER" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">WAITING_FOR_PLAYER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.game_state.GameState.WAITING_FOR_PLAYER" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-model.twenty_one_bust.game_state_error">
-<span id="model-twenty-one-bust-game-state-error-module"></span><h2>model.twenty_one_bust.game_state_error module<a class="headerlink" href="#module-model.twenty_one_bust.game_state_error" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-game-state-error-module"></span><h2>model.twenty_one_bust.game_state_error module<a class="headerlink" href="#module-model.twenty_one_bust.game_state_error" title="Permalink to this headline"></a></h2>
 <p>Contains class for a state error in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -497,7 +540,7 @@ action.</p>
 </div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_state_error.GameStateError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_state_error.</span></span><span class="sig-name descname"><span class="pre">GameStateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">GameState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_state_error.GameStateError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_state_error.</span></span><span class="sig-name descname"><span class="pre">GameStateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState" title="model.twenty_one_bust.game_state.GameState"><span class="pre">model.twenty_one_bust.game_state.GameState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_state_error.GameStateError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Game State Error.</p>
 <p>Occur when the order which a method in Game is called is incompatible with
@@ -507,7 +550,7 @@ For example when deal is called and the game state is WAITING_FOR_PLAYER.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.game_stats">
-<span id="model-twenty-one-bust-game-stats-module"></span><h2>model.twenty_one_bust.game_stats module<a class="headerlink" href="#module-model.twenty_one_bust.game_stats" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-game-stats-module"></span><h2>model.twenty_one_bust.game_stats module<a class="headerlink" href="#module-model.twenty_one_bust.game_stats" title="Permalink to this headline"></a></h2>
 <p>Contains class for collecting stats in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -520,47 +563,47 @@ For example when deal is called and the game state is WAITING_FOR_PLAYER.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_stats.</span></span><span class="sig-name descname"><span class="pre">GameStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.game_stats.</span></span><span class="sig-name descname"><span class="pre">GameStats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Stats for all the stats of all player states in the game.</p>
 <p>Updated by the a Game instance and passed to ActionSelector to help
 decide if a plyer should stick or twist.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats.player_count">
-<span class="sig-name descname"><span class="pre">player_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.player_count" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">player_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.player_count" title="Permalink to this definition"></a></dt>
 <dd><p>An integer equal to the number of players in the game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats.unfinished_count">
-<span class="sig-name descname"><span class="pre">unfinished_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.unfinished_count" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">unfinished_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.unfinished_count" title="Permalink to this definition"></a></dt>
 <dd><p>An integer equal to the number of player yet to
 start or finish their turn.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats.sticking_count">
-<span class="sig-name descname"><span class="pre">sticking_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.sticking_count" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">sticking_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.sticking_count" title="Permalink to this definition"></a></dt>
 <dd><p>An integer equal to the number of players who have
 chosen to stick.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats.bust_count">
-<span class="sig-name descname"><span class="pre">bust_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.bust_count" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">bust_count</span></span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.bust_count" title="Permalink to this definition"></a></dt>
 <dd><p>An integer equal to the number of players who have gone
 bust.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.game_stats.GameStats.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.update" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.game_stats.GameStats.update" title="Permalink to this definition"></a></dt>
 <dd><p>Updates the stats when a players’ state changes.</p>
 <p>Should be called when a player sticks or goes bust to increase
 sticking_count or sticking_count by 1, and reduce unfinished_count
 by 1.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>player_state</strong> – PlayerState enum member of the player who chose to
 stick or went bust.</p>
 </dd>
@@ -571,7 +614,7 @@ stick or went bust.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.player">
-<span id="model-twenty-one-bust-player-module"></span><h2>model.twenty_one_bust.player module<a class="headerlink" href="#module-model.twenty_one_bust.player" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-player-module"></span><h2>model.twenty_one_bust.player module<a class="headerlink" href="#module-model.twenty_one_bust.player" title="Permalink to this headline"></a></h2>
 <p>Contains class for a 21 bust player.</p>
 <p>Classes:</p>
 <blockquote>
@@ -584,47 +627,47 @@ stick or went bust.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector" title="model.twenty_one_bust.action_selector.ActionSelector"><span class="pre">ActionSelector</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="model.card_game.html#model.card_game.player.Player" title="model.card_game.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_selector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector" title="model.twenty_one_bust.action_selector.ActionSelector"><span class="pre">model.twenty_one_bust.action_selector.ActionSelector</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="model.card_game.html#model.card_game.player.Player" title="model.card_game.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.card_game.player.Player</span></code></a></p>
 <p>A Player in a game of 21 Bust.</p>
 <p>Subclass of model.card_game.player.player with the functionality to for
 21 Bust.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.state">
-<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.state" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.state" title="Permalink to this definition"></a></dt>
 <dd><p>A PlayerState set to the current state of the player in the
 game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.totals">
-<span class="sig-name descname"><span class="pre">totals</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.totals" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">totals</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.totals" title="Permalink to this definition"></a></dt>
 <dd><p>A set of integers containing all the totals that the cards in
 the player’s hand could add up to.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.best_total">
-<span class="sig-name descname"><span class="pre">best_total</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.best_total" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">best_total</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.best_total" title="Permalink to this definition"></a></dt>
 <dd><p>An integer equal to the best total of the cards in the
 player’s hand.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.action_selector">
-<span class="sig-name descname"><span class="pre">action_selector</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.action_selector" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">action_selector</span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.action_selector" title="Permalink to this definition"></a></dt>
 <dd><p>An ActionSelector instance to choose if this player
 should stick or twist.  Set for computer controlled players.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.add_card">
-<span class="sig-name descname"><span class="pre">add_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.add_card" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">add_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">model.card_game.card.Card</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.add_card" title="Permalink to this definition"></a></dt>
 <dd><p>Add card to player’s hand.</p>
 <p>Updates totals and best total to reflect the changes made by adding
 the card.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>card</strong> – A Card instance to add to the player’s hand.</p>
 </dd>
 </dl>
@@ -632,23 +675,23 @@ the card.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.app_controlled">
-<span class="sig-name descname"><span class="pre">app_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.app_controlled" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">app_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.app_controlled" title="Permalink to this definition"></a></dt>
 <dd><p>Return True if player is app controlled with an ActionSelector.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.get_best_total">
-<span class="sig-name descname"><span class="pre">get_best_total</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">totals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.get_best_total" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_best_total</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">totals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.get_best_total" title="Permalink to this definition"></a></dt>
 <dd><p>Get best total from set of totals.</p>
 <p>The best total will be the highest total less then or equal to 21.
 When all totals are over 21, i.e. the player is bust, any of these can
 be considered the best total.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>totals</strong> – A set of integers holding all possible totals in the
 player’s hand.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>An integer with the best total.</p>
 </dd>
 </dl>
@@ -656,19 +699,19 @@ player’s hand.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.get_totals">
-<span class="sig-name descname"><span class="pre">get_totals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">totals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.get_totals" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_totals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">totals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">model.card_game.card.Card</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.get_totals" title="Permalink to this definition"></a></dt>
 <dd><p>Calculate possible totals when card is added to player’s hand.</p>
 <p>Because aces are worth either 1 or 11, a player’s hand can have
 multiple totals.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>totals</strong> – A set of integers with the current totals in the player’s
 hand.</p></li>
 <li><p><strong>card</strong> – A Card instance whose value is to be added to the totals.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A set of integers with the new totals in the player’s hand.</p>
 </dd>
 </dl>
@@ -676,15 +719,15 @@ hand.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.play">
-<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.play" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.play" title="Permalink to this definition"></a></dt>
 <dd><p>Play - player start to or continues their turn.</p>
 <p>Can only be taken when player state is WAITING_TO_PLAY or
 DECIDING_ACTION.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The new PlayerState, DECIDING_ACTION.</p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.player_state_error.PlayerStateError" title="model.twenty_one_bust.player_state_error.PlayerStateError"><strong>PlayerStateError</strong></a> – Is state is not WAITING_TO_PLAY and is not
     DECIDING_ACTION.</p>
 </dd>
@@ -693,26 +736,26 @@ DECIDING_ACTION.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.reset" title="Permalink to this definition"></a></dt>
 <dd><p>Reset player ready to start a new game of 21 Bust.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.reveal_hand">
-<span class="sig-name descname"><span class="pre">reveal_hand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.reveal_hand" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reveal_hand</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player.Player.reveal_hand" title="Permalink to this definition"></a></dt>
 <dd><p>Set all player’s cards to face up.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.stick">
-<span class="sig-name descname"><span class="pre">stick</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.stick" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stick</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.stick" title="Permalink to this definition"></a></dt>
 <dd><p>Stick action - player ends their go drawing no more cards.</p>
 <p>Can only be taken when player state is SELECTING_ACTION.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The new PlayerState after taking this action, STICK.</p>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#model.twenty_one_bust.player_state_error.PlayerStateError" title="model.twenty_one_bust.player_state_error.PlayerStateError"><strong>PlayerStateError</strong></a> – If state is not DECIDING_ACTION.</p>
 </dd>
 </dl>
@@ -720,23 +763,23 @@ DECIDING_ACTION.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.twist">
-<span class="sig-name descname"><span class="pre">twist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">Card</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.twist" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">twist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">card</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.card_game.html#model.card_game.card.Card" title="model.card_game.card.Card"><span class="pre">model.card_game.card.Card</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.twist" title="Permalink to this definition"></a></dt>
 <dd><p>Twist action - player receives a card.</p>
 <p>Can only be taken when player state is SELECTING_ACTION.
 Will increase the player’s totals.
 The plyer will either be able to continue playing or go bust.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>card</strong> – A Card instance to add to the player’s hand.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p><dl class="simple">
 <dt>The new PlayerState after taking this action, either</dt><dd><p>WAITING_FOR_ACTIONS or BUST.</p>
 </dd>
 </dl>
 </p>
 </dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#model.twenty_one_bust.player_state_error.PlayerStateError" title="model.twenty_one_bust.player_state_error.PlayerStateError"><strong>PlayerStateError</strong></a> – If state is not DECIDING_ACTION.</p>
 </dd>
 </dl>
@@ -744,7 +787,7 @@ The plyer will either be able to continue playing or go bust.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player.Player.user_controlled">
-<span class="sig-name descname"><span class="pre">user_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.user_controlled" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">user_controlled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#model.twenty_one_bust.player.Player.user_controlled" title="Permalink to this definition"></a></dt>
 <dd><p>Return True if player is user controlled.</p>
 </dd></dl>
 
@@ -752,7 +795,7 @@ The plyer will either be able to continue playing or go bust.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.player_order_error">
-<span id="model-twenty-one-bust-player-order-error-module"></span><h2>model.twenty_one_bust.player_order_error module<a class="headerlink" href="#module-model.twenty_one_bust.player_order_error" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-player-order-error-module"></span><h2>model.twenty_one_bust.player_order_error module<a class="headerlink" href="#module-model.twenty_one_bust.player_order_error" title="Permalink to this headline"></a></h2>
 <p>Contains class for a player order error in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -764,7 +807,7 @@ The plyer will either be able to continue playing or go bust.</p>
 </div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_order_error.PlayerOrderError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_order_error.</span></span><span class="sig-name descname"><span class="pre">PlayerOrderError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_order_error.PlayerOrderError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_order_error.</span></span><span class="sig-name descname"><span class="pre">PlayerOrderError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_order_error.PlayerOrderError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Player Order Error.</p>
 <p>Occur when a player is passed to a method which would make the player
@@ -773,7 +816,7 @@ perform some action and is not that player’s turn.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.player_state">
-<span id="model-twenty-one-bust-player-state-module"></span><h2>model.twenty_one_bust.player_state module<a class="headerlink" href="#module-model.twenty_one_bust.player_state" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-player-state-module"></span><h2>model.twenty_one_bust.player_state module<a class="headerlink" href="#module-model.twenty_one_bust.player_state" title="Permalink to this headline"></a></h2>
 <p>Contains class for state of a player in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -785,46 +828,46 @@ perform some action and is not that player’s turn.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_state.</span></span><span class="sig-name descname"><span class="pre">PlayerState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_state.</span></span><span class="sig-name descname"><span class="pre">PlayerState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>state of a player in a game of 21 Bust.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.name" title="Permalink to this definition"></a></dt>
 <dd><p>A string for the state of the player in the game.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.value">
-<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.value" title="Permalink to this definition"></a></dt>
 <dd><p>An integer unique to each member in this enumeration.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.BUST">
-<span class="sig-name descname"><span class="pre">BUST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.BUST" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BUST</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.BUST" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.DECIDING_ACTION">
-<span class="sig-name descname"><span class="pre">DECIDING_ACTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.DECIDING_ACTION" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DECIDING_ACTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.DECIDING_ACTION" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.STICK">
-<span class="sig-name descname"><span class="pre">STICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.STICK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">STICK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.STICK" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state.PlayerState.WAITING_TO_PLAY">
-<span class="sig-name descname"><span class="pre">WAITING_TO_PLAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.WAITING_TO_PLAY" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">WAITING_TO_PLAY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#model.twenty_one_bust.player_state.PlayerState.WAITING_TO_PLAY" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-model.twenty_one_bust.player_state_error">
-<span id="model-twenty-one-bust-player-state-error-module"></span><h2>model.twenty_one_bust.player_state_error module<a class="headerlink" href="#module-model.twenty_one_bust.player_state_error" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-player-state-error-module"></span><h2>model.twenty_one_bust.player_state_error module<a class="headerlink" href="#module-model.twenty_one_bust.player_state_error" title="Permalink to this headline"></a></h2>
 <p>Contains class for a player state error in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -836,7 +879,7 @@ perform some action and is not that player’s turn.</p>
 </div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="model.twenty_one_bust.player_state_error.PlayerStateError">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_state_error.</span></span><span class="sig-name descname"><span class="pre">PlayerStateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">PlayerState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_state_error.PlayerStateError" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.player_state_error.</span></span><span class="sig-name descname"><span class="pre">PlayerStateError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState" title="model.twenty_one_bust.player_state.PlayerState"><span class="pre">model.twenty_one_bust.player_state.PlayerState</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.player_state_error.PlayerStateError" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>Player State Error.</p>
 <p>Occur when the order which a method in Player is called is incompatible
@@ -846,7 +889,7 @@ For example when stick is called and the player state is BUST.</p>
 
 </section>
 <section id="module-model.twenty_one_bust.value">
-<span id="model-twenty-one-bust-value-module"></span><h2>model.twenty_one_bust.value module<a class="headerlink" href="#module-model.twenty_one_bust.value" title="Permalink to this heading">¶</a></h2>
+<span id="model-twenty-one-bust-value-module"></span><h2>model.twenty_one_bust.value module<a class="headerlink" href="#module-model.twenty_one_bust.value" title="Permalink to this headline"></a></h2>
 <p>Contains class for the value of a card in a game of 21 Bust.</p>
 <p>Classes:</p>
 <blockquote>
@@ -859,95 +902,95 @@ For example when stick is called and the player state is BUST.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.value.</span></span><span class="sig-name descname"><span class="pre">Value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.value.Value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.twenty_one_bust.value.</span></span><span class="sig-name descname"><span class="pre">Value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.twenty_one_bust.value.Value" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>Values of the playing cards in a game of 21 Bust.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.name" title="Permalink to this definition"></a></dt>
 <dd><p>A string for the name of the card from Ace to King.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.value">
-<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.value" title="Permalink to this definition"></a></dt>
 <dd><p>An integer unique to each member in this enumeration.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.ACE">
-<span class="sig-name descname"><span class="pre">ACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.ACE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.ACE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.EIGHT">
-<span class="sig-name descname"><span class="pre">EIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.EIGHT" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">EIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.EIGHT" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.FIVE">
-<span class="sig-name descname"><span class="pre">FIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.FIVE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">FIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.FIVE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.FOUR">
-<span class="sig-name descname"><span class="pre">FOUR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.FOUR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">FOUR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.FOUR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.JACK">
-<span class="sig-name descname"><span class="pre">JACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.JACK" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">JACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.JACK" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.KING">
-<span class="sig-name descname"><span class="pre">KING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.KING" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">KING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.KING" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.NINE">
-<span class="sig-name descname"><span class="pre">NINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.NINE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.NINE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.QUEEN">
-<span class="sig-name descname"><span class="pre">QUEEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.QUEEN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">QUEEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.QUEEN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.SEVEN">
-<span class="sig-name descname"><span class="pre">SEVEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.SEVEN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SEVEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.SEVEN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.SIX">
-<span class="sig-name descname"><span class="pre">SIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.SIX" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SIX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.SIX" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.TEN">
-<span class="sig-name descname"><span class="pre">TEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.TEN" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">TEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.TEN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.THREE">
-<span class="sig-name descname"><span class="pre">THREE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.THREE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">THREE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.THREE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.TWO">
-<span class="sig-name descname"><span class="pre">TWO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.TWO" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">TWO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.twenty_one_bust.value.Value.TWO" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.alt_game_value">
-<span class="sig-name descname"><span class="pre">alt_game_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.alt_game_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">alt_game_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.alt_game_value" title="Permalink to this definition"></a></dt>
 <dd><p>The alternate game value of Card when calculating the total of a
 player’s hand.</p>
 <p>Aces can have a game value of 1 or 11.
 All other cards only have one game value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><dl class="simple">
 <dt>An integer equal to the alternate game value of the card in</dt><dd><p>21 Bust.  Returns None when card is not an Ace and has no
 alternate game value.</p>
@@ -960,12 +1003,12 @@ alternate game value.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.twenty_one_bust.value.Value.game_value">
-<span class="sig-name descname"><span class="pre">game_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.game_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">game_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#model.twenty_one_bust.value.Value.game_value" title="Permalink to this definition"></a></dt>
 <dd><p>The value of Card when calculating the total of a player’s hand.</p>
 <p>Picture cards (values 11, 12 &amp; 13) have a game value of 10.
 All other cards have a game value equal to their enumeration value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>An integer equal to the value of the card in 21 Bust.</p>
 </dd>
 </dl>
@@ -975,7 +1018,7 @@ All other cards have a game value equal to their enumeration value.</p>
 
 </section>
 <section id="module-model.twenty_one_bust">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-model.twenty_one_bust" title="Permalink to this heading">¶</a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-model.twenty_one_bust" title="Permalink to this headline"></a></h2>
 <p>Logic and data structures specific to game of Twenty One Bust.</p>
 <dl class="simple">
 <dt>Modules:</dt><dd><p>action_selector
@@ -994,183 +1037,31 @@ value</p>
 </section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">model.twenty_one_bust package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.action_selector">model.twenty_one_bust.action_selector module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector"><code class="docutils literal notranslate"><span class="pre">ActionSelector</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector.low_target"><code class="docutils literal notranslate"><span class="pre">ActionSelector.low_target</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector.high_target"><code class="docutils literal notranslate"><span class="pre">ActionSelector.high_target</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.action_selector.ActionSelector.should_stick"><code class="docutils literal notranslate"><span class="pre">ActionSelector.should_stick()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.game">model.twenty_one_bust.game module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.name"><code class="docutils literal notranslate"><span class="pre">Game.name</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.deck"><code class="docutils literal notranslate"><span class="pre">Game.deck</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.players"><code class="docutils literal notranslate"><span class="pre">Game.players</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.state"><code class="docutils literal notranslate"><span class="pre">Game.state</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.active_player_index"><code class="docutils literal notranslate"><span class="pre">Game.active_player_index</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.game_stats"><code class="docutils literal notranslate"><span class="pre">Game.game_stats</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.deal"><code class="docutils literal notranslate"><span class="pre">Game.deal()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.get_player_order"><code class="docutils literal notranslate"><span class="pre">Game.get_player_order()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.get_winners"><code class="docutils literal notranslate"><span class="pre">Game.get_winners()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.next_player"><code class="docutils literal notranslate"><span class="pre">Game.next_player()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.randomize_first_player"><code class="docutils literal notranslate"><span class="pre">Game.randomize_first_player()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.reset"><code class="docutils literal notranslate"><span class="pre">Game.reset()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.resolve"><code class="docutils literal notranslate"><span class="pre">Game.resolve()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.resolve_stick_action"><code class="docutils literal notranslate"><span class="pre">Game.resolve_stick_action()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.resolve_twist_action"><code class="docutils literal notranslate"><span class="pre">Game.resolve_twist_action()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game.Game.start_turn"><code class="docutils literal notranslate"><span class="pre">Game.start_turn()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.game_state">model.twenty_one_bust.game_state module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState"><code class="docutils literal notranslate"><span class="pre">GameState</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.name"><code class="docutils literal notranslate"><span class="pre">GameState.name</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.value"><code class="docutils literal notranslate"><span class="pre">GameState.value</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.DEALING"><code class="docutils literal notranslate"><span class="pre">GameState.DEALING</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.GETTING_NEXT_PLAYER"><code class="docutils literal notranslate"><span class="pre">GameState.GETTING_NEXT_PLAYER</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.RESETTING_GAME"><code class="docutils literal notranslate"><span class="pre">GameState.RESETTING_GAME</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.RESOLVING_GAME"><code class="docutils literal notranslate"><span class="pre">GameState.RESOLVING_GAME</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.STARTING_PLAYER_TURN"><code class="docutils literal notranslate"><span class="pre">GameState.STARTING_PLAYER_TURN</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state.GameState.WAITING_FOR_PLAYER"><code class="docutils literal notranslate"><span class="pre">GameState.WAITING_FOR_PLAYER</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.game_state_error">model.twenty_one_bust.game_state_error module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_state_error.GameStateError"><code class="docutils literal notranslate"><span class="pre">GameStateError</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.game_stats">model.twenty_one_bust.game_stats module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats"><code class="docutils literal notranslate"><span class="pre">GameStats</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats.player_count"><code class="docutils literal notranslate"><span class="pre">GameStats.player_count</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats.unfinished_count"><code class="docutils literal notranslate"><span class="pre">GameStats.unfinished_count</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats.sticking_count"><code class="docutils literal notranslate"><span class="pre">GameStats.sticking_count</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats.bust_count"><code class="docutils literal notranslate"><span class="pre">GameStats.bust_count</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.game_stats.GameStats.update"><code class="docutils literal notranslate"><span class="pre">GameStats.update()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.player">model.twenty_one_bust.player module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.state"><code class="docutils literal notranslate"><span class="pre">Player.state</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.totals"><code class="docutils literal notranslate"><span class="pre">Player.totals</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.best_total"><code class="docutils literal notranslate"><span class="pre">Player.best_total</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.action_selector"><code class="docutils literal notranslate"><span class="pre">Player.action_selector</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.add_card"><code class="docutils literal notranslate"><span class="pre">Player.add_card()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.app_controlled"><code class="docutils literal notranslate"><span class="pre">Player.app_controlled()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.get_best_total"><code class="docutils literal notranslate"><span class="pre">Player.get_best_total()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.get_totals"><code class="docutils literal notranslate"><span class="pre">Player.get_totals()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.play"><code class="docutils literal notranslate"><span class="pre">Player.play()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.reset"><code class="docutils literal notranslate"><span class="pre">Player.reset()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.reveal_hand"><code class="docutils literal notranslate"><span class="pre">Player.reveal_hand()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.stick"><code class="docutils literal notranslate"><span class="pre">Player.stick()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.twist"><code class="docutils literal notranslate"><span class="pre">Player.twist()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player.Player.user_controlled"><code class="docutils literal notranslate"><span class="pre">Player.user_controlled()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.player_order_error">model.twenty_one_bust.player_order_error module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_order_error.PlayerOrderError"><code class="docutils literal notranslate"><span class="pre">PlayerOrderError</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.player_state">model.twenty_one_bust.player_state module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState"><code class="docutils literal notranslate"><span class="pre">PlayerState</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.name"><code class="docutils literal notranslate"><span class="pre">PlayerState.name</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.value"><code class="docutils literal notranslate"><span class="pre">PlayerState.value</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.BUST"><code class="docutils literal notranslate"><span class="pre">PlayerState.BUST</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.DECIDING_ACTION"><code class="docutils literal notranslate"><span class="pre">PlayerState.DECIDING_ACTION</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.STICK"><code class="docutils literal notranslate"><span class="pre">PlayerState.STICK</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state.PlayerState.WAITING_TO_PLAY"><code class="docutils literal notranslate"><span class="pre">PlayerState.WAITING_TO_PLAY</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.player_state_error">model.twenty_one_bust.player_state_error module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.player_state_error.PlayerStateError"><code class="docutils literal notranslate"><span class="pre">PlayerStateError</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust.value">model.twenty_one_bust.value module</a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value"><code class="docutils literal notranslate"><span class="pre">Value</span></code></a><ul>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.name"><code class="docutils literal notranslate"><span class="pre">Value.name</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.value"><code class="docutils literal notranslate"><span class="pre">Value.value</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.ACE"><code class="docutils literal notranslate"><span class="pre">Value.ACE</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.EIGHT"><code class="docutils literal notranslate"><span class="pre">Value.EIGHT</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.FIVE"><code class="docutils literal notranslate"><span class="pre">Value.FIVE</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.FOUR"><code class="docutils literal notranslate"><span class="pre">Value.FOUR</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.JACK"><code class="docutils literal notranslate"><span class="pre">Value.JACK</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.KING"><code class="docutils literal notranslate"><span class="pre">Value.KING</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.NINE"><code class="docutils literal notranslate"><span class="pre">Value.NINE</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.QUEEN"><code class="docutils literal notranslate"><span class="pre">Value.QUEEN</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.SEVEN"><code class="docutils literal notranslate"><span class="pre">Value.SEVEN</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.SIX"><code class="docutils literal notranslate"><span class="pre">Value.SIX</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.TEN"><code class="docutils literal notranslate"><span class="pre">Value.TEN</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.THREE"><code class="docutils literal notranslate"><span class="pre">Value.THREE</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.TWO"><code class="docutils literal notranslate"><span class="pre">Value.TWO</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.alt_game_value"><code class="docutils literal notranslate"><span class="pre">Value.alt_game_value()</span></code></a></li>
-<li><a class="reference internal" href="#model.twenty_one_bust.value.Value.game_value"><code class="docutils literal notranslate"><span class="pre">Value.game_value()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#module-model.twenty_one_bust">Module contents</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Luke Gregory.</p>
   </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/model.twenty_one_bust.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Card Games 1.0 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">model.twenty_one_bust package</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, Luke Gregory.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
