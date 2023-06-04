@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install flake8 pytest
+        python3 -m pip install flake8 pytest pytest-cov
         pip install -r requirements.txt
 
     - name: Run flake8
@@ -34,3 +34,14 @@ jobs:
     - name: Run pytest
       run: |
         pytest tests/
+
+    - name: Run pytest-cov
+      run: |
+        pytest --cov=. tests/ --cov-fail-under=70 --cov-report=html
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: |
+          htmlcov/*.html
