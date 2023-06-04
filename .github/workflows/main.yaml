@@ -37,11 +37,11 @@ jobs:
 
     - name: Run pytest-cov
       run: |
-        pytest --cov=. tests/ --cov-fail-under=70 --cov-report=json
+        pytest --cov=. tests/ --cov-fail-under=70 --cov-report=xml
 
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
       with:
         files: |
-          coverage.json
+          coverage.xml
