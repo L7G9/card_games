@@ -37,12 +37,12 @@ jobs:
 
     - name: Run pytest-cov
       run: |
-        pytest --cov=. tests/ --cov-fail-under=70 --cov-report=xml
+        pytest --cov=. tests/ --cov-fail-under=70 --cov-report=xml:reports/coverage.xml
 
     - name: Upload to Codecov
       uses: codecov/codecov-action@v3
       with:
-        files: ./coverage.xml
+        files: ./reports/coverage.xml
         flags: unittests
         fail_ci_if_error: true
         verbose: true
