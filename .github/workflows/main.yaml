@@ -39,9 +39,5 @@ jobs:
       run: |
         pytest --cov=. tests/ --cov-fail-under=70 --cov-report=xml
 
-    - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v2
-      if: always()
-      with:
-        files: |
-          coverage.xml
+    - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
