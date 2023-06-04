@@ -16,6 +16,7 @@ Typical usage examples:
 """
 
 import os
+from typing import Union
 
 
 def get_option(prompt: str, options: list[str]) -> str:
@@ -30,7 +31,7 @@ def get_option(prompt: str, options: list[str]) -> str:
     Returns:
         A string containing the option chosen.
     """
-    result = None
+    result = ''
     valid_input = False
     while not valid_input:
         result = input(prompt)

@@ -12,7 +12,7 @@ Typical usage examples:
 """
 
 from enum import Enum
-
+from typing import Union
 
 class Value(Enum):
     """Values of the playing cards in a game of 21 Bust.
@@ -40,7 +40,7 @@ class Value(Enum):
         else:
             return self.value
 
-    def alt_game_value(self) -> int:
+    def alt_game_value(self) -> Union[int, None]:
         """The alternate game value of Card when calculating the total of a
         player's hand.
 

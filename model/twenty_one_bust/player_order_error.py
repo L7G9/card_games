@@ -9,7 +9,7 @@ Typical usage examples:
     raise PlayerOrderError(player, expected_player)
 """
 
-from model.twenty_one_bust.player import PlayerState
+from model.twenty_one_bust.player import Player
 
 
 class PlayerOrderError(Exception):
@@ -20,13 +20,13 @@ class PlayerOrderError(Exception):
     """
 
     def __init__(
-        self, current_state: PlayerState, expected_states: list[PlayerState]
+        self, current_player: Player, expected_player: Player
     ):
-        self.current_state = current_state
-        self.expected_state = expected_states
+        self.current_player = current_player
+        self.expected_player = expected_player
 
     def __str__(self):
         return "Player=%s Expected Player=%s" % (
-            self.current_state,
-            self.expected_state,
+            self.current_player.name,
+            self.expected_player.name,
         )

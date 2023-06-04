@@ -12,6 +12,7 @@ Typical usage examples:
 """
 
 from typing import Set
+from typing import Union
 
 from model.card_game import player
 from model.card_game.card import Card
@@ -38,7 +39,7 @@ class Player(player.Player):
     """
 
     def __init__(
-        self, id: int, name: str, action_selector: ActionSelector = None
+        self, id: int, name: str, action_selector: Union[ActionSelector, None] = None
     ):
         """Initializes instance.
 

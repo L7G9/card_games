@@ -11,6 +11,8 @@ Typical usage examples:
     print(card)
 """
 
+from enum import Enum
+
 from model.card_game.suit import Suit
 from model.card_game.value import Value
 
@@ -24,7 +26,7 @@ class Card:
         face_up: A boolean set to True if the card is face up.
     """
 
-    def __init__(self, value: Value, suit: Suit, face_up: bool = False):
+    def __init__(self, value: Enum, suit: Enum, face_up: bool = False):
         """Initializes instance.
 
         Args:

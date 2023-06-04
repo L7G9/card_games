@@ -216,7 +216,7 @@ class ConsoleController:
 
             # feedback
             inflect_engine = inflect.engine()
-            nth_card_drawn = inflect_engine.ordinal(len(player.hand.cards) - 2)
+            nth_card_drawn = inflect_engine.ordinal(str(len(player.hand.cards) - 2))
             print("And draws %s card." % (nth_card_drawn))
             if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))

@@ -30,6 +30,7 @@ Typical usage examples:
 """
 
 import random
+from typing import Tuple
 from typing import Union
 
 from model.card_game.card import Card
@@ -90,7 +91,7 @@ class Game:
         self.players: list[Player] = []
         self.state = GameState.DEALING
         self.active_player_index = -1
-        self.game_stats: GameStats = None
+        self.game_stats: GameStats = GameStats(0)
 
     def deal(self) -> GameState:
         """Deal cards to players.
@@ -229,7 +230,7 @@ class Game:
     def resolve_twist_action(
         self,
         player: Player,
-    ) -> Union[GameState, Card]:
+    ) -> Tuple[GameState, Card]:
         """Resolve a player's twist action.
 
         Use after start_turn methods is called.
@@ -268,7 +269,7 @@ class Game:
             self.state = GameState.STARTING_PLAYER_TURN
         return self.state, card
 
-    def resolve(self) -> Union[GameState, list[Player]]:
+    def resolve(self) -> Tuple[GameState, list[Player]]:
         """Gets finds results of game after all players have been.
 
         Use after next_player method is called and all players have chosen to

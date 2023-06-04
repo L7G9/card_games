@@ -18,6 +18,7 @@ Typical usage examples:
 """
 
 from random import randint
+from typing import Union
 
 from model.twenty_one_bust.game_stats import GameStats
 
@@ -43,7 +44,11 @@ class ActionSelector:
             range 1 to 21.
     """
 
-    def __init__(self, low_target: int = None, high_target: int = None):
+    def __init__(
+        self,
+        low_target: Union[int, None] = None,
+        high_target: Union[int, None] = None
+    ):
         """Initializes instance.
 
         Args:
