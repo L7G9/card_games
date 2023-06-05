@@ -104,16 +104,15 @@
 <li><a class="reference internal" href="#model.card_game.value.Value.EIGHT"><code class="docutils literal notranslate"><span class="pre">Value.EIGHT</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.FIVE"><code class="docutils literal notranslate"><span class="pre">Value.FIVE</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.FOUR"><code class="docutils literal notranslate"><span class="pre">Value.FOUR</span></code></a></li>
-<li><a class="reference internal" href="#model.card_game.value.Value.Jack"><code class="docutils literal notranslate"><span class="pre">Value.Jack</span></code></a></li>
-<li><a class="reference internal" href="#model.card_game.value.Value.King"><code class="docutils literal notranslate"><span class="pre">Value.King</span></code></a></li>
+<li><a class="reference internal" href="#model.card_game.value.Value.JACK"><code class="docutils literal notranslate"><span class="pre">Value.JACK</span></code></a></li>
+<li><a class="reference internal" href="#model.card_game.value.Value.KING"><code class="docutils literal notranslate"><span class="pre">Value.KING</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.NINE"><code class="docutils literal notranslate"><span class="pre">Value.NINE</span></code></a></li>
-<li><a class="reference internal" href="#model.card_game.value.Value.Queen"><code class="docutils literal notranslate"><span class="pre">Value.Queen</span></code></a></li>
+<li><a class="reference internal" href="#model.card_game.value.Value.QUEEN"><code class="docutils literal notranslate"><span class="pre">Value.QUEEN</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.SEVEN"><code class="docutils literal notranslate"><span class="pre">Value.SEVEN</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.SIX"><code class="docutils literal notranslate"><span class="pre">Value.SIX</span></code></a></li>
+<li><a class="reference internal" href="#model.card_game.value.Value.TEN"><code class="docutils literal notranslate"><span class="pre">Value.TEN</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.THREE"><code class="docutils literal notranslate"><span class="pre">Value.THREE</span></code></a></li>
 <li><a class="reference internal" href="#model.card_game.value.Value.TWO"><code class="docutils literal notranslate"><span class="pre">Value.TWO</span></code></a></li>
-<li><a class="reference internal" href="#model.card_game.value.Value.Ten"><code class="docutils literal notranslate"><span class="pre">Value.Ten</span></code></a></li>
-<li><a class="reference internal" href="#model.card_game.value.Value.game_value"><code class="docutils literal notranslate"><span class="pre">Value.game_value()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -275,7 +274,7 @@ dealt from, a player’s hand or the discard pile.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.card_game.deck.Deck">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.card_game.deck.</span></span><span class="sig-name descname"><span class="pre">Deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.card_game.value.Value" title="model.card_game.value.Value"><span class="pre">Value</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">suits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.card_game.suit.Suit" title="model.card_game.suit.Suit"><span class="pre">Suit</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.card_game.deck.Deck" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.card_game.deck.</span></span><span class="sig-name descname"><span class="pre">Deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.card_game.value.Value" title="model.card_game.value.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.card_game.suit.Suit" title="model.card_game.suit.Suit"><span class="pre">Suit</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.card_game.deck.Deck" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.card_game.card_group.CardGroup" title="model.card_game.card_group.CardGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">CardGroup</span></code></a></p>
 <p>Class to represent a standard deck of cards.</p>
 <p>A deck of cards with no jokers.</p>
@@ -293,7 +292,7 @@ dealt from, a player’s hand or the discard pile.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="model.card_game.deck.Deck.add_deck">
-<span class="sig-name descname"><span class="pre">add_deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.card_game.value.Value" title="model.card_game.value.Value"><span class="pre">Value</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">suits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#model.card_game.suit.Suit" title="model.card_game.suit.Suit"><span class="pre">Suit</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.card_game.deck.Deck.add_deck" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_deck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.card_game.value.Value" title="model.card_game.value.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#model.card_game.suit.Suit" title="model.card_game.suit.Suit"><span class="pre">Suit</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.card_game.deck.Deck.add_deck" title="Permalink to this definition"></a></dt>
 <dd><p>Add deck of Cards.</p>
 <p>Creates all the Card objects for one standard deck of cards and adds
 it to this deck.  Can be used multiple times for larger deck sizes.</p>
@@ -485,13 +484,13 @@ Kings are worth 13.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="model.card_game.value.Value.Jack">
-<span class="sig-name descname"><span class="pre">Jack</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#model.card_game.value.Value.Jack" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="model.card_game.value.Value.JACK">
+<span class="sig-name descname"><span class="pre">JACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#model.card_game.value.Value.JACK" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="model.card_game.value.Value.King">
-<span class="sig-name descname"><span class="pre">King</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#model.card_game.value.Value.King" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="model.card_game.value.Value.KING">
+<span class="sig-name descname"><span class="pre">KING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#model.card_game.value.Value.KING" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -500,8 +499,8 @@ Kings are worth 13.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="model.card_game.value.Value.Queen">
-<span class="sig-name descname"><span class="pre">Queen</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#model.card_game.value.Value.Queen" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="model.card_game.value.Value.QUEEN">
+<span class="sig-name descname"><span class="pre">QUEEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#model.card_game.value.Value.QUEEN" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -515,6 +514,11 @@ Kings are worth 13.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="model.card_game.value.Value.TEN">
+<span class="sig-name descname"><span class="pre">TEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#model.card_game.value.Value.TEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="model.card_game.value.Value.THREE">
 <span class="sig-name descname"><span class="pre">THREE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#model.card_game.value.Value.THREE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -523,24 +527,6 @@ Kings are worth 13.</p>
 <dt class="sig sig-object py" id="model.card_game.value.Value.TWO">
 <span class="sig-name descname"><span class="pre">TWO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#model.card_game.value.Value.TWO" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="model.card_game.value.Value.Ten">
-<span class="sig-name descname"><span class="pre">Ten</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#model.card_game.value.Value.Ten" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.card_game.value.Value.game_value">
-<span class="sig-name descname"><span class="pre">game_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.card_game.value.Value.game_value" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the Value of the Card for the Game it is part of.</p>
-<p>Edit this method to implement ace high or picture cards worth 10
-for example.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>An integer equal to the Value of the Card in Game.</p>
-</dd>
-</dl>
-</dd></dl>
 
 </dd></dl>
 
