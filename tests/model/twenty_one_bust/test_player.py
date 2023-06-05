@@ -2,9 +2,9 @@ import pytest
 
 from model.card_game.card import Card
 from model.card_game.suit import Suit
+from model.card_game.value import Value
 from model.twenty_one_bust.player import Player
 from model.twenty_one_bust.player_state import PlayerState
-from model.twenty_one_bust.value import Value as Value
 
 
 @pytest.fixture(scope="function")

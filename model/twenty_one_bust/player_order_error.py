@@ -19,9 +19,7 @@ class PlayerOrderError(Exception):
     perform some action and is not that player's turn.
     """
 
-    def __init__(
-        self, current_player: Player, expected_player: Player
-    ):
+    def __init__(self, current_player: Player, expected_player: Player):
         self.current_player = current_player
         self.expected_player = expected_player
 

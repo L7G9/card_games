@@ -29,17 +29,6 @@ class Value(Enum):
         return self.name.capitalize()
 
     def __int__(self) -> int:
-        return self.game_value()
-
-    def game_value(self):
-        """Returns the Value of the Card for the Game it is part of.
-
-        Edit this method to implement ace high or picture cards worth 10
-        for example.
-
-        Returns:
-            An integer equal to the Value of the Card in Game.
-        """
         return self.value
 
     ACE = 1
@@ -51,7 +40,7 @@ class Value(Enum):
     SEVEN = 7
     EIGHT = 8
     NINE = 9
-    Ten = 10
-    Jack = 11
-    Queen = 12
-    King = 13
+    TEN = 10
+    JACK = 11
+    QUEEN = 12
+    KING = 13

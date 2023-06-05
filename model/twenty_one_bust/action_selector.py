@@ -47,7 +47,7 @@ class ActionSelector:
     def __init__(
         self,
         low_target: Union[int, None] = None,
-        high_target: Union[int, None] = None
+        high_target: Union[int, None] = None,
     ):
         """Initializes instance.
 

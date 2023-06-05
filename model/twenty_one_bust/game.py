@@ -31,18 +31,17 @@ Typical usage examples:
 
 import random
 from typing import Tuple
-from typing import Union
 
 from model.card_game.card import Card
 from model.card_game.deck import Deck
 from model.card_game.suit import Suit
+from model.card_game.value import Value
 from model.twenty_one_bust.game_state import GameState
 from model.twenty_one_bust.game_state_error import GameStateError
 from model.twenty_one_bust.game_stats import GameStats
 from model.twenty_one_bust.player import Player
 from model.twenty_one_bust.player_order_error import PlayerOrderError
 from model.twenty_one_bust.player_state import PlayerState
-from model.twenty_one_bust.value import Value
 
 
 class Game:

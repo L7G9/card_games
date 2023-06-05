@@ -15,7 +15,6 @@ Typical usage examples:
     deck.return_cards(players[0].cards)
 """
 
-from enum import Enum
 from typing import Type
 
 from model.card_game.card import Card
@@ -35,7 +34,7 @@ class Deck(CardGroup):
         name: A name describing this deck.
     """
 
-    def __init__(self, name: str, values: Type[Enum], suits: Type[Enum]):
+    def __init__(self, name: str, values: Type[Value], suits: Type[Suit]):
         """Initializes instance.
 
         Adds one standard set of 52 cards to this deck.
@@ -48,7 +47,7 @@ class Deck(CardGroup):
         CardGroup.__init__(self, name)
         self.add_deck(values, suits)
 
-    def add_deck(self, values: Type[Enum], suits: Type[Enum]):
+    def add_deck(self, values: Type[Value], suits: Type[Suit]):
         """Add deck of Cards.
 
         Creates all the Card objects for one standard deck of cards and adds

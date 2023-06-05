@@ -11,14 +11,14 @@ Typical usage examples:
     game.players.append(player)
 """
 
-from typing import Set
-from typing import Union
+from typing import Set, Union
 
 from model.card_game import player
 from model.card_game.card import Card
 from model.twenty_one_bust.action_selector import ActionSelector
 from model.twenty_one_bust.player_state import PlayerState
 from model.twenty_one_bust.player_state_error import PlayerStateError
+from model.twenty_one_bust.value import alt_card_value, card_value
 
 
 class Player(player.Player):
@@ -39,7 +39,10 @@ class Player(player.Player):
     """
 
     def __init__(
-        self, id: int, name: str, action_selector: Union[ActionSelector, None] = None
+        self,
+        id: int,
+        name: str,
+        action_selector: Union[ActionSelector, None] = None,
     ):
         """Initializes instance.
 
@@ -177,9 +180,10 @@ class Player(player.Player):
         new_totals = set()
 
         for total in totals:
-            new_totals.add(total + card.value.game_value())
-            if card.value.alt_game_value() is not None:
-                new_totals.add(total + card.value.alt_game_value())
+            new_totals.add(total + card_value(card))
+            alt_value = alt_card_value(card)
+            if alt_value is not None:
+                new_totals.add(total + alt_value)
 
         return new_totals
 
