@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install flake8 pyright pytest pytest-cov
+        python3 -m pip install flake8 pyright pytest pytest-cov bandit
         pip install -r requirements.txt
 
     - name: Run flake8
@@ -50,3 +50,14 @@ jobs:
         flags: unittests
         fail_ci_if_error: true
         verbose: true
+
+    - name: Run Bandit Report
+      uses: petrucciani/bandit-check@main
+      with:
+        bandit_flags: '-r -ll -o ./reports/bandit.html -f html'
+
+    - name: Create bandit output artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: bandit-security-report
+        path: ./reports/bandit.html
