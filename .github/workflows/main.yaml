@@ -52,7 +52,7 @@ jobs:
         verbose: true
 
     - name: Run Bandit Report
-      uses: petrucciani/bandit-check@main
+      uses: jpetrucciani/bandit-check@main
       with:
         bandit_flags: '-r -ll -o ./reports/bandit.html -f html'
 
