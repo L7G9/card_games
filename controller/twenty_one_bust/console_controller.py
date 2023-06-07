@@ -134,7 +134,7 @@ class ConsoleController:
             player = self.game.players[self.game.active_player_index]
             self.player_turn(player)
 
-    def player_turn(self, player):
+    def player_turn(self, player: Player):
         """Process a player's turn.
 
         Loops through player's actions until their turn is complete.
@@ -154,7 +154,7 @@ class ConsoleController:
             sleep(self.MEDIUM_PAUSE)
             clear_screen()
 
-    def user_player_actions(self, player):
+    def user_player_actions(self, player: Player):
         """Process a user controlled player's action.
 
         Prompts user to stick to twist, updates game instance with their
@@ -187,7 +187,7 @@ class ConsoleController:
             if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))
 
-    def app_player_actions(self, player):
+    def app_player_actions(self, player: Player):
         """Process an app controlled player's action.
 
         Uses players' action selector instance to stick to twist, updates game
@@ -262,7 +262,7 @@ class ConsoleController:
 
         return winners
 
-    def reset_game(self, winners):
+    def reset_game(self, winners: list[Player]):
         """Prepare game to play again.
 
         Update the game instance ready to play again.  Display the new order
