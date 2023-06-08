@@ -201,6 +201,7 @@ class ConsoleController:
         print(player.hand.description())
 
         # get stick or twist option
+        assert player.action_selector is not None
         sticking = player.action_selector.should_stick(
             player.best_total, self.game.game_stats
         )
