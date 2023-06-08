@@ -1,3 +1,9 @@
+## 1.0.1 (2023-06-08)
+
+### Fix
+
+- **console_controller**: add assert to ensure action_selector is not None
+
 ## 1.0.0 (2023-06-07)
 
 ### BREAKING CHANGE
