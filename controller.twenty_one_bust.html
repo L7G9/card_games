@@ -139,7 +139,7 @@ to run a game of 21 Bust for the user.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions">
-<span class="sig-name descname"><span class="pre">app_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">app_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions" title="Permalink to this definition"></a></dt>
 <dd><p>Process an app controlled player’s action.</p>
 <p>Uses players’ action selector instance to stick to twist, updates game
 instance with their choice and provides feedback.</p>
@@ -165,7 +165,7 @@ their turn.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.player_turn">
-<span class="sig-name descname"><span class="pre">player_turn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.player_turn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">player_turn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.player_turn" title="Permalink to this definition"></a></dt>
 <dd><p>Process a player’s turn.</p>
 <p>Loops through player’s actions until their turn is complete.</p>
 <dl class="field-list simple">
@@ -177,7 +177,7 @@ their turn.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.reset_game">
-<span class="sig-name descname"><span class="pre">reset_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">winners</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.reset_game" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reset_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">winners</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">model.twenty_one_bust.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.reset_game" title="Permalink to this definition"></a></dt>
 <dd><p>Prepare game to play again.</p>
 <p>Update the game instance ready to play again.  Display the new order
 in which the players will take their turn.</p>
@@ -217,7 +217,7 @@ feedback.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions">
-<span class="sig-name descname"><span class="pre">user_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">user_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions" title="Permalink to this definition"></a></dt>
 <dd><p>Process a user controlled player’s action.</p>
 <p>Prompts user to stick to twist, updates game instance with their
 choice and provides feedback.</p>
