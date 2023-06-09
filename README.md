@@ -1,6 +1,10 @@
 ---
 # Card Games
 
+---
+
+[![Python CI](https://github.com/L7G9/card_games/actions/workflows/main.yaml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/main.yaml)
+
 Card games written in Python using the Model-View-Controller pattern.
 
 ---
