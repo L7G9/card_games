@@ -163,6 +163,11 @@ cython_debug/
 # vscode
 .vscode/
 
+# reports directory
+reports/
+
 # my files
 todo.txt
 check_list.txt
+pre_commit_checks.sh
+
