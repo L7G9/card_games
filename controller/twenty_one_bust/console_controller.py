@@ -198,7 +198,9 @@ class ConsoleController:
         """
         # TODO: rename to ap_player_action
         if player.action_selector is None:
-            raise TypeError("app controlled player must have an action_selector")
+            raise TypeError(
+                "app controlled player must have an action_selector"
+            )
 
         # display count of cards in player's hand
         print(player.hand.description())
