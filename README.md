@@ -1,9 +1,8 @@
 ---
 # Card Games
 
----
-
-[![Python CI](https://github.com/L7G9/card_games/actions/workflows/main.yaml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/main.yaml)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+[![Python CI](https://github.com/L7G9/card_games/actions/workflows/main.yaml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/main.yaml) [![](https://img.shields.io/github/v/tag/L7G9/card_games?sort=semver)](https://https://github.com/L7G9/card_games/tags) [![](https://img.shields.io/github/license/L7G9/card_games)](https://github.com/L7G9/card_games/blob/main/LICENSE) [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 Card games written in Python using the Model-View-Controller pattern.
 
