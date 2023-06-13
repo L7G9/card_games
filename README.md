@@ -13,6 +13,7 @@ Created as example of Python project structure, testing, documentation, use of c
 ---
 ## Getting Started - Docker on Ubuntu
 Requirements: [Docker](https://docs.docker.com/engine/install/ubuntu/)
+
 Pull the image from DockeHub and run.
 ```bash
 docker pull lwgregory/21bust
@@ -32,6 +33,7 @@ docker image rm lwgregory/21bust:latest
 
 ## Getting Started - Python3 on Ubuntu
 Requirements: [Python3](https://www.python.org/downloads/) & [Inflect package](https://pypi.org/project/inflect/)
+
 Clone GitHub repository.
 ```bash
 git clone https://github.com/L7G9/card_games.git
