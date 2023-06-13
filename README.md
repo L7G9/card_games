@@ -8,19 +8,30 @@ Card games written in Python using the Model-View-Controller pattern.
 
 ---
 
-Created as example of Python project structure, testing, documentation and use of code quality tools.
+Created as example of Python project structure, testing, documentation, use of code quality tools and CI/CD.  Currently there is a single text based game called 21 Bust, in which a single user can play against application-controlled players using a simple algorithm.
 
-Currently there is a single text based game called 21 Bust, in which a single user can play against application controlled players using a simple algorithm.
+---
+## Getting Started - Docker on Ubuntu
+Requirements: [Docker](https://docs.docker.com/engine/install/ubuntu/)
+Pull the image from DockeHub and run.
+```bash
+docker pull lwgregory/21bust
+docker run --name 21bust -it lwgregory/21bust
+```
+Re-run.
+```bash
+docker start -i 21bust
+```
+Clean up.
+```bash
+docker rm 21bust
+docker image rm lwgregory/21bust:latest
+```
 
 ---
 
-## Requirements
-[Python3](https://www.python.org/downloads/)\
-[Infelct package](https://pypi.org/project/inflect/)
-
----
-
-## Getting Started - Ubuntu
+## Getting Started - Python3 on Ubuntu
+Requirements: [Python3](https://www.python.org/downloads/) & [Inflect package](https://pypi.org/project/inflect/)
 Clone GitHub repository.
 ```bash
 git clone https://github.com/L7G9/card_games.git
@@ -43,12 +54,12 @@ python3 run_21Bust.py
 ---
 
 ## Documentation
-[code reference guide](https://l7g9.github.io/card_games/)
+[Code Reference Guide](https://l7g9.github.io/card_games/)
 
 ---
 
 ## Development Environment - Ubuntu
-Development setup, includes pakages for testing, code quality and documentation.
+Development setup, includes packages for testing, code quality and documentation.
 ```bash
 git clone https://github.com/L7G9/card_games.git
 cd card_games
@@ -56,7 +67,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r dev_requirements.txt
 ```
-This will install the following tools.
+This will install the following tools...
 
 ### Commitizen
 With pre-commit enforces use of Conventional Commits.
@@ -73,7 +84,7 @@ git push origin <tag_name>
 ```
 
 ### Black
-Code sytle formatter.
+Code style formatter.
 ```bash
 black --line-length 79 .
 ```
@@ -85,10 +96,10 @@ isort .
 ```
 
 ### Flake8
-Combines serveral tools to enhance code quality...
-- Pycodestyle for PEP 8 style compilance
+Combines several tools to enhance code quality...
+- Pycodestyle for PEP 8 style compliance
 - PyFlakes for Defect analysis.
-- McCabe for Complixity analysis.
+- McCabe for Complexity analysis.
 ```bash
 flake8 .
 ```
@@ -127,12 +138,12 @@ Build a static website from documentation source files.
 sphinx-apidoc -o docs/source .
 ```
 Workflow to upload documentation to GitHub Pages.
-[workflow](https://github.com/L7G9/card_games/blob/main/.github/workflows/sphinx.yml)
-[documentation](https://l7g9.github.io/card_games/)
+[Documentation Workflow](https://github.com/L7G9/card_games/blob/main/.github/workflows/sphinx.yml)
+[Documentation](https://l7g9.github.io/card_games/)
 
-### Continuous integration pipeline
-Using these tools to ensure code passes various quality tests before being pushed to main branch of the github repository.
-[workflow](https://github.com/L7G9/card_games/blob/main/.github/workflows/main.yaml)
+### Continuous Integration / Continuous Delivery Pipeline
+Using these tools to ensure code passes various quality tests before pushed to main branch of the GitHub repository.  If successful, an image is built and pushed to [DockerHub](https://hub.docker.com/repository/docker/lwgregory/21bust/general).   
+[CI/CD Workflow](https://github.com/L7G9/card_games/blob/main/.github/workflows/main.yaml)
 
 ---
 
@@ -164,6 +175,6 @@ All these resources were used to create this project.  Thank you to all those wh
 - [sphinx.ext.napoleon](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html)
 - [sphinx read the docs theme](https://sphinx-rtd-theme.readthedocs.io/en/stable/)
 - [github pages actions](https://github.com/peaceiris/actions-gh-pages)
-
+- [github docker actions](https://docs.docker.com/build/ci/github-actions/)
 ---
 
