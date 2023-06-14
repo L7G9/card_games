@@ -1,3 +1,17 @@
+## 1.1.0 (2023-06-14)
+
+### Feat
+
+- **ConsoleController**: changed range to opponent players to 0-7
+
+### Fix
+
+- **ConsoleController**: replaced assert with TypeError to ensure player.action_selector has been set
+
+### Refactor
+
+- **ConsoleController**: rename names attribute
+
 ## 1.0.1 (2023-06-08)
 
 ### Fix
