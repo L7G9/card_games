@@ -33,7 +33,7 @@ class ConsoleController:
         game: A Game instance of our 21 Bust game.
     """
 
-    names = [
+    NAMES = [
         "Adam",
         "Betty",
         "Chris",
@@ -106,7 +106,7 @@ class ConsoleController:
         user_player = Player(0, player_name)
         self.game.players.append(user_player)
         for i in range(0, app_player_count):
-            app_player = Player(i + 1, self.names[i], ActionSelector())
+            app_player = Player(i + 1, self.NAMES[i], ActionSelector())
             self.game.players.append(app_player)
 
         print("Our players are...")
