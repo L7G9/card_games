@@ -147,14 +147,14 @@ class ConsoleController:
             self.game.start_turn(player)
 
             if player.user_controlled():
-                self.user_player_actions(player)
+                self.user_player_action(player)
             else:
-                self.app_player_actions(player)
+                self.app_player_action(player)
 
             sleep(self.MEDIUM_PAUSE)
             clear_screen()
 
-    def user_player_actions(self, player: Player):
+    def user_player_action(self, player: Player):
         """Process a user controlled player's action.
 
         Prompts user to stick to twist, updates game instance with their
@@ -163,7 +163,6 @@ class ConsoleController:
         Args:
             player: The Player instance who's turn it is.
         """
-        # TODO: rename to user_player_action
         # display player's hand
         print(player.hand.description())
         for card in player.hand.cards:
@@ -187,7 +186,7 @@ class ConsoleController:
             if player.state == PlayerState.BUST:
                 print("%s goes bust." % (player.name))
 
-    def app_player_actions(self, player: Player):
+    def app_player_action(self, player: Player):
         """Process an app controlled player's action.
 
         Uses players' action selector instance to stick to twist, updates game
@@ -196,7 +195,6 @@ class ConsoleController:
         Args:
             player: The Player instance who's turn it is.
         """
-        # TODO: rename to ap_player_action
         if player.action_selector is None:
             raise TypeError(
                 "app controlled player must have an action_selector"
