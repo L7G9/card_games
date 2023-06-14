@@ -98,8 +98,8 @@ class ConsoleController:
         player_name = input("Enter your name: ")
         app_player_count = int(
             get_option(
-                "Enter number of opponent players (3 to 9): ",
-                ["3", "4", "5", "6", "7", "8", "9"],
+                "Enter number of opponent players (0 to 7): ",
+                ["0", "1", "2", "3", "4", "5", "6", "7"],
             )
         )
 
