@@ -49,16 +49,16 @@
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.game</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.LONG_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.LONG_PAUSE</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.MEDIUM_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.MEDIUM_PAUSE</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.NAMES"><code class="docutils literal notranslate"><span class="pre">ConsoleController.NAMES</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.SHORT_PAUSE"><code class="docutils literal notranslate"><span class="pre">ConsoleController.SHORT_PAUSE</span></code></a></li>
-<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions"><code class="docutils literal notranslate"><span class="pre">ConsoleController.app_player_actions()</span></code></a></li>
-<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.names"><code class="docutils literal notranslate"><span class="pre">ConsoleController.names</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_action"><code class="docutils literal notranslate"><span class="pre">ConsoleController.app_player_action()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.play_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.play_game()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.player_turn"><code class="docutils literal notranslate"><span class="pre">ConsoleController.player_turn()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.reset_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.reset_game()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.resolve_game"><code class="docutils literal notranslate"><span class="pre">ConsoleController.resolve_game()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.run"><code class="docutils literal notranslate"><span class="pre">ConsoleController.run()</span></code></a></li>
 <li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.setup"><code class="docutils literal notranslate"><span class="pre">ConsoleController.setup()</span></code></a></li>
-<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions"><code class="docutils literal notranslate"><span class="pre">ConsoleController.user_player_actions()</span></code></a></li>
+<li><a class="reference internal" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_action"><code class="docutils literal notranslate"><span class="pre">ConsoleController.user_player_action()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -133,13 +133,18 @@ to run a game of 21 Bust for the user.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.NAMES">
+<span class="sig-name descname"><span class="pre">NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Adam',</span> <span class="pre">'Betty',</span> <span class="pre">'Chris',</span> <span class="pre">'Denise',</span> <span class="pre">'Ethan',</span> <span class="pre">'Francesca',</span> <span class="pre">'Gregory',</span> <span class="pre">'Harriet',</span> <span class="pre">'Jake']</span></em><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.NAMES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.SHORT_PAUSE">
 <span class="sig-name descname"><span class="pre">SHORT_PAUSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.SHORT_PAUSE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions">
-<span class="sig-name descname"><span class="pre">app_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_actions" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.app_player_action">
+<span class="sig-name descname"><span class="pre">app_player_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.app_player_action" title="Permalink to this definition"></a></dt>
 <dd><p>Process an app controlled player’s action.</p>
 <p>Uses players’ action selector instance to stick to twist, updates game
 instance with their choice and provides feedback.</p>
@@ -149,11 +154,6 @@ instance with their choice and provides feedback.</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.names">
-<span class="sig-name descname"><span class="pre">names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Adam',</span> <span class="pre">'Betty',</span> <span class="pre">'Chris',</span> <span class="pre">'Denise',</span> <span class="pre">'Ethan',</span> <span class="pre">'Francesca',</span> <span class="pre">'Gregory',</span> <span class="pre">'Harriet',</span> <span class="pre">'Jake']</span></em><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.names" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.play_game">
@@ -216,8 +216,8 @@ feedback.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions">
-<span class="sig-name descname"><span class="pre">user_player_actions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_actions" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="controller.twenty_one_bust.console_controller.ConsoleController.user_player_action">
+<span class="sig-name descname"><span class="pre">user_player_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="model.twenty_one_bust.html#model.twenty_one_bust.player.Player" title="model.twenty_one_bust.player.Player"><span class="pre">Player</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.twenty_one_bust.console_controller.ConsoleController.user_player_action" title="Permalink to this definition"></a></dt>
 <dd><p>Process a user controlled player’s action.</p>
 <p>Prompts user to stick to twist, updates game instance with their
 choice and provides feedback.</p>
