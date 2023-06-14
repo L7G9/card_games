@@ -28,7 +28,6 @@ class Player:
             id: An unique integer id.
             name: A string for the player's name.
         """
-        # TODO: remove id
         self.id = id
         self.name = name
         self.hand = CardGroup("%s's hand" % (name))
