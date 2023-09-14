@@ -9,8 +9,7 @@ Card games written in Python using the Model-View-Controller pattern.
 ---
 
 Created as example of Python project structure, testing, documentation, use of code quality tools and CI/CD.  Currently there is a single text based game called 21 Bust, in which a single user can play against application-controlled players using a simple algorithm.
-
-https://github.com/L7G9/card_games/assets/18046238/29105627-295d-4e77-9c5b-93a9666ec040
+[demo_21bust.webm](https://github.com/L7G9/card_games/assets/18046238/98917d06-b151-4a23-a381-4cbed241d2ce)
 
 ---
 ## Getting Started - Docker on Ubuntu
