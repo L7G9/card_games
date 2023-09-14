@@ -2,16 +2,13 @@
 # Card Games
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-[![Python CI](https://github.com/L7G9/card_games/actions/workflows/main.yaml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/main.yaml) [![](https://img.shields.io/github/v/tag/L7G9/card_games?sort=semver)](https://https://github.com/L7G9/card_games/tags) [![](https://img.shields.io/github/license/L7G9/card_games)](https://github.com/L7G9/card_games/blob/main/LICENSE) [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![Python CI](https://github.com/L7G9/card_games/actions/workflows/main.yaml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/main.yaml) [![Deploy to GitHub pages](https://github.com/L7G9/card_games/actions/workflows/sphinx.yml/badge.svg)](https://github.com/L7G9/card_games/actions/workflows/sphinx.yml) [![](https://img.shields.io/github/v/tag/L7G9/card_games?sort=semver)](https://https://github.com/L7G9/card_games/tags) [![](https://img.shields.io/github/license/L7G9/card_games)](https://github.com/L7G9/card_games/blob/main/LICENSE) [![](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 Card games written in Python using the Model-View-Controller pattern.
 
 ---
 
 Created as example of Python project structure, testing, documentation, use of code quality tools and CI/CD.  Currently there is a single text based game called 21 Bust, in which a single user can play against application-controlled players using a simple algorithm.
-
-https://github.com/L7G9/card_games/assets/18046238/29105627-295d-4e77-9c5b-93a9666ec040
-
 
 https://github.com/L7G9/card_games/assets/18046238/98917d06-b151-4a23-a381-4cbed241d2ce
 
